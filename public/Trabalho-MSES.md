@@ -122,36 +122,36 @@ Os requisitos dividem-se em funcionais (o que o sistema faz) e não funcionais (
 | ID    | Título                             | Requisito funcional                                                                                                                                                                                                                               | Prioridade |
 | ----- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | RF-01 | Criar Registo de Utente            | O Admin cria um novo utente com nome, contactos e foto. O sistema atribui um número único.                                                                                                              | Alta       |
-| RF-02a | Consultar Utente por Nome         | O Admin pesquisa um utente por nome. O sistema mostra os dados guardados.                                                                                                                                                   | Alta       |
-| RF-02b | Consultar Utente por Número       | O Admin pesquisa um utente pelo seu número único. O sistema mostra os dados guardados.                                                                                                                                       | Alta       |
-| RF-03 | Atualizar Registo de Utente         | O Admin altera dados de um utente existente. O sistema regista a data da alteração.                                                                                                                                        | Alta       |
-| RF-04 | Desativar Registo de Utente         | O Admin desativa um utente. A partir dessa data, não pode fazer novas inscrições, mas os dados antigos ficam acessíveis.                                                                                                   | Média      |
-| RF-05 | Registar Avaliação Antropométrica  | O Treinador regista medidas físicas de um Membro — peso, altura, dobras cutâneas, perímetros. O sistema calcula automaticamente o IMC, a massa gorda (Jackson-Pollock) e o VO2 máximo (Cooper). **Validade: 6 meses.**                                                 | Alta       |
-| RF-06 | Criar Plano de Treino               | O Treinador cria um plano de treino para um Membro, com um objetivo e uma duração.                                                                                                                                                                | Alta       |
-| RF-07 | Adicionar Exercício ao Plano        | O Treinador adiciona exercícios a um plano, indicando séries, repetições, carga e descanso.                                                                                                                                                      | Alta       |
+| RF-02 | Consultar Utente por Nome         | O Admin pesquisa um utente por nome. O sistema mostra os dados guardados.                                                                                                                                                   | Alta       |
+| RF-03 | Consultar Utente por Número       | O Admin pesquisa um utente pelo seu número único. O sistema mostra os dados guardados.                                                                                                                                       | Alta       |
+| RF-04 | Atualizar Registo de Utente         | O Admin altera dados de um utente existente. O sistema regista a data da alteração.                                                                                                                                        | Alta       |
+| RF-05 | Desativar Registo de Utente         | O Admin desativa um utente. A partir dessa data, não pode fazer novas inscrições, mas os dados antigos ficam acessíveis.                                                                                                   | Média      |
+| RF-06 | Registar Avaliação Antropométrica  | O Treinador regista medidas físicas de um Membro — peso, altura, dobras cutâneas, perímetros. O sistema calcula automaticamente o IMC, a massa gorda (Jackson-Pollock) e o VO2 máximo (Cooper). **Validade: 6 meses.**                                                 | Alta       |
+| RF-07 | Criar Plano de Treino               | O Treinador cria um plano de treino para um Membro, com um objetivo e uma duração.                                                                                                                                                                | Alta       |
+| RF-08 | Adicionar Exercício ao Plano        | O Treinador adiciona exercícios a um plano, indicando séries, repetições, carga e descanso.                                                                                                                                                      | Alta       |
 | RF-09 | Criar Inscrição em Modalidade       | O Admin cria uma inscrição associando um Membro a uma Modalidade e definindo o período de validade.                                                                                                                          | Alta       |
-| RF-11 | Renovar Inscrição                   | O Admin renova uma inscrição activa antes da data de fim. O sistema actualiza o período de validade.                                                                                                                       | Alta       |
-| RF-12 | Cancelar Inscrição                  | O Admin cancela uma inscrição activa. O sistema regista a data e o motivo do cancelamento.                                                                                                                                  | Média      |
-| RF-13a | Registar Entrada (Check-in)        | O Membro ou a Rececionista regista a entrada no ginásio. O sistema valida que a inscrição está activa.                                                                                                                                           | Alta       |
-| RF-13b | Validar e Guardar Hora de Entrada   | O sistema guarda a hora de entrada após validar que a inscrição está activa.                                                                                                                                                                        | Alta       |
-| RF-14a | Registar Saída (Check-out)          | O Membro ou a Rececionista regista a saída do ginásio.                                                                                                                                                                                           | Alta       |
-| RF-14b | Guardar Hora de Saída               | O sistema guarda a hora de saída.                                                                                                                                                                                                                | Alta       |
-| RF-14c | Calcular Tempo de Permanência       | O sistema calcula o tempo de permanência com base na hora de entrada e saída.                                                                                                                                                                    | Alta       |
-| RF-16 | Gerar Mensalidades                 | No dia 1 de cada mês, o sistema gera automaticamente as mensalidades para todos os utentes com inscrição ativa.                                                                                                                                               | Alta       |
-| RF-17 | Registar Pagamento                 | A Rececionista ou o sistema regista pagamentos totais ou parciais de uma mensalidade. A mensalidade fica no estado "Pago" ou "Parcialmente Pago".                                                                                               | Alta       |
-| RF-18 | Emitir Comprovativo de Pagamento   | Após a confirmação de um pagamento, o sistema gera um comprovativo em PDF.                                                                                                                                                                          | Média      |
-| RF-19 | Criar Aula de Grupo                | O Treinador cria uma AulaGrupo com horário, duração, lotação máxima e Treinador, para um dia da semana. Depois de criada, a aula fica disponível para reserva.                                                                             | Alta       |
-| RF-20 | Reservar Vaga em Aula              | O Membro ou a Rececionista reserva um lugar numa AulaGrupo disponível. Se a aula estiver cheia, o Membro fica em lista de espera.                                                                                                                    | Alta       |
-| RF-21 | Cancelar Reserva de Aula           | O Membro ou a Rececionista cancela uma reserva antes do início da aula. O sistema liberta a vaga.                                                                                                                                               | Média      |
-| RF-22 | Controlar Lotação Máxima           | O sistema impede reservas quando a lotação máxima da aula é atingida.                                                                                                                                                                            | Alta       |
-| RF-26a | Compilar Dados de Faturação         | O sistema compila receitas e valores em dívida para o período seleccionado.                                                                                                                                                                       | Alta       |
-| RF-26b | Gerar Relatório de Faturação       | O sistema gera um relatório consolidado de faturação para o período seleccionado.                                                                                                                                                               | Alta       |
-| RF-27a | Criar Modalidade                   | O responsável administrativo cria uma modalidade com nome, descrição e valor mensal.                                                                                                                                                              | Alta       |
-| RF-27b | Consultar Modalidade               | O responsável administrativo consulta os dados de uma modalidade.                                                                                                                                                                                | Alta       |
-| RF-27c | Desativar Modalidade               | O responsável administrativo desativa uma modalidade. Modalidades desativadas não podem ser usadas em novas inscrições.                                                                                                                           | Alta       |
-| RF-28a | Validar Seguro para Check-in       | O sistema valida a data de validade do seguro desportivo do utente antes de permitir o check-in.                                                                                                                                                  | Alta       |
-| RF-28b | Validar Seguro para Inscrições     | O sistema valida a data de validade do seguro desportivo do utente antes de permitir novas inscrições.                                                                                                                                           | Alta       |
-| RF-29 | Emitir Fatura                      | Após o registo de um pagamento, o sistema gera automaticamente uma fatura com número, valor total e data de emissão.                                                                                                                    | Alta       |
+| RF-10 | Renovar Inscrição                   | O Admin renova uma inscrição activa antes da data de fim. O sistema actualiza o período de validade.                                                                                                                       | Alta       |
+| RF-11 | Cancelar Inscrição                  | O Admin cancela uma inscrição activa. O sistema regista a data e o motivo do cancelamento.                                                                                                                                  | Média      |
+| RF-12 | Registar Entrada (Check-in)        | O Membro ou a Rececionista regista a entrada no ginásio. O sistema valida que a inscrição está activa.                                                                                                                                           | Alta       |
+| RF-13 | Validar e Guardar Hora de Entrada   | O sistema guarda a hora de entrada após validar que a inscrição está activa.                                                                                                                                                                        | Alta       |
+| RF-14 | Registar Saída (Check-out)          | O Membro ou a Rececionista regista a saída do ginásio.                                                                                                                                                                                           | Alta       |
+| RF-15 | Guardar Hora de Saída               | O sistema guarda a hora de saída.                                                                                                                                                                                                                | Alta       |
+| RF-16 | Calcular Tempo de Permanência       | O sistema calcula o tempo de permanência com base na hora de entrada e saída.                                                                                                                                                                    | Alta       |
+| RF-17 | Gerar Mensalidades                 | No dia 1 de cada mês, o sistema gera automaticamente as mensalidades para todos os utentes com inscrição ativa.                                                                                                                                               | Alta       |
+| RF-18 | Registar Pagamento                 | A Rececionista ou o sistema regista pagamentos totais ou parciais de uma mensalidade. A mensalidade fica no estado "Pago" ou "Parcialmente Pago".                                                                                               | Alta       |
+| RF-19 | Emitir Comprovativo de Pagamento   | Após a confirmação de um pagamento, o sistema gera um comprovativo em PDF.                                                                                                                                                                          | Média      |
+| RF-20 | Criar Aula de Grupo                | O Treinador cria uma AulaGrupo com horário, duração, lotação máxima e Treinador, para um dia da semana. Depois de criada, a aula fica disponível para reserva.                                                                             | Alta       |
+| RF-21 | Reservar Vaga em Aula              | O Membro ou a Rececionista reserva um lugar numa AulaGrupo disponível. Se a aula estiver cheia, o Membro fica em lista de espera.                                                                                                                    | Alta       |
+| RF-22 | Cancelar Reserva de Aula           | O Membro ou a Rececionista cancela uma reserva antes do início da aula. O sistema liberta a vaga.                                                                                                                                               | Média      |
+| RF-23 | Controlar Lotação Máxima           | O sistema impede reservas quando a lotação máxima da aula é atingida.                                                                                                                                                                            | Alta       |
+| RF-24 | Compilar Dados de Faturação         | O sistema compila receitas e valores em dívida para o período seleccionado.                                                                                                                                                                       | Alta       |
+| RF-25 | Gerar Relatório de Faturação       | O sistema gera um relatório consolidado de faturação para o período seleccionado.                                                                                                                                                               | Alta       |
+| RF-26 | Criar Modalidade                   | O responsável administrativo cria uma modalidade com nome, descrição e valor mensal.                                                                                                                                                              | Alta       |
+| RF-27 | Consultar Modalidade               | O responsável administrativo consulta os dados de uma modalidade.                                                                                                                                                                                | Alta       |
+| RF-28 | Desativar Modalidade               | O responsável administrativo desactiva uma modalidade. Modalidades desativadas não podem ser usadas em novas inscrições.                                                                                                                           | Alta       |
+| RF-29 | Validar Seguro para Check-in       | O sistema valida a data de validade do seguro desportivo do utente antes de permitir o check-in.                                                                                                                                                  | Alta       |
+| RF-30 | Validar Seguro para Inscrições     | O sistema valida a data de validade do seguro desportivo do utente antes de permitir novas inscrições.                                                                                                                                           | Alta       |
+| RF-31 | Emitir Fatura                      | Após o registo de um pagamento, o sistema gera automaticamente uma fatura com número, valor total e data de emissão.                                                                                                                    | Alta       |
 
 ---
 
@@ -200,6 +200,7 @@ Os casos de uso mostram a sequência de interações entre um ator e o sistema p
 | **Ator principal** | Admin |
 | **Pré-condições** | Utilizador autenticado com perfil Admin. |
 | **Descrição**     | Criar, consultar, editar e inativar registos de utentes.                                      |
+| **Classes**       | Membro, Admin, Utilizador |
 
 **Fluxo Principal**
 
@@ -223,6 +224,7 @@ Se houver um NIF duplicado, o sistema bloqueia a gravação e propõe abrir esse
 | **Ator principal** | Admin |
 | **Pré-condições** | Membro registado no sistema e sem pagamentos atrasados. **Bloqueio: membros com mensalidades em atraso não podem fazer novas inscrições.** |
 | **Descrição**     | Regista o Membro numa Modalidade.                                    |
+| **Classes**       | Inscricao, Membro, Modalidade, Contrato, Admin |
 
 **Fluxo Principal**
 
@@ -242,6 +244,7 @@ Se houver um NIF duplicado, o sistema bloqueia a gravação e propõe abrir esse
 | **Ator principal** | Admin                                                                                                            |
 | **Pré-condições** | Membro com mensalidades pendentes. Colaborador com acesso ao módulo financeiro.                                                   |
 | **Descrição**     | Regista o pagamento das mensalidades mensais.                                                                                          |
+| **Classes**       | Mensalidade, Pagamento, Fatura, Comprovativo, Membro, Admin |
 
 **Fluxo Principal**
 
@@ -266,6 +269,7 @@ Se o pagamento falhar ou for recusado, o sistema avisa o colaborador e a mensali
 | **Ator principal** | Membro                                                                                          |
 | **Pré-condições** | Membro com inscrição ativa e código ou cartão de acesso.        |
 | **Descrição**     | Regista a presença do Membro nas instalações, usando um quiosque ou interface web.      |
+| **Classes**       | Membro, Inscricao, Mensalidade, SeguroDesportivo, CheckIn, SistemaControloAcesso, Alerta |
 
 **Fluxo Principal**
 
@@ -288,6 +292,7 @@ Se o seguro desportivo estiver fora da validade, aparece um alerta e o acesso é
 | **Ator principal** | Rececionista                                                                 |
 | **Pré-condições** | Membro com inscrição ativa no sistema.                                             |
 | **Descrição**     | Registo da presença do Membro pela receção.                     |
+| **Classes**       | Membro, Inscricao, Mensalidade, SeguroDesportivo, CheckIn, Rececionista |
 
 **Fluxo Principal**
 
@@ -311,6 +316,7 @@ Se o seguro ou a inscrição estiverem inválidos, a Rececionista encaminha o Me
 | **Ator principal** | Admin                                                                      |
 | **Pré-condições** | Membro com processo ativo no sistema.                                                     |
 | **Descrição**     | Controlo da documentação legal obrigatória para a prática desportiva.                              |
+| **Classes**       | Membro, Contrato, SeguroDesportivo, Alerta, Admin |
 
 **Fluxo Principal**
 
@@ -333,6 +339,7 @@ Se a data introduzida for anterior à atual, o sistema avisa que o documento já
 | **Ator principal** | Treinador                                                                              |
 | **Pré-condições** | Membro presente. Treinador com acesso ao módulo técnico.                   |
 | **Descrição**     | O Treinador recolhe dados para avaliar a condição física do Membro.     |
+| **Classes**       | AvaliacaoFisica, Membro, Treinador |
 
 **Fluxo Principal**
 
@@ -355,6 +362,7 @@ Quando os valores introduzidos forem biologicamente impossíveis, o sistema pede
 | **Ator principal** | Treinador                                                                              |
 | **Pré-condições** | Membro com avaliação física válida e recente. Treinador autenticado.                                                                  |
 | **Descrição**     | Criar uma rotina de exercícios e atribuir a um Membro.                                                                                   |
+| **Classes**       | PlanoTreino, Exercicio, Membro, Treinador |
 
 **Fluxo Principal**
 
@@ -374,6 +382,7 @@ Quando os valores introduzidos forem biologicamente impossíveis, o sistema pede
 | **Ator principal** | Treinador |
 | **Pré-condições** | Membro com pelo menos duas avaliações físicas registadas.                               |
 | **Descrição**     | Ver como os dados biométricos do Membro mudaram ao longo do tempo.                                           |
+| **Classes**       | AvaliacaoFisica, Membro, Treinador, Relatorio |
 
 **Fluxo Principal**
 
@@ -386,13 +395,14 @@ Quando os valores introduzidos forem biologicamente impossíveis, o sistema pede
 
 ---
 
-#### UC-10 — Autenticar no Sistema
+#### UC-09 — Autenticar no Sistema
 
 | Campo             | Valor                                                                                                        |
 | ----------------- | ------------------------------------------------------------------------------------------------------------ |
 | **Ator principal** | Qualquer utilizador registado com conta ativa.           |
 | **Pré-condições** | Utilizador com conta ativa criada pelo administrador.                            |
 | **Descrição**     | O utilizador introduz as suas credenciais, o sistema valida-as e cria uma sessão com acesso às funcionalidades apropriadas ao perfil.                         |
+| **Classes**       | Utilizador, LogAuditoria |
 
 **Fluxo Principal**
 
@@ -409,11 +419,13 @@ Quando a conta está desativada, o sistema bloqueia o acesso e informa o utiliza
 
 ---
 
+#### UC-11 — Reservar Aula de Grupo
+
 | Campo             | Valor                                                                                                       |
 | ----------------- | ----------------------------------------------------------------------------------------------------------- |
 | **Ator principal** | Membro                                                                                                |
-| **Pré-condições** | AulaGrupo publicada no calendário com vagas livres.                                          |
 | **Descrição**     | O Membro marca presença numa AulaGrupo com lugares limitados.                                        |
+| **Classes**       | Reserva, AulaGrupo, Membro |
 
 **Fluxo Principal**
 
@@ -437,6 +449,7 @@ Quando a AulaGrupo está cheia, o Membro fica automaticamente numa lista de espe
 | **Ator principal** | Contabilista                                                                                          |
 | **Pré-condições** | Transações financeiras registadas no período escolhido.                          |
 | **Descrição**     | Extrai e consolida dados financeiros para análise de gestão.                                       |
+| **Classes**       | Relatorio, Mensalidade, Pagamento, Fatura, Contabilista |
 
 **Fluxo Principal**
 
@@ -467,7 +480,7 @@ classDiagram
         +getId() String
         +getNome() String
         +getEmail() String
-        +verificarPermissao(acao String) Boolean*
+        +verificarPermissao(acao String) Boolean
     }
 
     class Membro {
@@ -760,130 +773,79 @@ classDiagram
     Mensalidade "1" --o "*" Pagamento : contem
     Mensalidade "1" --> "1" Fatura : tem
 
+    Pagamento "1" --> "1" Comprovativo : gera
+
     Inscricao "1" --> "1" Contrato : tem
     Inscricao "1" --> "1" Modalidade : pertence
 
     CheckIn "1..*" ..> "1" SistemaControloAcesso : utiliza
     Pagamento "1..*" ..> "1" GatewayPagamento : usa
     Alerta "1..*" ..> "1" ServicoNotificacao : usa
-    Membro "*" ..> "1" SistemaControloAcesso : autentica
+    SistemaControloAcesso "1" --> "*" Membro : autentica
 ```
 
 #### 5.2.1. Sequência de UC-04 — Controlar Assiduidade (Check-in)
 
 ```mermaid
 sequenceDiagram
-    title: UC-04 — Controlar Assiduidade (Check-in)
-
-    actor Membro
-    participant SCA@{"type": "boundary"} as "Sistema Controlo de Acesso"
-    participant Sistema@{"type": "control"}
-    participant Inscricao@{"type": "entity"}
-    participant Mensalidade@{"type": "entity"}
-    participant Seguro@{"type": "entity"}
-    participant CheckIn@{"type": "entity"}
-
-    Membro->>SCA: Passa cartão/código
-    activate SCA
-    SCA->>Sistema: Validar acesso
-    activate Sistema
-
-    Sistema->>Inscricao: Verificar inscrição ativa
-    activate Inscricao
-    Inscricao-->>Sistema: Estado inscrição
-    deactivate Inscricao
-
-    alt Inscrição inativa
-        Sistema-->>SCA: Acesso negado
-        SCA->>Membro: Alerta: inscrição inativa
-    else Inscrição ativa
-        Sistema->>Mensalidade: Verificar mensalidades
-        activate Mensalidade
-        Mensalidade-->>Sistema: Estado mensalidades
-        deactivate Mensalidade
-
-        alt Mensalidade em atraso
-            Sistema-->>SCA: Acesso negado
-            SCA->>Membro: Alerta: mensalidade em atraso
-        else Mensalidades ok
-            Sistema->>Seguro: Validar seguro desportivo
-            activate Seguro
-            Seguro-->>Sistema: Validade seguro
-            deactivate Seguro
-
-            alt Seguro expirado
-                Sistema-->>SCA: Acesso negado
-                SCA->>Membro: Alerta: seguro expirado
-            else Seguro válido
-                Sistema->>CheckIn: <<create>>
-                CheckIn-->>Sistema: CheckIn criado
-                Sistema-->>SCA: Acesso permitido
-                SCA->>Membro: Porta aberta
-                Membro->>CheckIn: <<destroy>>
-            end
-        end
-    end
-    deactivate Sistema
-    deactivate SCA
 ```
 
 #### 5.2.2. Sequência de UC-03 — Processar Pagamento de Mensalidade
 
 ```mermaid
 sequenceDiagram
-    title: UC-03 — Processar Pagamento de Mensalidade
-
-    actor Admin
-    participant Mensalidade@{"type": "entity"}
-    participant GP@{"type": "external"} as "Gateway de Pagamento"
-    participant Pagamento@{"type": "entity"}
-    participant Comprovativo@{"type": "entity"}
-    participant Fatura@{"type": "entity"}
-
-    Admin->>Mensalidade: Consultar mensalidades pendentes
-    activate Mensalidade
-    Mensalidade-->>Admin: Lista mensalidades em aberto
-    deactivate Mensalidade
-
-    alt Sem mensalidades pendentes
-        Mensalidade-->>Admin: Mensagem: sem dividas
-    else Existem mensalidades pendentes
-        Admin->>GP: Escolhe mês a pagar e método
-        activate GP
-        GP-->>Admin: Confirmação/rejeição
-        deactivate GP
-
-        alt Pagamento aceite
-            Admin->>Pagamento: <<create>>
-            Pagamento-->>Admin: Pagamento criado
-            Admin->>Mensalidade: Atualizar estado
-            Mensalidade-->>Admin: Estado: Liquidado
-            Admin->>Comprovativo: <<create>>
-            Comprovativo-->>Admin: Comprovativo gerado
-            Admin->>Fatura: <<create>>
-            Fatura-->>Admin: Fatura gerada
-            Admin->>Comprovativo: <<destroy>>
-            Admin->>Fatura: <<destroy>>
-        else Pagamento recusado
-            GP-->>Admin: Erro: pagamento falhou
-        end
-    end
 ```
 
 ### 5.3. Diagrama de Atividades (UC-04)
 
 ```plantuml
 @startuml
-|Swimlane1|
+title UC-04 — Controlar Assiduidade (Check-in Self-Service)
+
+|#AntiqueWhite| **Membro** |
 start
-:foo1;
-|#AntiqueWhite|Swimlane2|
-:foo2;
-:foo3;
-|Swimlane1|
-:foo4;
-|Swimlane2|
-:foo5;
+:Membro passa cartão/código no terminal;
+
+|#AliceBlue| **Sistema — Validações** |
+
+partition "**Validações Paralelas (fork)**" {
+    fork
+        :Verificar inscrição ativa;
+        if (Inscrição ativa?) then (não)
+            #pink:**ALERTA:** Inscrição inativa — acesso bloqueado;
+            kill
+        endif
+    fork again
+        :Verificar mensalidades;
+        if (Mensalidades ok?) then (não)
+            #pink:**ALERTA:** Mensalidade em atraso — acesso bloqueado;
+            kill
+        endif
+    fork again
+        :Verificar seguro desportivo;
+        if (Seguro válido?) then (não)
+            #pink:**ALERTA:** Seguro expirado — acesso bloqueado;
+            kill
+        endif
+    end merge
+}
+
+partition "**Registo de Presença**" {
+    :Registar hora de entrada;
+    :Criar registo CheckIn;
+    :Abrir porta/turniquete;
+}
+
+|#AntiqueWhite| **Membro** |
+:Entra no ginásio;
 stop
+
+floating note left
+**Swimlanes:** Membro | Sistema
+**Paralelismo:** fork/merge nas validações
+**Decisões:** 3 checks (inscrição, mensalidades, seguro)
+**Fim:** kill para bloqueios, stop para sucesso
+end note
+
 @enduml
 ```
