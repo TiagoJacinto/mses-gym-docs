@@ -1,0 +1,4 @@
+pre-commit:
+  test:
+    run: npx playwright test
+    always_run: true

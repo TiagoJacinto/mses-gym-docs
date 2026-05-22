@@ -1,9 +1,39 @@
 ---
 import fs from 'node:fs';
 import path from 'node:path';
+import { execSync } from 'node:child_process';
+import { mkdirSync, existsSync } from 'node:fs';
 
 const filePath = path.join(process.cwd(), 'public/Trabalho-MSES.md');
 const content = fs.readFileSync(filePath, 'utf-8');
+
+const diagramsDir = path.join(process.cwd(), 'public/diagrams');
+if (!existsSync(diagramsDir)) mkdirSync(diagramsDir, { recursive: true });
+
+const plantumlBlocks = [];
+const plantumlSvgPaths = [];
+const regex = /```plantuml\n([\s\S]*?)\n```/g;
+let match;
+while ((match = regex.exec(content)) !== null) {
+  plantumlBlocks.push(match[1].trim());
+}
+
+for (let i = 0; i < plantumlBlocks.length; i++) {
+  const pumlFile = `/tmp/diagram_${i}.puml`;
+  const svgFile = path.join(diagramsDir, `diagram_${i}.svg`);
+  fs.writeFileSync(pumlFile, plantumlBlocks[i]);
+  try {
+    execSync(`plantuml -tsvg -o "${diagramsDir}" "${pumlFile}" 2>/dev/null`, { stdio: 'pipe' });
+    const generated = path.join(diagramsDir, `diagram_${i}.svg`);
+    if (existsSync(generated) && fs.statSync(generated).size > 100) {
+      plantumlSvgPaths.push(`/diagrams/diagram_${i}.svg`);
+    } else {
+      plantumlSvgPaths.push(null);
+    }
+  } catch {
+    plantumlSvgPaths.push(null);
+  }
+}
 
 export const prerender = true;
 ---
@@ -227,7 +257,7 @@ export const prerender = true;
     <article id="content"></article>
   </div>
 
-  <script is:inline define:vars={{ content }}>
+  <script is:inline define:vars={{ content, plantumlSvgPaths }}>
     function escapeHtml(text) {
       return text
         .replace(/&/g, '&amp;')
@@ -245,9 +275,12 @@ export const prerender = true;
         return `%%MERMAID_${mermaidBlocks.length - 1}%%`;
       });
 
-      // regular code blocks
-      html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (_, lang, code) =>
-        `<pre><code class="language-${lang || ''}">${escapeHtml(code)}</code></pre>`);
+      // plantuml code blocks - extract before processing
+      const plantumlBlocks = [];
+      html = html.replace(/```plantuml\n([\s\S]*?)```/g, (_, code) => {
+        plantumlBlocks.push(code.trim());
+        return `%%PLANTUML_${plantumlBlocks.length - 1}%%`;
+      });
 
       // inline code
       html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
@@ -277,65 +310,67 @@ export const prerender = true;
         );
       });
 
-      // Tables - collect all table rows first
-      const tableRows = [];
-      html = html.replace(/^\|(.+)\|$/gm, (match, rowContent) => {
-        const cells = rowContent.split('|').map(c => c.trim());
-        if (cells.every(c => c.match(/^-+$/))) return '';
-        const isTh = !match.includes('</tr>');
-        const tag = isTh ? 'th' : 'td';
-        tableRows.push('<tr>' + cells.map(c => `<${tag}>${c}</${tag}>`).join('') + '</tr>');
-        return '';
+      // Restore plantuml blocks
+      plantumlBlocks.forEach((_, i) => {
+        html = html.replace(
+          `%%PLANTUML_${i}%%`,
+          `<div class="plantuml">${escapeHtml(plantumlBlocks[i])}</div>`
+        );
       });
-      if (tableRows.length > 0) {
-        html = html.replace(/%%TABLE%%/g, '<table>' + tableRows.join('') + '</table>');
-        // Find table markers and replace with placeholder
-        const lines = html.split('\n');
-        const result = [];
-        let capturing = false;
-        let captured = [];
-        let inPre = false;
-        let inMermaid = false;
 
-        for (let i = 0; i < lines.length; i++) {
-          const line = lines[i];
-          if (line.includes('<pre>') || line.includes('<div class="mermaid"')) inPre = true;
-          if (line.includes('</pre>')) { inPre = false; result.push(line); continue; }
-          if (line.includes('</div>') && line.includes('mermaid')) { inMermaid = false; result.push(line); continue; }
-          if (inPre || inMermaid) { result.push(line); continue; }
-
-          if (line.trim().startsWith('|') && !capturing) {
-            capturing = true;
-            captured = [line];
-          } else if (line.trim().startsWith('|') && capturing) {
-            captured.push(line);
-          } else if (capturing) {
-            const tableHtml = '<table>' + captured.map(row => {
-              const cells = row.split('|').map(c => c.trim());
-              if (cells.every(c => c.match(/^-+$/))) return '';
-              const isTh = row === captured[0];
-              const tag = isTh ? 'th' : 'td';
-              return '<tr>' + cells.map(c => `<${tag}>${c}</${tag}>`).join('') + '</tr>';
-            }).join('') + '</table>';
-            result.push(tableHtml);
-            capturing = false;
-            captured = [];
-            result.push(line);
-          } else {
-            result.push(line);
+      // Tables - group consecutive pipe lines into tables
+      const lines = html.split('\n');
+      const resultLines = [];
+      let i = 0;
+      
+      while (i < lines.length) {
+        const line = lines[i];
+        
+        // Check if this line is a table row (starts with |)
+        if (line.match(/^\|.*\|$/)) {
+          const tableLines = [];
+          
+          // Collect consecutive table rows
+          while (i < lines.length && lines[i].match(/^\|.*\|$/)) {
+            tableLines.push(lines[i]);
+            i++;
           }
+          
+          // Process the table
+          if (tableLines.length > 0) {
+            const rows = [];
+            let headerProcessed = false;
+            
+            for (const tableLine of tableLines) {
+              const cells = tableLine.split('|').map(c => c.trim()).filter(c => c.length > 0 && !c.match(/^-+$/));
+              if (cells.length === 0) continue;
+              
+              const tag = headerProcessed ? 'td' : 'th';
+              const rowHtml = '<tr>' + cells.map(c => `<${tag} style="border: 1px solid #333;">${c}</${tag}>`).join('') + '</tr>';
+              rows.push(rowHtml);
+              headerProcessed = true;
+            }
+            
+            if (rows.length > 0) {
+              resultLines.push('<table style="border-collapse: collapse;" data-astro-cid-j7pv25f6><tbody>' + rows.join('') + '</tbody></table>');
+            }
+          }
+        } else {
+          resultLines.push(line);
+          i++;
         }
-        html = result.join('\n');
       }
+      
+      html = resultLines.join('\n');
 
       // Paragraphs and line breaks
-      const lines = html.split('\n');
+      const allLines = html.split('\n');
       const result = [];
       let inBlock = false;
       let blockTags = ['<pre>', '<table>', '<ul>', '<ol>', '<h', '<hr', '<div'];
 
-      for (let i = 0; i < lines.length; i++) {
-        const line = lines[i];
+      for (let i = 0; i < allLines.length; i++) {
+        const line = allLines[i];
         const trimmed = line.trim();
 
         if (!trimmed) { result.push(''); inBlock = false; continue; }
@@ -419,6 +454,43 @@ export const prerender = true;
           node.innerHTML = `<pre>${escapeHtml(error?.message || String(error))}</pre>`;
         }
       }
+    // Initialize PlantUML diagrams from pre-rendered static SVGs
+      const plantumlNodes = Array.from(document.querySelectorAll('.plantuml'));
+      plantumlNodes.forEach((node, index) => {
+        const svgPath = plantumlSvgPaths[index];
+        if (!svgPath) return;
+
+        node.innerHTML = '';
+        const wrapper = document.createElement('div');
+        wrapper.className = 'plantuml-pan-wrapper';
+        wrapper.style.overflow = 'hidden';
+        wrapper.style.position = 'relative';
+        node.appendChild(wrapper);
+
+        const img = document.createElement('img');
+        img.src = svgPath;
+        img.alt = 'PlantUML diagram';
+        img.style.maxWidth = '100%';
+        img.style.display = 'block';
+        img.style.margin = '0 auto';
+        img.style.cursor = 'grab';
+        wrapper.appendChild(img);
+
+        img.onload = () => {
+          panzoom(img, {
+            maxZoom: 5,
+            minZoom: 0.3,
+            bounds: true,
+            boundsPadding: 0.1,
+            zoomDoubleClickSpeed: 1,
+          });
+          img.addEventListener('mousedown', () => { img.style.cursor = 'grabbing'; });
+          img.addEventListener('mouseup', () => { img.style.cursor = 'grab'; });
+        };
+        img.onerror = () => {
+          wrapper.innerHTML = `<pre>Failed to load ${svgPath}</pre>`;
+        };
+      });
     })();
   </script>
 </body>
