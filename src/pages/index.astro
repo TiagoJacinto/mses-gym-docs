@@ -240,6 +240,60 @@ export const prerender = true;
     #table-of-contents li { margin-bottom: 0.25rem; }
     #table-of-contents a { color: var(--text); }
     #table-of-contents a:hover { color: var(--accent); }
+
+    .diagram-fullscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.98);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .diagram-fullscreen-backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      cursor: pointer;
+    }
+
+    .diagram-fullscreen-content {
+      position: relative;
+      z-index: 1;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .diagram-fullscreen-content svg,
+    .diagram-fullscreen-content img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      cursor: grab;
+      overflow: visible;
+    }
+
+    .diagram-fullscreen-content svg:active,
+    .diagram-fullscreen-content img:active {
+      cursor: grabbing;
+    }
+
+    .diagram-fullscreen-hint {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.875rem;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
@@ -263,6 +317,59 @@ export const prerender = true;
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;');
+    }
+
+    function enterFullscreen(el) {
+      const fs = document.createElement('div');
+      fs.className = 'diagram-fullscreen';
+      fs.tabIndex = 0;
+
+      const backdrop = document.createElement('div');
+      backdrop.className = 'diagram-fullscreen-backdrop';
+      fs.appendChild(backdrop);
+
+      const content = document.createElement('div');
+      content.className = 'diagram-fullscreen-content';
+      fs.appendChild(content);
+
+      const clone = el.cloneNode(true);
+      content.appendChild(clone);
+
+      const hint = document.createElement('div');
+      hint.className = 'diagram-fullscreen-hint';
+      hint.textContent = 'Click or press Escape to exit';
+      fs.appendChild(hint);
+
+      document.body.appendChild(fs);
+
+      const instance = panzoom(clone, {
+        maxZoom: 10,
+        minZoom: 0.1,
+        bounds: true,
+        boundsPadding: 0,
+      });
+
+      clone.style.cursor = 'grab';
+      clone.addEventListener('mousedown', () => { clone.style.cursor = 'grabbing'; });
+      clone.addEventListener('mouseup', () => { clone.style.cursor = 'grab'; });
+
+      setTimeout(() => {
+        instance.zoomToFit();
+      }, 50);
+
+      function close() {
+        instance.dispose();
+        fs.remove();
+        document.removeEventListener('keydown', onKey);
+      }
+
+      function onKey(e) {
+        if (e.key === 'Escape') close();
+      }
+
+      backdrop.addEventListener('click', close);
+      document.addEventListener('keydown', onKey);
+      fs.focus();
     }
 
     function parseMarkdown(md) {
@@ -449,6 +556,20 @@ export const prerender = true;
             svgEl.style.cursor = 'grab';
             svgEl.addEventListener('mousedown', () => { svgEl.style.cursor = 'grabbing'; });
             svgEl.addEventListener('mouseup', () => { svgEl.style.cursor = 'grab'; });
+
+            let clickCount = 0;
+            let clickTimer = null;
+            svgEl.addEventListener('click', (e) => {
+              clickCount++;
+              if (clickCount === 2) {
+                e.preventDefault();
+                e.stopPropagation();
+                enterFullscreen(svgEl);
+              }
+              if (clickCount > 2) clickCount = 0;
+              clearTimeout(clickTimer);
+              clickTimer = setTimeout(() => { clickCount = 0; }, 400);
+            });
           }
         } catch (error) {
           node.innerHTML = `<pre>${escapeHtml(error?.message || String(error))}</pre>`;
@@ -486,6 +607,20 @@ export const prerender = true;
           });
           img.addEventListener('mousedown', () => { img.style.cursor = 'grabbing'; });
           img.addEventListener('mouseup', () => { img.style.cursor = 'grab'; });
+
+          let plantumlClickCount = 0;
+          let plantumlClickTimer = null;
+          img.addEventListener('click', (e) => {
+            plantumlClickCount++;
+            if (plantumlClickCount === 2) {
+              e.preventDefault();
+              e.stopPropagation();
+              enterFullscreen(img);
+            }
+            if (plantumlClickCount > 2) plantumlClickCount = 0;
+            clearTimeout(plantumlClickTimer);
+            plantumlClickTimer = setTimeout(() => { plantumlClickCount = 0; }, 400);
+          });
         };
         img.onerror = () => {
           wrapper.innerHTML = `<pre>Failed to load ${svgPath}</pre>`;
