@@ -788,12 +788,131 @@ classDiagram
 
 ```mermaid
 sequenceDiagram
+    autonumber
+
+    participant Membro@{ "type" : "boundary" } as KIOSK
+    participant SisAcesso@{ "type" : "control" } as Sistema Controle Acesso
+    participant SisAssid@{ "type" : "control" } as Sistema Assiduidade
+    participant Inscricao@{ "type" : "entity" }
+    participant Mensalidade@{ "type" : "entity" } as Mensalidade
+    participant Seguro@{ "type" : "entity" } as Seguro Desportivo
+    participant CheckIn@{ "type" : "entity" } as CheckIn
+    participant Alerta@{ "type" : "boundary" } as Alerta
+
+    Membro->>+SisAcesso: Passa código/cartão+
+    SisAcesso->>SisAcesso: ++(validar credenciais)
+
+    par [Validar em paralelo]
+        SisAcesso->>SisAssid: Validar inscrição ativa
+        SisAssid->>+Inscricao: Buscar inscrição
+        Inscricao-->>-SisAssid: Dados inscrição
+        SisAssid-->>SisAcesso: Estado inscrição
+    and
+        SisAcesso->>SisAssid: Validar mensalidades
+        SisAssid->>+Mensalidade: Buscar mensalidades
+        Mensalidade-->>-SisAssid: Estado mensalidades
+        SisAssid-->>SisAcesso: Estado regularidade
+    and
+        SisAcesso->>SisAssid: Validar seguro
+        SisAssid->>+Seguro: Buscar seguro desportivo
+        Seguro-->>-SisAssid: Dados seguro
+        SisAssid-->>SisAcesso: Estado validade seguro
+    end
+
+    alt Inscrição ativa AND Mensalidades regularizadas AND Seguro válido
+        SisAcesso->>+CheckIn: <<create>>
+        CheckIn-->>-SisAcesso: CheckIn criado
+        SisAcesso-->>-Membro: ++(acesso permitido)
+        Membro->>Membro: - (entra nas instalações)
+        SisAcesso-xSisAssid: <<destroy>>
+    else Inscrição inativa
+        SisAssid--xSisAcesso: Inscrição inativa
+        break [Inscrição inativa - Acesso bloqueado]
+            SisAcesso->>Alerta: ++(emitir alerta)
+            Alerta-->>SisAcesso: Alerta inscrição inativa
+            SisAcesso-->>Membro: Acesso bloqueado
+        end
+        SisAcesso-xSisAssid: <<destroy>>
+    else Mensalidades em atraso
+        SisAssid--xSisAcesso: Mensalidades em atraso
+        break [Mensalidades em atraso - Acesso bloqueado]
+            SisAcesso->>Alerta: ++(emitir alerta)
+            Alerta-->>SisAcesso: Alerta mensalidades
+            SisAcesso-->>Membro: Acesso bloqueado
+        end
+        SisAcesso-xSisAssid: <<destroy>>
+    else Seguro expirado
+        SisAssid--xSisAcesso: Seguro expirado
+        break [Seguro expirado - Acesso bloqueado]
+            SisAcesso->>Alerta: ++(emitir alerta)
+            Alerta-->>SisAcesso: Alerta seguro
+            SisAcesso-->>Membro: Acesso bloqueado
+        end
+        SisAcesso-xSisAssid: <<destroy>>
+    end
+
+    deactivate Membro
 ```
 
 #### 5.2.2. Sequência de UC-03 — Processar Pagamento de Mensalidade
 
 ```mermaid
 sequenceDiagram
+    autonumber
+
+    participant Admin@{ "type" : "boundary" } as Admin
+    participant SisFinanceiro@{ "type" : "control" } as Sistema Financeiro
+    participant Membro@{ "type" : "entity" }
+    participant Mensalidade@{ "type" : "entity" }
+    participant Pagamento@{ "type" : "entity" }
+    participant Gateway@{ "type" : "boundary" } as Gateway Pagamento
+    participant Fatura@{ "type" : "entity" }
+    participant Comprovativo@{ "type" : "entity" }
+
+    Admin->>+SisFinanceiro: Seleciona módulo financeiro
+    Admin->>SisFinanceiro: Escolhe Membro
+    SisFinanceiro->>+Membro: Buscar dados do Membro
+    Membro-->>-SisFinanceiro: Dados do Membro
+    SisFinanceiro->>+Mensalidade: Obter mensalidades pendentes
+    Mensalidade-->>-SisFinanceiro: Lista mensalidades pendentes
+    SisFinanceiro-->>Admin: Mostra mensalidades em aberto
+
+    alt Mensalidades pendentes existem
+        Admin->>SisFinanceiro: Seleciona mensalidade a pagar
+        Admin->>SisFinanceiro: Escolhe método pagamento
+
+        loop [Para cada mensalidade selecionada]
+            SisFinanceiro->>+Pagamento: <<create>>
+            par [Processamento em paralelo]
+                SisFinanceiro->>+Gateway: Enviar pedido pagamento
+                Gateway-->>-SisFinanceiro: Confirmação/rejeição
+            end
+
+            alt Pagamento confirmado
+                Gateway-->>SisFinanceiro: OK
+                SisFinanceiro->>+Fatura: <<create>>
+                SisFinanceiro->>+Comprovativo: <<create>>
+                SisFinanceiro->>Mensalidade: Atualizar estado
+                Mensalidade->>Mensalidade: Definir estado "Liquidado"
+                SisFinanceiro-xFatura: <<destroy>>
+                deactivate Fatura
+                SisFinanceiro-xComprovativo: <<destroy>>
+                deactivate Comprovativo
+                SisFinanceiro-xPagamento: <<destroy>>
+                SisFinanceiro-->>Admin: Pagamento processado com sucesso
+            else Pagamento rejeitado
+                Gateway--xSisFinanceiro: Falha
+                break [Pagamento falhou]
+                    SisFinanceiro-->>Admin: Mostrar erro
+                end
+            end
+        end
+
+    else Sem mensalidades pendentes
+        SisFinanceiro-->>Admin: Sem dividas
+    end
+
+    deactivate SisFinanceiro
 ```
 
 ### 5.3. Diagrama de Atividades (UC-04)
