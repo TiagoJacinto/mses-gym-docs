@@ -3,6 +3,7 @@ export const prerender = true;
 
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import QuestionList from '../components/QuestionList';
 
 const markdown = readFileSync(join(process.cwd(), 'public', 'Perguntas-Fundamentais.md'), 'utf-8');
 
@@ -20,11 +21,11 @@ const questions: Question[] = [];
 
 for (const section of sections) {
   const camposMatch = section.match(/\*\*Pergunta\*\*\s*\|\s*(.+?)\n\*\*Resposta\*\*\s*\|\s*(.+?)\n\*\*Dicas\*\*\s*\|\s*(.+?)\n\*\*Referência\*\*\s*\|\s*(.+)/s);
-  
+
   if (!camposMatch) continue;
-  
+
   const [, pergunta, resposta, dicas, referencia] = camposMatch;
-  
+
   questions.push({
     id: questions.length + 1,
     pergunta: pergunta.trim(),
@@ -263,33 +264,7 @@ for (const section of sections) {
     </header>
 
     <main id="questions">
-      {questions.map((q) => (
-        <div class="question-item" data-id={q.id}>
-          <div class="question-header">
-            <div class="question-number">{q.id}</div>
-            <div class="question-content">
-              <p class="question-text">{q.pergunta}</p>
-              <div class="question-buttons">
-                <button class="q-btn btn-resposta" data-target={`answer-${q.id}`}>Resposta</button>
-                <button class="q-btn btn-dicas" data-target={`tip-${q.id}`}>Dicas</button>
-                <button class="q-btn btn-referencia" data-target={`ref-${q.id}`}>Referência</button>
-              </div>
-            </div>
-          </div>
-          <div class={`answer-content answer-${q.id}`}>
-            <div class="block-label">Resposta</div>
-            <p>{q.resposta}</p>
-          </div>
-          <div class={`dicas-content dicas-${q.id}`}>
-            <div class="block-label">Dicas</div>
-            <p>{q.dicas}</p>
-          </div>
-          <div class={`referencia-content referencia-${q.id}`}>
-            <div class="block-label">Referência</div>
-            <p>{q.referencia}</p>
-          </div>
-        </div>
-      ))}
+      <QuestionList questions={questions} client:load />
     </main>
 
     <footer>
@@ -298,29 +273,5 @@ for (const section of sections) {
       <p>Sistema de Gestão para Ginásio — MSES 2024/2025</p>
     </footer>
   </div>
-
-  <script>
-    document.querySelectorAll('.question-item').forEach(item => {
-      const buttons = item.querySelectorAll('.q-btn');
-      
-      buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const target = btn.getAttribute('data-target');
-          if (!target) return;
-          
-          const isActive = btn.classList.contains('active');
-          
-          item.querySelectorAll('.q-btn').forEach(b => b.classList.remove('active'));
-          item.querySelectorAll('.answer-content, .dicas-content, .referencia-content').forEach(c => c.classList.remove('open'));
-          
-          if (!isActive) {
-            btn.classList.add('active');
-            const content = item.querySelector(`.${target}`);
-            if (content) content.classList.add('open');
-          }
-        });
-      });
-    });
-  </script>
 </body>
 </html>
