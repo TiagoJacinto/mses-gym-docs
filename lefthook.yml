@@ -1,4 +1,5 @@
 pre-commit:
   test:
     run: npx playwright test
+    files: e2e/**/*.spec.ts
     always_run: true

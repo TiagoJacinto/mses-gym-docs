@@ -26,7 +26,7 @@ test.describe("PlantUML diagram rendering", () => {
 			await expect(img).toBeVisible();
 			await expect(img).toHaveAttribute(
 				"src",
-				/\\/diagrams\\/diagram_\d+\.svg$/,
+				/\/diagrams\/diagram_\d+\.svg$/,
 			);
 		}
 	});
