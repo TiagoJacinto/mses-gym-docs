@@ -286,6 +286,20 @@ export const prerender = true;
       cursor: grabbing;
     }
 
+    .requirement-section {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .requirement-section {
+        background: rgba(59, 130, 246, 0.04);
+      }
+    }
+
     .diagram-fullscreen-hint {
       position: absolute;
       bottom: 1.5rem;
