@@ -1,17 +1,17 @@
 {
-  "version": 1,
-  "skills": {
-    "academic-writing-refiner": {
-      "source": "zihan-zhu/academic-writing-refiner",
-      "sourceType": "github",
-      "skillPath": "academic-writing-refiner/SKILL.md",
-      "computedHash": "ab6915fb95bc60de06bbe6813a1005f9235e82637d7d4eac2282940522449863"
-    },
-    "requirements-analysis": {
-      "source": "dralgorhythm/claude-agentic-framework",
-      "sourceType": "github",
-      "skillPath": ".claude/skills/product/requirements-analysis/SKILL.md",
-      "computedHash": "f2e872d011263ae06dc1d115cf72f1d71a4da57c7cb4e2e3bbbeab0f20fd7de9"
-    }
-  }
+	"version": 1,
+	"skills": {
+		"academic-writing-refiner": {
+			"source": "zihan-zhu/academic-writing-refiner",
+			"sourceType": "github",
+			"skillPath": "academic-writing-refiner/SKILL.md",
+			"computedHash": "ab6915fb95bc60de06bbe6813a1005f9235e82637d7d4eac2282940522449863"
+		},
+		"requirements-analysis": {
+			"source": "dralgorhythm/claude-agentic-framework",
+			"sourceType": "github",
+			"skillPath": ".claude/skills/product/requirements-analysis/SKILL.md",
+			"computedHash": "f2e872d011263ae06dc1d115cf72f1d71a4da57c7cb4e2e3bbbeab0f20fd7de9"
+		}
+	}
 }

@@ -1,14 +1,14 @@
 ---
-import fs from 'node:fs';
-import path from 'node:path';
-import { execSync } from 'node:child_process';
-import { mkdirSync, existsSync } from 'node:fs';
-import MarkdownRenderer from '../components/MarkdownRenderer';
 
-const filePath = path.join(process.cwd(), 'public/Trabalho-MSES.md');
-const content = fs.readFileSync(filePath, 'utf-8');
+import { execSync } from "node:child_process";
+import fs, { existsSync, mkdirSync } from "node:fs";
+import path from "node:path";
+import MarkdownRenderer from "../components/MarkdownRenderer";
 
-const diagramsDir = path.join(process.cwd(), 'public/diagrams');
+const filePath = path.join(process.cwd(), "public/Trabalho-MSES.md");
+const content = fs.readFileSync(filePath, "utf-8");
+
+const diagramsDir = path.join(process.cwd(), "public/diagrams");
 if (!existsSync(diagramsDir)) mkdirSync(diagramsDir, { recursive: true });
 
 const plantumlBlocks: string[] = [];
@@ -16,27 +16,27 @@ const plantumlSvgPaths: (string | null)[] = [];
 const regex = /```plantuml\n([\s\S]*?)\n```/g;
 let match;
 while ((match = regex.exec(content)) !== null) {
-  plantumlBlocks.push(match[1].trim());
+	plantumlBlocks.push(match[1].trim());
 }
 
 for (let i = 0; i < plantumlBlocks.length; i++) {
-  const pumlFile = `/tmp/diagram_${i}.puml`;
-  const svgFile = path.join(diagramsDir, `diagram_${i}.svg`);
-  fs.writeFileSync(pumlFile, plantumlBlocks[i]);
-  try {
-    execSync(`plantuml -tsvg -o "${diagramsDir}" "${pumlFile}" 2>/dev/null`, { stdio: 'pipe' });
-    const generated = path.join(diagramsDir, `diagram_${i}.svg`);
-    if (existsSync(generated) && fs.statSync(generated).size > 100) {
-      plantumlSvgPaths.push(`/diagrams/diagram_${i}.svg`);
-    } else {
-      plantumlSvgPaths.push(null);
-    }
-  } catch {
-    plantumlSvgPaths.push(null);
-  }
+	const pumlFile = `/tmp/diagram_${i}.puml`;
+	const svgFile = path.join(diagramsDir, `diagram_${i}.svg`);
+	fs.writeFileSync(pumlFile, plantumlBlocks[i]);
+	try {
+		execSync(`plantuml -tsvg -o "${diagramsDir}" "${pumlFile}" 2>/dev/null`, {
+			stdio: "pipe",
+		});
+		const generated = path.join(diagramsDir, `diagram_${i}.svg`);
+		if (existsSync(generated) && fs.statSync(generated).size > 100) {
+			plantumlSvgPaths.push(`/diagrams/diagram_${i}.svg`);
+		} else {
+			plantumlSvgPaths.push(null);
+		}
+	} catch {
+		plantumlSvgPaths.push(null);
+	}
 }
-
-export const prerender = true;
 ---
 
 <!DOCTYPE html>

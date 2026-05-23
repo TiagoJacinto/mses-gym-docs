@@ -1,38 +1,43 @@
 ---
-export const prerender = true;
+export const prerender = import.meta.env.DEV ? false : true;
 
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
-import QuestionList from '../components/QuestionList';
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import QuestionList from "../components/QuestionList";
 
-const markdown = readFileSync(join(process.cwd(), 'public', 'Perguntas-Fundamentais.md'), 'utf-8');
+const markdown = readFileSync(
+	join(process.cwd(), "public", "Perguntas-Fundamentais.md"),
+	"utf-8",
+);
 
-const sections = markdown.split('---').filter(s => s.trim());
+const sections = markdown.split("---").filter((s) => s.trim());
 
 interface Question {
-  id: number;
-  pergunta: string;
-  resposta: string;
-  dicas: string;
-  referencia: string;
+	id: number;
+	pergunta: string;
+	resposta: string;
+	dicas: string;
+	referencia: string;
 }
 
 const questions: Question[] = [];
 
 for (const section of sections) {
-  const camposMatch = section.match(/\*\*Pergunta\*\*\s*\|\s*(.+?)\n\*\*Resposta\*\*\s*\|\s*(.+?)\n\*\*Dicas\*\*\s*\|\s*(.+?)\n\*\*Referência\*\*\s*\|\s*(.+)/s);
+	const camposMatch = section.match(
+		/\*\*Pergunta\*\*\s*\|\s*(.+?)\n\*\*Resposta\*\*\s*\|\s*(.+?)\n\*\*Dicas\*\*\s*\|\s*(.+?)\n\*\*Referência\*\*\s*\|\s*(.+)/s,
+	);
 
-  if (!camposMatch) continue;
+	if (!camposMatch) continue;
 
-  const [, pergunta, resposta, dicas, referencia] = camposMatch;
+	const [, pergunta, resposta, dicas, referencia] = camposMatch;
 
-  questions.push({
-    id: questions.length + 1,
-    pergunta: pergunta.trim(),
-    resposta: resposta.trim(),
-    dicas: dicas.trim(),
-    referencia: referencia.trim()
-  });
+	questions.push({
+		id: questions.length + 1,
+		pergunta: pergunta.trim(),
+		resposta: resposta.trim(),
+		dicas: dicas.trim(),
+		referencia: referencia.trim(),
+	});
 }
 ---
 
