@@ -790,68 +790,53 @@ classDiagram
 sequenceDiagram
     autonumber
 
-    participant Membro@{ "type" : "boundary" } as KIOSK
-    participant SisAcesso@{ "type" : "control" } as Sistema Controle Acesso
-    participant SisAssid@{ "type" : "control" } as Sistema Assiduidade
-    participant Inscricao@{ "type" : "entity" }
+    participant Membro@{ "type" : "boundary" } as Membro
+    participant SisAcesso@{ "type" : "control" } as "SistemaControloAcesso"
+    participant Inscricao@{ "type" : "entity" } as Inscricao
     participant Mensalidade@{ "type" : "entity" } as Mensalidade
-    participant Seguro@{ "type" : "entity" } as Seguro Desportivo
+    participant Seguro@{ "type" : "entity" } as SeguroDesportivo
     participant CheckIn@{ "type" : "entity" } as CheckIn
     participant Alerta@{ "type" : "boundary" } as Alerta
 
-    Membro->>+SisAcesso: Passa código/cartão+
-    SisAcesso->>SisAcesso: ++(validar credenciais)
+    Membro->>+SisAcesso: Passa cartão/código no terminal
+    SisAcesso->>+Membro: getMembroById()
+    Membro-->>-SisAcesso: Dados do Membro
 
-    par [Validar em paralelo]
-        SisAcesso->>SisAssid: Validar inscrição ativa
-        SisAssid->>+Inscricao: Buscar inscrição
-        Inscricao-->>-SisAssid: Dados inscrição
-        SisAssid-->>SisAcesso: Estado inscrição
-    and
-        SisAcesso->>SisAssid: Validar mensalidades
-        SisAssid->>+Mensalidade: Buscar mensalidades
-        Mensalidade-->>-SisAssid: Estado mensalidades
-        SisAssid-->>SisAcesso: Estado regularidade
-    and
-        SisAcesso->>SisAssid: Validar seguro
-        SisAssid->>+Seguro: Buscar seguro desportivo
-        Seguro-->>-SisAssid: Dados seguro
-        SisAssid-->>SisAcesso: Estado validade seguro
+    par [Validações em paralelo]
+        SisAcesso->>+Inscricao: verificarInscricaoAtiva()
+        Inscricao-->>-SisAcesso: Estado da inscrição
+        SisAcesso->>+Mensalidade: verificarMensalidades()
+        Mensalidade-->>-SisAcesso: Estado das mensalidades
+        SisAcesso->>+Seguro: verificarValidadeSeguro()
+        Seguro-->>-SisAcesso: Validade do seguro
     end
 
-    alt Inscrição ativa AND Mensalidades regularizadas AND Seguro válido
+    alt Inscrição ativa AND mensalidades regularizadas AND seguro válido
         SisAcesso->>+CheckIn: <<create>>
         CheckIn-->>-SisAcesso: CheckIn criado
-        SisAcesso-->>-Membro: ++(acesso permitido)
-        Membro->>Membro: - (entra nas instalações)
-        SisAcesso-xSisAssid: <<destroy>>
+        SisAcesso-->>Membro: Acesso permitido
     else Inscrição inativa
-        SisAssid--xSisAcesso: Inscrição inativa
-        break [Inscrição inativa - Acesso bloqueado]
-            SisAcesso->>Alerta: ++(emitir alerta)
-            Alerta-->>SisAcesso: Alerta inscrição inativa
-            SisAcesso-->>Membro: Acesso bloqueado
-        end
-        SisAcesso-xSisAssid: <<destroy>>
+        SisAcesso->>+Alerta: <<create>>
+        activate Alerta
+        Alerta-->>SisAcesso: "Inscrição inativa — acesso bloqueado"
+        SisAcesso-xAlerta: <<destroy>>
+        deactivate Alerta
+        SisAcesso--xMembro: Acesso negado
     else Mensalidades em atraso
-        SisAssid--xSisAcesso: Mensalidades em atraso
-        break [Mensalidades em atraso - Acesso bloqueado]
-            SisAcesso->>Alerta: ++(emitir alerta)
-            Alerta-->>SisAcesso: Alerta mensalidades
-            SisAcesso-->>Membro: Acesso bloqueado
-        end
-        SisAcesso-xSisAssid: <<destroy>>
-    else Seguro expirado
-        SisAssid--xSisAcesso: Seguro expirado
-        break [Seguro expirado - Acesso bloqueado]
-            SisAcesso->>Alerta: ++(emitir alerta)
-            Alerta-->>SisAcesso: Alerta seguro
-            SisAcesso-->>Membro: Acesso bloqueado
-        end
-        SisAcesso-xSisAssid: <<destroy>>
+        SisAcesso->>+Alerta: <<create>>
+        activate Alerta
+        Alerta-->>SisAcesso: "Mensalidade em atraso — acesso bloqueado"
+        SisAcesso-xAlerta: <<destroy>>
+        deactivate Alerta
+        SisAcesso--xMembro: Acesso negado
+    else Seguro desportivo fora de validade
+        SisAcesso->>+Alerta: <<create>>
+        activate Alerta
+        Alerta-->>SisAcesso: "Seguro expirado — acesso bloqueado"
+        SisAcesso-xAlerta: <<destroy>>
+        deactivate Alerta
+        SisAcesso--xMembro: Acesso negado
     end
-
-    deactivate Membro
 ```
 
 #### 5.2.2. Sequência de UC-03 — Processar Pagamento de Mensalidade
