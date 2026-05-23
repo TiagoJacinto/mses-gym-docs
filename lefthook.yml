@@ -1,6 +1,4 @@
-pre-commit:
+pre-push:
   commands:
     playwright:
       run: npx playwright test
-      glob: "e2e/**/*.spec.ts"
-      always_run: true
