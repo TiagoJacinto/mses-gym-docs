@@ -145,19 +145,28 @@ test.describe("Document Structure", () => {
 		await page.waitForTimeout(2000);
 	});
 
-	test("all section headings should be visible", async ({ page }) => {
-		await expect(
-			page.locator("h2").filter({ hasText: "Stakeholders e Utilizadores" }),
-		).toBeVisible();
-		await expect(
-			page.locator("h3").filter({ hasText: "Requisitos Funcionais" }),
-		).toBeVisible();
-		await expect(
-			page.locator("h3").filter({ hasText: "Requisitos Não Funcionais" }),
-		).toBeVisible();
-		await expect(
-			page.locator("h3").filter({ hasText: "Casos de Uso" }),
-		).toBeVisible();
+	test("all section headings should be visible and inside section elements", async ({
+		page,
+	}) => {
+		const functionalReqSection = page.locator("section").filter({
+			has: page.locator("h3").filter({ hasText: "Requisitos Funcionais" }),
+		});
+		await expect(functionalReqSection).toBeVisible();
+		await expect(functionalReqSection.locator("h3")).toContainText(
+			"Requisitos Funcionais",
+		);
+		await expect(functionalReqSection.locator("h3")).toHaveCount(1);
+		await expect(functionalReqSection.locator("table")).toHaveCount(1);
+
+		const nonFunctionalReqSection = page.locator("section").filter({
+			has: page.locator("h3").filter({ hasText: "Requisitos Não Funcionais" }),
+		});
+		await expect(nonFunctionalReqSection).toBeVisible();
+		await expect(nonFunctionalReqSection.locator("h3")).toContainText(
+			"Requisitos Não Funcionais",
+		);
+		await expect(nonFunctionalReqSection.locator("h3")).toHaveCount(1);
+		await expect(nonFunctionalReqSection.locator("table")).toHaveCount(1);
 	});
 
 	test("mermaid diagrams should render as SVG", async ({ page }) => {

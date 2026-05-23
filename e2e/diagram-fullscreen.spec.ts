@@ -21,7 +21,9 @@ test.describe("Diagram Fullscreen Mode", () => {
 		await expect(fullscreenOverlay).toBeVisible({ timeout: 3000 });
 	});
 
-	test("single click in fullscreen does NOT exit fullscreen", async ({ page }) => {
+	test("single click in fullscreen does NOT exit fullscreen", async ({
+		page,
+	}) => {
 		const mermaidDiv = page.locator(".mermaid").first();
 		const count = await mermaidDiv.count();
 
@@ -74,7 +76,9 @@ test.describe("Diagram Fullscreen Mode", () => {
 		await expect(fullscreenOverlay).toBeVisible({ timeout: 3000 });
 
 		await page.evaluate(() => {
-			const backdrop = document.querySelector(".diagram-fullscreen-backdrop") as HTMLElement;
+			const backdrop = document.querySelector(
+				".diagram-fullscreen-backdrop",
+			) as HTMLElement;
 			backdrop?.click();
 		});
 
@@ -96,8 +100,12 @@ test.describe("Diagram Fullscreen Mode", () => {
 		await expect(fullscreenOverlay).toBeVisible({ timeout: 3000 });
 
 		const diagramBounds = await page.evaluate(() => {
-			const svg = document.querySelector(".diagram-fullscreen svg") as SVGSVGElement;
-			const img = document.querySelector(".diagram-fullscreen img") as HTMLImageElement;
+			const svg = document.querySelector(
+				".diagram-fullscreen svg",
+			) as SVGSVGElement;
+			const img = document.querySelector(
+				".diagram-fullscreen img",
+			) as HTMLImageElement;
 			const diagram = svg || img;
 			if (!diagram) return null;
 			const rect = diagram.getBoundingClientRect();
@@ -113,9 +121,13 @@ test.describe("Diagram Fullscreen Mode", () => {
 				height: Math.round(rect.height),
 				viewportWidth,
 				viewportHeight,
-				fillsWidth: rect.left <= tolerance && rect.right >= viewportWidth - tolerance,
-				fillsHeight: rect.top <= tolerance && rect.bottom >= viewportHeight - tolerance,
-				coverage: Math.round((rect.width * rect.height) / (viewportWidth * viewportHeight) * 100),
+				fillsWidth:
+					rect.left <= tolerance && rect.right >= viewportWidth - tolerance,
+				fillsHeight:
+					rect.top <= tolerance && rect.bottom >= viewportHeight - tolerance,
+				coverage: Math.round(
+					((rect.width * rect.height) / (viewportWidth * viewportHeight)) * 100,
+				),
 			};
 		});
 
