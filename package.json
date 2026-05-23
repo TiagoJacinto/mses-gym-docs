@@ -1,37 +1,40 @@
 {
-  "name": "mses-gym-docs",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "prebuild": "node scripts/render-plantuml.mjs",
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "test": "bun test",
-    "test:watch": "bun test --watch",
-    "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui",
-    "test:e2e:debug": "playwright test --debug"
-  },
-  "dependencies": {
-    "@astrojs/mdx": "^5.0.4",
-    "@astrojs/react": "^5.0.5",
-    "@astrojs/vercel": "^10.0.6",
-    "astro": "^6.3.1",
-    "mermaid": "^11.6.0",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6",
-    "react-markdown": "^10.1.0",
-    "remark-gfm": "^4.0.1"
-  },
-  "devDependencies": {
-    "@happy-dom/global-registrator": "^20.9.0",
-    "@playwright/test": "^1.60.0",
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.2",
-    "@vitejs/plugin-react": "^6.0.2",
-    "bun-types": "^1.3.14",
-    "vitest": "^4.1.7"
-  }
+	"name": "mses-gym-docs",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"prebuild": "node scripts/render-plantuml.mjs",
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"test": "bun test src/",
+		"test:watch": "bun test src/ --watch",
+		"test:e2e": "playwright test",
+		"test:e2e:ui": "playwright test --ui",
+		"test:e2e:debug": "playwright test --debug"
+	},
+	"dependencies": {
+		"@astrojs/mdx": "^5.0.4",
+		"@astrojs/react": "^5.0.5",
+		"@astrojs/vercel": "^10.0.6",
+		"astro": "^6.3.1",
+		"mermaid": "^11.6.0",
+		"react": "^19.2.6",
+		"react-dom": "^19.2.6",
+		"react-markdown": "^10.1.0",
+		"remark": "^15.0.1",
+		"remark-gfm": "^4.0.1",
+		"unist-util-visit": "^5.1.0"
+	},
+	"devDependencies": {
+		"@happy-dom/global-registrator": "^20.9.0",
+		"@playwright/test": "^1.60.0",
+		"@testing-library/jest-dom": "^6.9.1",
+		"@testing-library/react": "^16.3.2",
+		"@testing-library/user-event": "^14.6.1",
+		"@vitejs/plugin-react": "^6.0.2",
+		"bun-types": "^1.3.14",
+		"vitest": "^4.1.7"
+	}
 }
