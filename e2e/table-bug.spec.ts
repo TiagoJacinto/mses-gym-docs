@@ -1,9 +1,12 @@
 import { expect, test } from "@playwright/test";
+import { Selectors } from "./selectors";
 
-test.describe("Table Content Bug", () => {
+test.describe("Table Bug", () => {
 	test("RF-01 functional requirement should be visible", async ({ page }) => {
 		await page.goto("/");
-		const rf01 = page.getByRole("columnheader", { name: "RF-01", exact: true });
+		const rf01 = page.locator(Selectors.tableRow).filter({
+			hasText: /RF-01/,
+		});
 		await expect(rf01).toBeVisible({ timeout: 10000 });
 	});
 
@@ -11,40 +14,47 @@ test.describe("Table Content Bug", () => {
 		page,
 	}) => {
 		await page.goto("/");
-		const rnf01 = page.getByRole("columnheader", {
-			name: "RNF-01",
-			exact: true,
+		// RNF-01 comes in variants like RNF-01a, RNF-01b
+		const rnf01 = page.locator(Selectors.tableRow).filter({
+			hasText: /RNF-01/,
 		});
-		await expect(rnf01).toBeVisible({ timeout: 10000 });
+		await expect(rnf01.first()).toBeVisible({ timeout: 10000 });
 	});
 
 	test("stakeholder table should have Ator column header", async ({ page }) => {
 		await page.goto("/");
-		const ator = page.getByRole("columnheader", { name: "Ator" }).first();
-		await expect(ator).toBeVisible({ timeout: 10000 });
+		const ator = page.locator(Selectors.tableHeader).filter({
+			hasText: "Ator",
+		});
+		await expect(ator.first()).toBeVisible({ timeout: 10000 });
 	});
 
-	test('domain table "Domínio funcional" header should be visible', async ({
+	test("domain table Domínio header should be visible", async ({
 		page,
 	}) => {
 		await page.goto("/");
-		const dominio = page.getByRole("columnheader", {
-			name: "Domínio funcional",
+		// RNF table has "Domínio" column
+		const dominio = page.locator(Selectors.tableHeader).filter({
+			hasText: /Domínio/,
 		});
-		await expect(dominio).toBeVisible({ timeout: 10000 });
+		await expect(dominio.first()).toBeVisible({ timeout: 10000 });
 	});
 
-	test("UC-01 use case table should be visible", async ({ page }) => {
+	test("UC-01 section should be visible", async ({ page }) => {
 		await page.goto("/");
-		const uc01 = page.getByRole("columnheader", { name: "UC-01" });
+		// UC tables are preceded by headings like "UC-01 — Gerir Registo de Membros"
+		const uc01 = page.getByText(/UC-01.*Gerir Registo/);
 		await expect(uc01).toBeVisible({ timeout: 10000 });
 	});
 
-	test('RF-01 row should contain "Gerir Registo de Utente" description', async ({
+	test("RF-01 row should contain Criar Registo description", async ({
 		page,
 	}) => {
 		await page.goto("/");
-		const rf01Row = page.locator('th:has-text("RF-01")').first();
+		const rf01Row = page
+			.locator(Selectors.tableRow)
+			.filter({ hasText: /RF-01/ });
 		await expect(rf01Row).toBeVisible({ timeout: 10000 });
+		await expect(rf01Row).toContainText("Criar Registo");
 	});
 });
