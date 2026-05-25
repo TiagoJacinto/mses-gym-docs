@@ -1,0 +1,6 @@
+{
+	"$schema": "https://opencode.ai/config.json",
+	"plugin": [
+		"/home/tiago/.config/opencode/profiles/coding/plugins/stop-gate.ts"
+	]
+}
