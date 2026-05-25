@@ -28,7 +28,7 @@ Orientador: Professor José Martins
 4. Identificação e Descrição dos Requisitos
    4.1. Requisitos Funcionais (RF)
    4.2. Requisitos Não Funcionais (RNF)
-   4.3. Casos de Uso
+   4.3. Casos de Uso (UC-01a a UC-09, UC-01b a UC-07b)
 5. Etapa 2 — Modelação Estrutural
    5.1. Diagrama de Classes
    5.2. Diagramas de Sequência
@@ -48,11 +48,11 @@ Este trabalho propõe um sistema digital para ginásios de pequena e média dime
 
 ### 2.1. Descrição do Problema
 
-Ginásios de pequena e média dimensão ainda dependem de processos manuais em papel: folhas de inscrição, envelopes com pagamentos, registos de presença em caderno. O resultado é acompanhamento irregular dos membros, horários imprevisíveis e faturas que só aparecem quando alguém se lembra de as emitir.
+Ginásios de pequena e média dimensão ainda dependem de processos manuais em papel: folhas de inscrição, envelopes com pagamentos, registos de presença em caderno. O resultado é um acompanhamento irregular dos membros, horários imprevisíveis e faturas que só aparecem quando alguém se lembra de as emitir.
 
 ### 2.1.1. Descrição do Sistema
 
-Plataforma digital centralizada que cobre todas as operações de um ginásio: registo de membros, Planos de Treino, gestão de horários, inscrições e faturação.
+Plataforma digital centralizada que cobre todas as operações de um ginásio: registo de membros, planos de treino, gestão de horários, inscrições e faturação.
 
 ### 2.1.2. Objetivo do Software
 
@@ -60,7 +60,7 @@ Tornar a gestão do ginásio mais eficiente e centralizada. Na prática, signifi
 
 ### 2.1.3. Contexto de Utilização
 
-O sistema funciona no dia-a-dia do ginásio com diferentes perfis a trabalhar em paralelo. A receção gere acessos, atendimento e pagamentos presenciais. Treinadores preenchem planos de treino. Administradores tratam de inscrições e gestão de membros. Pagamentos são processados pelo Membro via app ou presencialmente no balcão com ajuda da Rececionista. O trabalho decorre sobretudo em tablets e computadores de balcão.
+O sistema funciona no dia-a-dia do ginásio com diferentes perfis a trabalhar em paralelo. A receção gere acessos, atendimento e pagamentos presenciais. Treinadores preenchem planos de treino. Administradores tratam de inscrições e gestão de membros. Pagamentos são processados pelo membro via app ou presencialmente no balcão com ajuda do(a) rececionista. O trabalho decorre sobretudo em tablets e computadores de balcão.
 
 ### 2.1.4. Principais Funcionalidades Esperadas
 
@@ -73,13 +73,11 @@ O sistema funciona no dia-a-dia do ginásio com diferentes perfis a trabalhar em
 - **Validação automática:** a inscrição é verificada no check-in.
 - **App para membros:** consulta de planos, reserva de aulas e check-in pelo telemóvel.
 - **Relatórios de faturação:** receitas e valores em dívida por período.
-- **Segurança:** login com sessão que expira em 30 min, passwords com hash bcrypt, e acesso por tipo de Utilizador (Membro, Treinador, Rececionista, Gestor, Admin).
+- **Segurança:** login com sessão que expira apõs 30 min sem atividade, passwords com hash bcrypt, e acesso por tipo de Utilizador (Membro, Treinador, Rececionista, Gestor, Admin).
 
 ---
 
 ## 3. Stakeholders e Utilizadores
-
-Os atores dividem-se em principais, secundários e administradores, além dos sistemas externos com os quais o ginásio se integra.
 
 ### Atores Principais
 
@@ -112,7 +110,7 @@ Os atores dividem-se em principais, secundários e administradores, além dos si
 
 ## 4. Identificação e Descrição dos Requisitos
 
-Os requisitos dividem-se em funcionais (o que o sistema faz) e não funcionais (como se comporta). Estão organizados em seis áreas: gestão de membros, Planos de Treino, inscrições, assiduidade, pagamentos/faturação, aulas de grupo e autenticação.
+Os requisitos dividem-se em funcionais (o que o sistema faz) e não funcionais (como se comporta). Estão organizados em seis áreas: gestão de membros, planos de treino, inscrições, assiduidade, pagamentos/faturação, aulas de grupo e autenticação.
 
 ---
 
@@ -121,26 +119,27 @@ Os requisitos dividem-se em funcionais (o que o sistema faz) e não funcionais (
 | ID    | Título                             | Requisito funcional                                                                                                                                                               | Prioridade |
 | ----- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | RF-01 | Criar Registo de Membro | O Admin cria um membro com nome, contactos e foto. O sistema atribui um número único. | Alta |
-| RF-02 | Consultar Membro por Nome | O Admin pesquisa por nome e o sistema mostra os dados guardados. | Alta |
-| RF-03 | Consultar Membro por Número | O Admin pesquisa pelo número único e o sistema mostra os dados guardados. | Alta |
+| RF-02 | Pesquisar Membro | O Admin pesquisa um membro por nome, número único ou outro critério. O sistema apresenta os dados guardados. | Alta |
 | RF-04 | Atualizar Registo de Membro | O Admin altera dados de um membro. O sistema regista a data da alteração. | Alta |
 | RF-05 | Desativar Registo de Membro | O Admin marca um membro como inativo. Este não pode fazer login nem novas inscrições, mas os dados ficam disponíveis para consulta histórica. | Média |
 | RF-07 | Criar Plano de Treino | O Treinador cria um plano para um Membro, com um objetivo e uma duração. | Alta |
+| RF-08 | Atualizar Plano de Treino | O Treinador altera um plano existente de um Membro, incluindo exercícios, séries, repetições, carga, descanso ou duração. O sistema regista a data de atualização. | Alta |
 | RF-09 | Criar Inscrição | O Admin cria uma inscrição para um Membro e define o período de validade. | Alta |
 | RF-10 | Renovar Inscrição | O Admin renova uma inscrição ativa antes da data de fim. | Alta |
 | RF-11 | Cancelar Inscrição | O Admin cancela uma inscrição ativa. O sistema regista a data e o motivo. Se o Membro pedir cancelamento, o sistema regista-o. | Média |
-| RF-12 | Registar Entrada (Check-in) | O Membro ou a Rececionista regista a entrada. O sistema valida a inscrição ativa e guarda a hora de entrada. | Alta |
-| RF-13 | Registar Saída (Check-out) | O Membro ou a Rececionista regista a saída. O sistema guarda a hora de saída, calculando o tempo de permanência. | Alta |
-| RF-17 | Gerar Mensalidades | No dia 1 de cada mês, o sistema gera automaticamente as mensalidades para todos os membros com inscrição ativa. | Alta |
-| RF-18 | Registar Pagamento | A Rececionista ou o sistema regista o pagamento de uma mensalidade. | Alta |
-| RF-20 | Criar Aula de Grupo | O Treinador cria uma aula com horário, duração e Treinador. Depois, a aula fica disponível para reserva. | Alta |
-| RF-21 | Reservar Vaga em Aula | O Membro ou a Rececionista reserva um lugar. Se a aula estiver cheia, o sistema avisa que não há vagas. | Alta |
-| RF-22 | Cancelar Reserva de Aula | O Membro ou a Rececionista cancela antes do início, libertando a vaga. | Média |
-| RF-23 | Controlar Lotação Máxima | O sistema bloqueia reservas quando a lotação máxima é atingida. | Alta |
-| RF-24 | Compilar Dados de Faturação | O sistema compila receitas e valores em dívida para o período selecionado. | Alta |
-| RF-25 | Gerar Relatório de Faturação | O sistema gera um relatório consolidado para o período. | Alta |
-| RF-28 | Emitir Fatura                       | Após o registo de um pagamento, o sistema gera automaticamente uma fatura com número, valor e data.                                                                              | Alta       |
-| RF-29 | Aplicação Móvel                     | O Membro acede via app para consultar os seus Planos de Treino, reservar aulas e fazer check-in.                                                                             | Alta       |
+| RF-12 | Atualizar Inscrição | O Admin altera dados de uma inscrição ativa — período de validade ou plano associated. O sistema regista a data da alteração. | Média |
+| RF-13 | Registar Entrada (Check-in) | O Membro ou a Rececionista regista a entrada. O sistema valida a inscrição ativa e guarda a hora de entrada. | Alta |
+| RF-14 | Registar Saída (Check-out) | O Membro ou a Rececionista regista a saída. O sistema guarda a hora de saída, calculando o tempo de permanência. | Alta |
+| RF-15 | Terminar Sessão (Logout) | O Utilizador termina a sessão ativa. O sistema invalida o token e fecha a sessão. | Alta |
+| RF-16 | Gerar Mensalidades | No dia 1 de cada mês, o sistema gera automaticamente as mensalidades para todos os membros com inscrição ativa. | Alta |
+| RF-17 | Registar Pagamento | A Rececionista ou o sistema regista o pagamento de uma mensalidade. | Alta |
+| RF-18 | Criar Aula de Grupo | O Treinador cria uma aula com horário, duração e Treinador. Depois, a aula fica disponível para reserva. | Alta |
+| RF-19 | Reservar Vaga em Aula | O Membro ou a Rececionista reserva um lugar. Se a aula estiver cheia, o sistema avisa que não há vagas. | Alta |
+| RF-20 | Cancelar Reserva de Aula | O Membro ou a Rececionista cancela antes do início, libertando a vaga. | Média |
+| RF-21 | Controlar Lotação Máxima | O sistema bloqueia reservas quando a lotação máxima é atingida. | Alta |
+| RF-22 | Gerar Relatório de Faturação | O sistema compila receitas e valores em dívida para o período selecionado e gera um relatório consolidado para o período. | Alta |
+| RF-23 | Emitir Fatura | Após o registo de um pagamento, o sistema gera automaticamente uma fatura com número, valor e data. | Alta |
+
 
 ---
 
@@ -174,27 +173,86 @@ Os casos de uso descrevem interações típicas entre os atores e o sistema, o s
 
 ---
 
-#### UC-01 — Gerir Registo de Membros
+#### UC-01a — Criar Registo de Membro
 
 | Campo             | Valor                                                |
 | ----------------- | ---------------------------------------------------- |
-| **Ator principal** | Admin |
-| **Pré-condições** | Utilizador autenticado com conta Admin. |
-| **Descrição**     | Criar, consultar, editar e inativar registos de membros. |
-| **Classes**       | Membro, Admin, Utilizador |
+| **Ator principal** | Admin                                                |
+| **Pré-condições** | Utilizador autenticado com conta Admin.              |
+| **Descrição**     | Cria um novo registo de membro no sistema.           |
+| **Classes**       | Membro, Admin, Utilizador                            |
 
 **Fluxo Principal**
 
 1. O Admin abre o módulo de gestão de membros.
-2. Cria um novo registo ou pesquisa um existente.
-3. Preenche ou atualiza os dados biográficos do Membro.
+2. O Admin inicia a criação de um novo registo.
+3. O Admin preenche os dados biográficos do novo Membro.
 4. O sistema valida os dados e guarda o registo.
 
 **Fluxo Alternativo**
 
 Membro já existente: o sistema bloqueia a gravação e propõe abrir o registo existente.
 
-**Pós-condições** — Registo criado/atualizado e pronto para inscrições. Quando inativado, os dados mantêm-se acessíveis para consulta histórica mas impedem novas inscrições.
+**Pós-condições** — Registo criado e pronto para inscrições.
+
+---
+
+#### UC-01b — Consultar Registo de Membro
+
+| Campo             | Valor                                                |
+| ----------------- | ---------------------------------------------------- |
+| **Ator principal** | Admin                                                |
+| **Pré-condições** | Utilizador autenticado com conta Admin.              |
+| **Descrição**     | Consulta os dados de um membro registado.             |
+| **Classes**       | Membro, Admin                                        |
+
+**Fluxo Principal**
+
+1. O Admin abre o módulo de gestão de membros.
+2. O Admin pesquisa o membro por nome, número ou outro critério.
+3. O sistema apresenta os dados do membro.
+
+**Pós-condições** — Dados do membro apresentados para consulta.
+
+---
+
+#### UC-01c — Editar Registo de Membro
+
+| Campo             | Valor                                                |
+| ----------------- | ---------------------------------------------------- |
+| **Ator principal** | Admin                                                |
+| **Pré-condições** | Membro registado no sistema.                         |
+| **Descrição**     | Atualiza os dados biográficos de um membro.           |
+| **Classes**       | Membro, Admin                                        |
+
+**Fluxo Principal**
+
+1. O Admin abre o módulo de gestão de membros.
+2. O Admin pesquisa e seleciona o membro a editar.
+3. O Admin atualiza os dados biográficos do Membro.
+4. O sistema valida os dados e guarda o registo atualizado.
+
+**Pós-condições** — Registo atualizado com sucesso.
+
+---
+
+#### UC-01d — Inativar Registo de Membro
+
+| Campo             | Valor                                                |
+| ----------------- | ---------------------------------------------------- |
+| **Ator principal** | Admin                                                |
+| **Pré-condições** | Membro registado no sistema.                         |
+| **Descrição**     | Inativa um membro, impedindo novas inscrições.         |
+| **Classes**       | Membro, Admin                                        |
+
+**Fluxo Principal**
+
+1. O Admin abre o módulo de gestão de membros.
+2. O Admin pesquisa e seleciona o membro a inativar.
+3. O Admin confirma a inativação.
+4. O sistema marca o membro como inativo.
+
+**Pós-condições** — Membro inativado; os dados mantêm-se acessíveis para consulta histórica mas impedem novas inscrições.
 
 ---
 
@@ -214,6 +272,25 @@ Membro já existente: o sistema bloqueia a gravação e propõe abrir o registo 
 3. O sistema regista e cobra a taxa de inscrição.
 
 **Pós-condições** — O Membro fica com a inscrição ativa, com um débito pendente.
+
+---
+
+#### UC-02b — Editar Inscrição
+
+| Campo             | Valor                                       |
+| ----------------- | ------------------------------------------- |
+| **Ator principal** | Admin |
+| **Pré-condições** | Inscrição ativa no sistema. |
+| **Descrição**     | Altera dados de uma inscrição ativa — período de validade ou plano associated. |
+| **Classes**       | Inscricao, Membro, Admin |
+
+**Fluxo Principal**
+
+1. O Admin pesquisa e seleciona a inscrição a editar.
+2. O Admin altera o período de validade ou o plano associated.
+3. O sistema valida e guarda as alterações, registando a data de atualização.
+
+**Pós-condições** — Inscrição atualizada com sucesso.
 
 ---
 
@@ -302,17 +379,40 @@ Inscrição inativa ou mensalidade em atraso: o sistema bloqueia o acesso e enca
 | Campo             | Valor                                                      |
 | ----------------- | ---------------------------------------------------------- |
 | **Ator principal** | Treinador |
-| **Pré-condições** | Membro com pelo menos dois Planos de Treino registados. |
-| **Descrição**     | Ver os Planos de Treino atribuídos a um Membro ao longo do tempo. |
+| **Pré-condições** | Membro com pelo menos dois planos de treino registados. |
+| **Descrição**     | Ver os planos de treino atribuídos a um Membro ao longo do tempo. |
 | **Classes**       | Membro, PlanoTreino, Treinador |
 
 **Fluxo Principal**
 
-1. O Treinador escolhe o Membro e consulta os Planos de Treino atribuídos.
-2. O sistema apresenta a lista de Planos de Treino com datas de validade.
+1. O Treinador escolhe o Membro e consulta os planos de treino atribuídos.
+2. O sistema apresenta a lista de planos de treino com datas de validade.
 3. O Treinador pode selecionar um plano para consultar os exercícios.
 
-**Pós-condições** — Lista de Planos de Treino disponível para consulta.
+**Pós-condições** — Lista de planos de treino disponível para consulta.
+
+---
+
+#### UC-05b — Editar Plano de Treino
+
+| Campo             | Valor                                                    |
+| ----------------- | -------------------------------------------------------- |
+| **Ator principal** | Treinador |
+| **Pré-condições** | Plano de treino existente no sistema. Treinador autenticado. |
+| **Descrição**     | Altera um plano de treino existente de um Membro. |
+| **Classes**       | PlanoTreino, Exercicio, Membro, Treinador |
+
+**Fluxo Principal**
+
+1. O Treinador seleciona o plano de treino a editar.
+2. O Treinador altera exercícios, séries, repetições, carga, descanso ou duração.
+3. O sistema valida e guarda as alterações, registando a data de atualização.
+
+**Fluxo Alternativo**
+
+Plano já atribuído a um Membro com sessão ativa: o sistema alerta que a alteração pode afetar sessões em curso.
+
+**Pós-condições** — Plano atualizado com sucesso e disponível na conta do Membro.
 
 ---
 
@@ -337,6 +437,25 @@ Credenciais inválidas: o sistema recusa o acesso e mostra mensagem de erro.
 Conta desativada: o sistema bloqueia o acesso e informa para contactar o administrador.
 
 **Pós-condições** — Sessão ativa no painel do Utilizador.
+
+---
+
+#### UC-07b — Terminar Sessão (Logout)
+
+| Campo             | Valor                                                   |
+| ----------------- | ------------------------------------------------------- |
+| **Ator principal** | Qualquer utilizador com sessão ativa. |
+| **Pré-condições** | Sessão ativa no sistema. |
+| **Descrição**     | O utilizador termina a sessão ativa. O sistema invalida o token e fecha a sessão. |
+| **Classes**       | Utilizador |
+
+**Fluxo Principal**
+
+1. O utilizador seleciona "Terminar sessão" no menu.
+2. O sistema invalida o token de sessão.
+3. O sistema redireciona para o ecrã de login.
+
+**Pós-condições** — Sessão terminada; token invalidado.
 
 ---
 
@@ -398,6 +517,10 @@ Esta secção apresenta a arquitetura estática do sistema: as classes que o com
 classDiagram
     direction BT
 
+    class Entidade {
+        +inativar() void
+    }
+
     class Utilizador {
         -String id
         -String nome
@@ -439,6 +562,7 @@ classDiagram
         +criar(nome, email, estado) Admin
     }
 
+    Utilizador --|> Entidade
     Membro --|> Utilizador
     Treinador --|> Utilizador
     Rececionista --|> Utilizador
@@ -580,6 +704,20 @@ classDiagram
         +gerar() String
     }
 
+    Inscricao --|> Entidade
+    PlanoTreino --|> Entidade
+    Sala --|> Entidade
+    AulaGrupo --|> Entidade
+    AulaSessao --|> Entidade
+    MetodoPagamento --|> Entidade
+    Reserva --|> Entidade
+    CheckIn --|> Entidade
+    SistemaControloAcesso --|> Entidade
+    Exercicio --|> Entidade
+    Mensalidade --|> Entidade
+    Fatura --|> Entidade
+    Pagamento --|> Entidade
+    Relatorio --|> Entidade
 
     Membro "1" --> "*" Inscricao : tem
     Membro "1" --> "*" PlanoTreino : tem
@@ -600,7 +738,7 @@ classDiagram
 
     Gestor "1" --> "*" Membro : gere
 
-Admin "1" --> "*" Membro : regista
+    Admin "1" --> "*" Membro : regista
 
     AulaGrupo "1" --> "*" AulaSessao : gera
     AulaSessao "1" --> "1" Sala : ocorreEm
