@@ -27,6 +27,8 @@
 
 ---
 
+<div class="page-break"></div>
+
 ## 1. Introdução
 
 Muitos ginásios, especialmente os mais pequenos, ainda funcionam com registos em papel: folhas de presença, envelopes com pagamentos, cadernos de avaliação. Isto dificulta o acompanhamento de cada membro e a gestão do dia-a-dia.
@@ -68,6 +70,8 @@ O sistema funciona no dia-a-dia do ginásio com diferentes perfis a trabalhar em
 
 ---
 
+<div class="page-break"></div>
+
 ## 3. Stakeholders e Utilizadores
 
 ### Atores Principais
@@ -98,6 +102,8 @@ O sistema funciona no dia-a-dia do ginásio com diferentes perfis a trabalhar em
 | **Serviços de Notificação** | SMS, email, WhatsApp para lembrar renovações, confirmar pagamentos e enviar alertas |
 
 ---
+
+<div class="page-break"></div>
 
 ## 4. Identificação e Descrição dos Requisitos
 
@@ -134,6 +140,8 @@ Os requisitos dividem-se em funcionais (o que o sistema faz) e não funcionais (
 
 ---
 
+<div class="page-break"></div>
+
 ### 4.2. Requisitos Não Funcionais (RNF)
 
 | ID       | Domínio           | Título                           | Descrição                                                                                                                                                                                       | Prioridade |
@@ -157,6 +165,8 @@ Os requisitos dividem-se em funcionais (o que o sistema faz) e não funcionais (
 | RNF-07a | Fiabilidade | Proteção de Dados | Dados protegidos contra perdas acidentais. Backups automáticos diários com verificação de integridade. | Alta |
 | RNF-07b | Fiabilidade | Restaurabilidade | Restaurabilidade total em até 8 horas a partir dos backups. Plano documentado e testado anualmente. | Alta |
 ---
+
+<div class="page-break"></div>
 
 ### 4.3. Casos de Uso
 
@@ -227,6 +237,8 @@ Membro já existente: o sistema bloqueia a gravação e propõe abrir o registo 
 
 ---
 
+<div class="page-break"></div>
+
 #### UC-01d — Inativar Registo de Membro
 
 | Campo             | Valor                                                |
@@ -246,6 +258,8 @@ Membro já existente: o sistema bloqueia a gravação e propõe abrir o registo 
 **Pós-condições** — Membro inativado; os dados mantêm-se acessíveis para consulta histórica mas impedem novas inscrições.
 
 ---
+
+<div class="page-break"></div>
 
 #### UC-02 — Efetuar Inscrição
 
@@ -284,6 +298,8 @@ Membro já existente: o sistema bloqueia a gravação e propõe abrir o registo 
 **Pós-condições** — Inscrição atualizada com sucesso.
 
 ---
+
+<div class="page-break"></div>
 
 #### UC-03 — Processar Pagamento de Mensalidade
 
@@ -346,6 +362,8 @@ Inscrição inativa ou mensalidade em atraso: o sistema bloqueia o acesso e enca
 
 ---
 
+<div class="page-break"></div>
+
 #### UC-05 — Criar Plano de Treino
 
 | Campo             | Valor                                                    |
@@ -365,6 +383,8 @@ Inscrição inativa ou mensalidade em atraso: o sistema bloqueia o acesso e enca
 
 ---
 
+<div class="page-break"></div>
+
 #### UC-06 — Acompanhar Planos de Treino
 
 | Campo             | Valor                                                      |
@@ -383,6 +403,8 @@ Inscrição inativa ou mensalidade em atraso: o sistema bloqueia o acesso e enca
 **Pós-condições** — Lista de planos de treino disponível para consulta.
 
 ---
+
+<div class="page-break"></div>
 
 #### UC-05b — Editar Plano de Treino
 
@@ -450,6 +472,8 @@ Conta desativada: o sistema bloqueia o acesso e informa para contactar o adminis
 
 ---
 
+<div class="page-break"></div>
+
 #### UC-08 — Reservar Aula de Grupo
 
 | Campo             | Valor                                             |
@@ -496,7 +520,7 @@ Sem transações no período: o sistema informa e não gera relatório.
 
 ---
 
-
+<div class="page-break"></div>
 
 ## 5. Etapa 2 — Modelação Estrutural
 
@@ -743,6 +767,8 @@ classDiagram
     Pagamento "1" --> "0..1" Fatura : gera
 ```
 
+<div class="page-break"></div>
+
 ### 5.2. Diagramas de Sequência
 
 #### 5.2.1. Sequência de UC-04 — Controlar Assiduidade (Check-in)
@@ -775,6 +801,8 @@ sequenceDiagram
         SistemaControloAcesso--xMembro: Acesso negado — mensalidade em atraso
     end
 ```
+
+<div class="page-break"></div>
 
 #### 5.2.2. Sequência de UC-03 — Processar Pagamento de Mensalidade
 
@@ -817,6 +845,8 @@ sequenceDiagram
         end
     end
 ```
+
+<div class="page-break"></div>
 
 ### 5.3. Diagrama de Atividades (UC-04)
 

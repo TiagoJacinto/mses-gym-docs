@@ -1,0 +1,28 @@
+@media print {
+	.page-break {
+		display: block !important;
+		height: 0;
+		margin: 0;
+		padding: 0;
+	}
+
+	.page-break::after {
+		content: "";
+		display: block;
+		page-break-after: always;
+		break-after: page;
+	}
+
+	.cover {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		min-height: 100vh;
+		text-align: center;
+	}
+}
+
+.page-break {
+	display: none;
+}

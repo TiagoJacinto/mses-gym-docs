@@ -4,6 +4,6 @@
 		"module": "CommonJS",
 		"moduleResolution": "node",
 		"skipLibCheck": true,
-		"types": ["@playwright/test"]
+		"types": ["@playwright/test", "node"]
 	}
 }
