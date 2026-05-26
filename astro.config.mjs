@@ -2,6 +2,8 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import vercel from "@astrojs/vercel";
 import { defineConfig } from "astro/config";
+import mermaid from "astro-mermaid";
+import plantuml from "astro-plantuml";
 
 const markdownFiles = [
 	"public/Trabalho-MSES.md",
@@ -9,7 +11,19 @@ const markdownFiles = [
 ];
 
 export default defineConfig({
-	integrations: [mdx(), react()],
+	integrations: [
+		mdx(),
+		react(),
+		mermaid({
+			theme: "base",
+			autoTheme: true,
+			enableLog: true,
+			mermaidConfig: {
+				flowchart: { curve: "basis" },
+			},
+		}),
+		plantuml(),
+	],
 	output: "static",
 	adapter: vercel(),
 	markdown: {
