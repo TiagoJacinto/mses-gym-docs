@@ -1,4 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import type { Components } from "react-markdown";
 
 interface MarkdownRendererProps {
 	content: string;
@@ -9,168 +12,6 @@ interface HeadingItem {
 	id: string;
 	text: string;
 	level: number;
-}
-
-function escapeHtml(text: string): string {
-	return text
-		.replace(/&/g, "&amp;")
-		.replace(/</g, "&lt;")
-		.replace(/>/g, "&gt;");
-}
-
-function parseMarkdown(md: string): {
-	html: string;
-	mermaidCount: number;
-	plantumlCount: number;
-} {
-	let html = md;
-	let mermaidCount = 0;
-	let plantumlCount = 0;
-
-	html = html.replace(/```mermaid\n([\s\S]*?)```/g, (_, code) => {
-		mermaidCount++;
-		return `<div class="mermaid">${escapeHtml(code.trim())}</div>`;
-	});
-
-	html = html.replace(/```plantuml\n([\s\S]*?)```/g, (_, code) => {
-		const idx = plantumlCount;
-		plantumlCount++;
-		return `<div class="plantuml" data-plantuml-index="${idx}"></div>`;
-	});
-
-	html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
-	html = html.replace(/^#### (.+)$/gm, '<h4 id="$1">$1</h4>');
-	html = html.replace(/^### (.+)$/gm, '<h3 id="$1">$1</h3>');
-	html = html.replace(/^## (.+)$/gm, '<h2 id="$1">$1</h2>');
-	html = html.replace(/^# (.+)$/gm, "<h1>$1</h1>");
-	html = html.replace(/^---$/gm, "<hr>");
-	html = html.replace(/\*\*\*(.+?)\*\*\*/g, "<strong><em>$1</em></strong>");
-	html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-	html = html.replace(/\*(.+?)\*/g, "<em>$1</em>");
-	html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
-
-	const lines = html.split("\n");
-	const resultLines: string[] = [];
-	let lineIndex = 0;
-
-	while (lineIndex < lines.length) {
-		const line = lines[lineIndex];
-
-		if (line.match(/^\|.*\|$/)) {
-			const tableLines: string[] = [];
-
-			while (lineIndex < lines.length && lines[lineIndex].match(/^\|.*\|$/)) {
-				tableLines.push(lines[lineIndex]);
-				lineIndex++;
-			}
-
-			if (tableLines.length > 0) {
-				const rows: string[] = [];
-				let headerProcessed = false;
-
-				for (const tableLine of tableLines) {
-					const cells = tableLine
-						.split("|")
-						.map((c) => c.trim())
-						.filter((c) => c.length > 0 && !c.match(/^-+$/));
-					if (cells.length === 0) continue;
-
-					const tag = headerProcessed ? "td" : "th";
-					const rowHtml =
-						"<tr>" +
-						cells
-							.map(
-								(c) => `<${tag} style="border: 1px solid #333;">${c}</${tag}>`,
-							)
-							.join("") +
-						"</tr>";
-					rows.push(rowHtml);
-					headerProcessed = true;
-				}
-
-				if (rows.length > 0) {
-					resultLines.push(
-						'<table style="border-collapse: collapse;"><tbody>' +
-							rows.join("") +
-							"</tbody></table>",
-					);
-				}
-			}
-		} else {
-			resultLines.push(line);
-			lineIndex++;
-		}
-	}
-
-	html = resultLines.join("\n");
-
-	// Wrap requirements sections in <section> elements (only when 1 h3 + 1 table)
-	const requirementHeadings = [
-		"Requisitos Funcionais",
-		"Requisitos Não Funcionais",
-	];
-	for (const heading of requirementHeadings) {
-		const escapedHeading = heading.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-		// Match h3 followed by content until the next h2/h3 or hr, then a single table
-		const pattern = new RegExp(
-			`(<h3[^>]*>[^<]*${escapedHeading}[^<]*<\\/h3>)(\\s*)(<table[\\s\\S]*?<\\/table>)(\\s*)(?=<h[23]|<hr\\s*\\/?>)`,
-			"i",
-		);
-		html = html.replace(
-			pattern,
-			`<section class="requirement-section">$1$2$3$4</section>`,
-		);
-	}
-
-	const allLines = html.split("\n");
-	const result: string[] = [];
-	let inBlock = false;
-	const blockTags = [
-		"<pre>",
-		"<table>",
-		"<ul>",
-		"<ol>",
-		"<h",
-		"<hr",
-		"<div",
-		"<section",
-	];
-
-	for (let i = 0; i < allLines.length; i++) {
-		const line = allLines[i];
-		const trimmed = line.trim();
-
-		if (!trimmed) {
-			result.push("");
-			inBlock = false;
-			continue;
-		}
-
-		const isBlockStart = blockTags.some((t) => trimmed.startsWith(t));
-		const isBlockEnd = trimmed.startsWith("</");
-
-		if (isBlockStart || inBlock) {
-			inBlock = true;
-			result.push(line);
-			if (
-				isBlockEnd &&
-				!trimmed.startsWith("<div") &&
-				!trimmed.startsWith("<section")
-			)
-				inBlock = false;
-			continue;
-		}
-
-		if (
-			trimmed.match(/^<(h[1-4]|p|table|ul|ol|li|blockquote|pre|div|hr|section)/)
-		) {
-			result.push(line);
-		} else if (trimmed) {
-			result.push(`<p>${line}</p>`);
-		}
-	}
-
-	return { html: result.join("\n"), mermaidCount, plantumlCount };
 }
 
 type DiagramElement = SVGSVGElement | HTMLImageElement;
@@ -240,21 +81,34 @@ function FullscreenDialog({
 	);
 }
 
+// Custom components for react-markdown
+function slugify(text: string): string {
+	return text
+		.toLowerCase()
+		.replace(/\s+/g, "-")
+		.replace(/[^\w-]/g, "")
+		.replace(/--+/g, "-")
+		.trim();
+}
+
 export default function MarkdownRenderer({
 	content,
 	plantumlSvgPaths,
 }: MarkdownRendererProps) {
-	const [parsedHtml, setParsedHtml] = useState("");
 	const [tocItems, setTocItems] = useState<HeadingItem[]>([]);
 	const [fullscreenEl, setFullscreenEl] = useState<
 		SVGSVGElement | HTMLImageElement | null
 	>(null);
 	const contentRef = useRef<HTMLDivElement>(null);
 
-	useEffect(() => {
-		const { html } = parseMarkdown(content);
-		setParsedHtml(html);
-	}, [content]);
+	// Pre-process: replace plantuml blocks with placeholder divs
+	const processedContent = content.replace(
+		/```plantuml\n([\s\S]*?)\n```/g,
+		(_, code) => {
+			const idx = plantumlSvgPaths.findIndex((_, i) => true); // placeholder
+			return `<div class="plantuml" data-plantuml-raw="${Buffer.from(code.trim()).toString("base64")}"></div>`;
+		},
+	);
 
 	useEffect(() => {
 		if (!contentRef.current) return;
@@ -273,6 +127,7 @@ export default function MarkdownRenderer({
 		});
 
 		setTocItems(items);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	useEffect(() => {
@@ -338,16 +193,12 @@ export default function MarkdownRenderer({
 					}
 				} catch (error) {
 					const err = error as Error;
-					node.innerHTML = `<pre>${escapeHtml(err?.message || String(error))}</pre>`;
+					node.innerHTML = `<pre>${err?.message || String(error)}</pre>`;
 				}
 			}
 
 			const plantumlNodes = contentRef.current!.querySelectorAll(".plantuml");
-			plantumlNodes.forEach((node) => {
-				const idx = parseInt(
-					node.getAttribute("data-plantuml-index") || "0",
-					10,
-				);
+			plantumlNodes.forEach((node, idx) => {
 				const svgPath = plantumlSvgPaths[idx];
 				if (!svgPath) return;
 
@@ -401,6 +252,24 @@ export default function MarkdownRenderer({
 		initDiagrams();
 	}, [plantumlSvgPaths]);
 
+	const components: Components = {
+		h2({ children }) {
+			const id = slugify(String(children));
+			return <h2 id={id}>{children}</h2>;
+		},
+		h3({ children }) {
+			const id = slugify(String(children));
+			return <h3 id={id}>{children}</h3>;
+		},
+		h4({ children }) {
+			const id = slugify(String(children));
+			return <h4 id={id}>{children}</h4>;
+		},
+		table({ children }) {
+			return <table>{children}</table>;
+		},
+	};
+
 	return (
 		<>
 			<details id="table-of-contents" open>
@@ -414,11 +283,14 @@ export default function MarkdownRenderer({
 				</ul>
 			</details>
 
-			<article
-				ref={contentRef}
-				id="content"
-				dangerouslySetInnerHTML={{ __html: parsedHtml }}
-			/>
+			<article ref={contentRef} id="content" className="markdown-body">
+				<ReactMarkdown
+					remarkPlugins={[remarkGfm]}
+					components={components}
+				>
+					{processedContent}
+				</ReactMarkdown>
+			</article>
 
 			{fullscreenEl && (
 				<FullscreenDialog

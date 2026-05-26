@@ -1,0 +1,252 @@
+/* ============================================
+   Default Style - Markdown to PDF Converter
+   Generated from Styles Dialog
+   ============================================ */
+
+/* === TEXT TAB === */
+.markdown-body {
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: left;
+}
+
+/* === HEADINGS TAB === */
+/* H1 */
+.markdown-body h1,
+.markdown-body h1:first-of-type {
+  font-size: 2em;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 1.5em;
+  page-break-after: avoid;
+}
+
+/* H2 */
+.markdown-body h2 {
+  font-size: 1.25em;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 1em;
+  page-break-after: auto;
+}
+
+/* H3 */
+.markdown-body h3 {
+  font-size: 1em;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 0.875em;
+  page-break-after: auto;
+}
+
+/* H4 */
+.markdown-body h4 {
+  font-size: 0.85em;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 0.85em;
+  page-break-after: auto;
+}
+
+/* === CODE TAB === */
+.markdown-body code,
+.markdown-body pre {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95em;
+}
+
+.markdown-body pre {
+  padding: 1em;
+  overflow-x: auto;
+}
+
+/* === ELEMENTS TAB === */
+/* Unordered List */
+.markdown-body ul {
+  list-style-type: disc;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 1.5em;
+}
+
+/* Ordered List */
+.markdown-body ol {
+  list-style-type: decimal;
+}
+
+/* Table Styles */
+.markdown-body table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+  border: 4px solid #333;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 0.5em 1em;
+  border: 4px solid #333;
+}
+
+/* Table Style Variants (apply one class) */
+.markdown-body table.normal { border-collapse: collapse; }
+.markdown-body table.minimal { border-collapse: collapse; border-width: 1px; }
+.markdown-body table.striped tr:nth-child(even) { background-color: #f6f8fa; }
+.markdown-body table.bordered { border: 2px solid #333; }
+.markdown-body table.compact { border-collapse: collapse; font-size: 0.9em; }
+
+/* Table Border Styles (apply one class) */
+.markdown-body table.solid { border-style: solid; }
+.markdown-body table.dashed { border-style: dashed; }
+.markdown-body table.dotted { border-style: dotted; }
+.markdown-body table.double { border-style: double; }
+.markdown-body table.thick { border-width: 4px; border-style: solid; }
+.markdown-body table.gradient { border-style: solid; }
+
+/* Word Wrap */
+.markdown-body table,
+.markdown-body pre {
+  word-wrap: normal;
+  overflow-wrap: normal;
+}
+
+/* === PAGE / PDF TAB === */
+@page {
+  size: 8.5in 11in;
+  margin: 0.75in;
+}
+
+/* === HEADINGS TAB === */
+/* H1 */
+article#content h1,
+article#content h1:first-of-type {
+	font-size: 2em;
+	font-weight: 700;
+	text-align: left;
+	margin-bottom: 1.5em;
+	page-break-after: avoid;
+}
+
+/* H2 */
+article#content h2 {
+	font-size: 1.25em;
+	font-weight: 600;
+	text-align: left;
+	margin-bottom: 1em;
+	page-break-after: auto;
+}
+
+/* H3 */
+article#content h3 {
+	font-size: 1em;
+	font-weight: 600;
+	text-align: left;
+	margin-bottom: 0.875em;
+	page-break-after: auto;
+}
+
+/* H4 */
+article#content h4 {
+	font-size: 0.85em;
+	font-weight: 600;
+	text-align: left;
+	margin-bottom: 0.85em;
+	page-break-after: auto;
+}
+
+/* === CODE TAB === */
+article#content code,
+article#content pre {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 0.95em;
+}
+
+article#content pre {
+	padding: 1em;
+	overflow-x: auto;
+}
+
+/* === ELEMENTS TAB === */
+/* Unordered List */
+article#content ul {
+	list-style-type: disc;
+}
+
+article#content ul,
+article#content ol {
+	padding-left: 1.5em;
+}
+
+/* Ordered List */
+article#content ol {
+	list-style-type: decimal;
+}
+
+/* Table Styles */
+article#content table {
+	border-collapse: collapse !important;
+	width: 100%;
+	margin: 1em 0;
+	border: 4px solid #333;
+}
+
+article#content table th,
+article#content table td {
+	padding: 0.5em 1em;
+	border: 4px solid #333 !important;
+}
+
+/* Table Style Variants (apply one class) */
+article#content table.normal {
+	border-collapse: collapse;
+}
+article#content table.minimal {
+	border-collapse: collapse;
+	border-width: 1px;
+}
+article#content table.striped tr:nth-child(even) {
+	background-color: #f6f8fa;
+}
+article#content table.bordered {
+	border: 2px solid #333;
+}
+article#content table.compact {
+	border-collapse: collapse;
+	font-size: 0.9em;
+}
+
+/* Table Border Styles (apply one class) */
+article#content table.solid {
+	border-style: solid;
+}
+article#content table.dashed {
+	border-style: dashed;
+}
+article#content table.dotted {
+	border-style: dotted;
+}
+article#content table.double {
+	border-style: double;
+}
+article#content table.thick {
+	border-width: 4px;
+	border-style: solid;
+}
+article#content table.gradient {
+	border-style: solid;
+}
+
+/* Word Wrap */
+article#content table,
+article#content pre {
+	word-wrap: normal;
+	overflow-wrap: normal;
+}
+
+/* === PAGE / PDF TAB === */
+@page {
+	size: 8.5in 11in;
+	margin: 0.75in;
+}

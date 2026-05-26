@@ -6,6 +6,7 @@ import path from "node:path";
 import https from "node:https";
 import http from "node:http";
 import MarkdownRenderer from "../components/MarkdownRenderer";
+import "./styles.css";
 
 const PLANTUML_JAR = "/tmp/plantuml.jar";
 
@@ -131,31 +132,35 @@ for (let i = 0; i < plantumlBlocks.length; i++) {
     }
 
     h1 {
-      font-size: 2rem;
-      font-weight: 800;
-      margin: 0 0 0.5rem;
-      letter-spacing: -0.03em;
+      font-size: 2em;
+      font-weight: 700;
+      text-align: left;
+      margin-bottom: 1.5em;
+      page-break-after: avoid;
     }
 
     h2 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin: 2.5rem 0 1rem;
-      letter-spacing: -0.02em;
+      font-size: 1.25em;
+      font-weight: 600;
+      text-align: left;
+      margin-bottom: 1em;
+      margin-top: 2.5rem;
       border-bottom: 1px solid var(--border);
       padding-bottom: 0.5rem;
+      page-break-after: auto;
     }
 
     h3 {
-      font-size: 1.1rem;
+      font-size: 1em;
       font-weight: 600;
-      margin: 2rem 0 0.75rem;
+      margin-bottom: 0.875em;
+      margin-top: 2rem;
     }
 
     h4 {
-      font-size: 1rem;
+      font-size: 0.85em;
       font-weight: 600;
-      margin: 1.5rem 0 0.5rem;
+      margin-bottom: 0.85em;
     }
 
     p { margin: 0 0 1rem; }
