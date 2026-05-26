@@ -173,14 +173,14 @@ Os casos de uso descrevem interações típicas entre os atores e o sistema, o s
 | **Descrição**     | Cria um novo registo de membro no sistema.           |
 | **Classes**       | Membro, Admin, Utilizador                            |
 
-**Fluxo Principal**
+##### Fluxo Principal
 
 1. O Admin abre o módulo de gestão de membros.
 2. O Admin inicia a criação de um novo registo.
 3. O Admin preenche os dados biográficos do novo Membro.
 4. O sistema valida os dados e guarda o registo.
 
-**Fluxo Alternativo**
+##### Fluxo Alternativo
 
 Membro já existente: o sistema bloqueia a gravação e propõe abrir o registo existente.
 
@@ -197,7 +197,7 @@ Membro já existente: o sistema bloqueia a gravação e propõe abrir o registo 
 | **Descrição**     | Consulta os dados de um membro registado.             |
 | **Classes**       | Membro, Admin                                        |
 
-**Fluxo Principal**
+##### Fluxo Principal
 
 1. O Admin abre o módulo de gestão de membros.
 2. O Admin pesquisa o membro por nome, número ou outro critério.
@@ -216,7 +216,7 @@ Membro já existente: o sistema bloqueia a gravação e propõe abrir o registo 
 | **Descrição**     | Atualiza os dados biográficos de um membro.           |
 | **Classes**       | Membro, Admin                                        |
 
-**Fluxo Principal**
+##### Fluxo Principal
 
 1. O Admin abre o módulo de gestão de membros.
 2. O Admin pesquisa e seleciona o membro a editar.
@@ -236,7 +236,7 @@ Membro já existente: o sistema bloqueia a gravação e propõe abrir o registo 
 | **Descrição**     | Inativa um membro, impedindo novas inscrições.         |
 | **Classes**       | Membro, Admin                                        |
 
-**Fluxo Principal**
+##### Fluxo Principal
 
 1. O Admin abre o módulo de gestão de membros.
 2. O Admin pesquisa e seleciona o membro a inativar.
@@ -256,7 +256,7 @@ Membro já existente: o sistema bloqueia a gravação e propõe abrir o registo 
 | **Descrição**     | Regista o Membro para utilização do ginásio. |
 | **Classes**       | Inscricao, Membro, Admin |
 
-**Fluxo Principal**
+##### Fluxo Principal
 
 1. Selecionar o Membro.
 2. Definir a data de início e período de validade.
@@ -275,7 +275,7 @@ Membro já existente: o sistema bloqueia a gravação e propõe abrir o registo 
 | **Descrição**     | Altera dados de uma inscrição ativa — período de validade ou plano associated. |
 | **Classes**       | Inscricao, Membro, Admin |
 
-**Fluxo Principal**
+##### Fluxo Principal
 
 1. O Admin pesquisa e seleciona a inscrição a editar.
 2. O Admin altera o período de validade ou o plano associated.
@@ -295,14 +295,14 @@ Membro já existente: o sistema bloqueia a gravação e propõe abrir o registo 
 | **Descrição** | O Membro paga uma mensalidade pendente, via app (self-service) ou presencialmente no balcão. |
 | **Classes**       | Mensalidade, Pagamento, Fatura, Membro, Rececionista                                           |
 
-**Fluxo Principal (Self-Service via App)**
+##### Fluxo Principal (Self-Service via App)
 
 1. O Membro abre a aplicação e consulta as mensalidades pendentes.
 2. Escolhe o método de pagamento (cartão registado, transferência, etc.).
 3. Confirma o pagamento.
 4. O sistema regista a transação via gateway e a mensalidade passa para "Liquidado".
 
-**Fluxo Alternativo (Presencial com Rececionista)**
+##### Fluxo Alternativo (Presencial com Rececionista)
 
 1. O Membro dirige-se ao balcão.
 2. A Rececionista identifica as mensalidades pendentes no sistema (opcional, o Membro também pode indicar).
@@ -310,7 +310,7 @@ Membro já existente: o sistema bloqueia a gravação e propõe abrir o registo 
 4. A Rececionista confirma o pagamento no sistema.
 5. A mensalidade passa para "Liquidado".
 
-**Fluxo de Exceção**
+##### Fluxo de Exceção
 
 Se o pagamento falhar, o sistema avisa o Membro (via app ou Rececionista) e a mensalidade mantém-se "Pendente". Não há criação de fatura.
 
@@ -327,18 +327,18 @@ Se o pagamento falhar, o sistema avisa o Membro (via app ou Rececionista) e a me
 | **Descrição**     | Regista a presença do Membro via quiosque, web ou receção. |
 | **Classes**       | Membro, Inscricao, Mensalidade, CheckIn, SistemaControloAcesso, Rececionista |
 
-**Fluxo Principal (Self-Service)**
+##### Fluxo Principal (Self-Service)
 
 1. O Membro passa o código ou cartão no terminal.
 2. O sistema confirma a inscrição ativa e regista a hora de entrada.
 
-**Fluxo Alternativo (Assistido)**
+##### Fluxo Alternativo (Assistido)
 
 Quando alguém se dirige à receção:
 1. A Rececionista valida a inscrição no sistema.
 2. O sistema regista a hora de entrada.
 
-**Fluxo de Exceção**
+##### Fluxo de Exceção
 
 Inscrição inativa ou mensalidade em atraso: o sistema bloqueia o acesso e encaminha para regularizar.
 
@@ -355,7 +355,7 @@ Inscrição inativa ou mensalidade em atraso: o sistema bloqueia o acesso e enca
 | **Descrição**     | Cria um plano de treino e atribui-o a um Membro. |
 | **Classes**       | PlanoTreino, Exercicio, Membro, Treinador |
 
-**Fluxo Principal**
+##### Fluxo Principal
 
 1. O Treinador seleciona exercícios e define parâmetros de treino.
 2. Associa o Plano de Treino ao Membro com data de validade.
@@ -374,7 +374,7 @@ Inscrição inativa ou mensalidade em atraso: o sistema bloqueia o acesso e enca
 | **Descrição**     | Ver os planos de treino atribuídos a um Membro ao longo do tempo. |
 | **Classes**       | Membro, PlanoTreino, Treinador |
 
-**Fluxo Principal**
+##### Fluxo Principal
 
 1. O Treinador escolhe o Membro e consulta os planos de treino atribuídos.
 2. O sistema apresenta a lista de planos de treino com datas de validade.
@@ -393,13 +393,13 @@ Inscrição inativa ou mensalidade em atraso: o sistema bloqueia o acesso e enca
 | **Descrição**     | Altera um plano de treino existente de um Membro. |
 | **Classes**       | PlanoTreino, Exercicio, Membro, Treinador |
 
-**Fluxo Principal**
+##### Fluxo Principal
 
 1. O Treinador seleciona o plano de treino a editar.
 2. O Treinador altera exercícios, séries, repetições, carga, descanso ou duração.
 3. O sistema valida e guarda as alterações, registando a data de atualização.
 
-**Fluxo Alternativo**
+##### Fluxo Alternativo
 
 Plano já atribuído a um Membro com sessão ativa: o sistema alerta que a alteração pode afetar sessões em curso.
 
@@ -416,13 +416,13 @@ Plano já atribuído a um Membro com sessão ativa: o sistema alerta que a alter
 | **Descrição**     | O utilizador introduz credenciais; o sistema valida e cria uma sessão com as permissões adequadas ao seu tipo de Utilizador. |
 | **Classes**       | Utilizador |
 
-**Fluxo Principal**
+##### Fluxo Principal
 
 1. O utilizador escreve identificador e password.
 2. Se as credenciais forem válidas e a conta ativa, o sistema cria a sessão.
 3. O utilizador vê as funcionalidades disponíveis para o seu tipo de conta.
 
-**Fluxo Alternativo**
+##### Fluxo Alternativo
 
 Credenciais inválidas: o sistema recusa o acesso e mostra mensagem de erro.
 Conta desativada: o sistema bloqueia o acesso e informa para contactar o administrador.
@@ -440,7 +440,7 @@ Conta desativada: o sistema bloqueia o acesso e informa para contactar o adminis
 | **Descrição**     | O utilizador termina a sessão ativa. O sistema invalida o token e fecha a sessão. |
 | **Classes**       | Utilizador |
 
-**Fluxo Principal**
+##### Fluxo Principal
 
 1. O utilizador seleciona "Terminar sessão" no menu.
 2. O sistema invalida o token de sessão.
@@ -458,14 +458,14 @@ Conta desativada: o sistema bloqueia o acesso e informa para contactar o adminis
 | **Descrição**     | O Membro marca presença numa aula com lugares limitados. |
 | **Classes**       | Reserva, AulaSessao, Membro |
 
-**Fluxo Principal**
+##### Fluxo Principal
 
 1. O Membro escolhe a sessão no calendário.
 2. O sistema verifica se há vagas.
 3. Reserva confirmada e lotação atualizada.
 4. Cancelamento sem penalização: até 24 horas antes. Após, a vaga é perdida.
 
-**Fluxo Alternativo**
+##### Fluxo Alternativo
 
 Aula cheia: o sistema avisa que não há vagas disponíveis.
 
@@ -482,13 +482,13 @@ Aula cheia: o sistema avisa que não há vagas disponíveis.
 | **Descrição**     | O Gestor extrai e consolida dados financeiros. |
 | **Classes**       | Relatorio, Mensalidade, Pagamento, Fatura, Gestor |
 
-**Fluxo Principal**
+##### Fluxo Principal
 
 1. O Gestor escolhe o período temporal.
 2. O sistema calcula receitas e valores em dívida.
 3. O sistema gera o relatório consolidado.
 
-**Fluxo Alternativo**
+##### Fluxo Alternativo
 
 Sem transações no período: o sistema informa e não gera relatório.
 
