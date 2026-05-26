@@ -29,9 +29,7 @@ test.describe("Table Bug", () => {
 		await expect(ator.first()).toBeVisible({ timeout: 10000 });
 	});
 
-	test("domain table Domínio header should be visible", async ({
-		page,
-	}) => {
+	test("domain table Domínio header should be visible", async ({ page }) => {
 		await page.goto("/");
 		// RNF table has "Domínio" column
 		const dominio = page.locator(Selectors.tableHeader).filter({

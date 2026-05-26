@@ -24,15 +24,15 @@ test.describe("Table Rendering", () => {
 			.filter({ hasText: /Ator/ })
 			.first();
 		await expect(atorTable).toBeVisible({ timeout: 15000 });
-		await expect(atorTable.locator(Selectors.tableHeader).first()).toContainText("Ator");
+		await expect(
+			atorTable.locator(Selectors.tableHeader).first(),
+		).toContainText("Ator");
 	});
 
 	test("functional requirements table should contain RF-01", async ({
 		page,
 	}) => {
-		const rfTable = page
-			.locator(Selectors.table)
-			.filter({ hasText: /RF-01/ });
+		const rfTable = page.locator(Selectors.table).filter({ hasText: /RF-01/ });
 		await expect(rfTable).toBeVisible({ timeout: 15000 });
 
 		const content = await rfTable.textContent();
@@ -42,7 +42,9 @@ test.describe("Table Rendering", () => {
 	test("non-functional requirements table should contain RNF-01", async ({
 		page,
 	}) => {
-		const rnfTable = page.locator(Selectors.table).filter({ hasText: /RNF-01/ });
+		const rnfTable = page
+			.locator(Selectors.table)
+			.filter({ hasText: /RNF-01/ });
 		await expect(rnfTable).toBeVisible({ timeout: 15000 });
 
 		const content = await rnfTable.textContent();
@@ -121,7 +123,9 @@ test.describe("Document Structure", () => {
 		page,
 	}) => {
 		const rfSection = page.locator(Selectors.section).filter({
-			has: page.locator(Selectors.h3).filter({ hasText: /Requisitos Funcionais/ }),
+			has: page
+				.locator(Selectors.h3)
+				.filter({ hasText: /Requisitos Funcionais/ }),
 		});
 		await expect(rfSection).toBeVisible();
 		await expect(rfSection.locator(Selectors.table)).toBeVisible();
