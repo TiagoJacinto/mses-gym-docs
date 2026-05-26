@@ -1,9 +1,53 @@
 ---
 
-import { execSync } from "node:child_process";
+import { execSync, execFileSync } from "node:child_process";
 import fs, { existsSync, mkdirSync } from "node:fs";
 import path from "node:path";
+import https from "node:https";
+import http from "node:http";
 import MarkdownRenderer from "../components/MarkdownRenderer";
+
+const PLANTUML_JAR = "/tmp/plantuml.jar";
+
+async function downloadFile(url, dest) {
+	return new Promise((resolve, reject) => {
+		const file = fs.createWriteStream(dest);
+		const protocol = url.startsWith("https") ? https : http;
+		const req = protocol.get(url, (res) => {
+			if (res.statusCode === 302 || res.statusCode === 301) {
+				file.close();
+				downloadFile(res.headers.location, dest).then(resolve).catch(reject);
+				return;
+			}
+			if (res.statusCode !== 200) { file.close(); reject(new Error(`HTTP ${res.statusCode}`)); return; }
+			res.pipe(file);
+			file.on("finish", () => { file.close(); resolve(); });
+		});
+		req.on("error", (e) => { file.close(); reject(e); });
+		req.setTimeout(30000, () => { req.destroy(); file.close(); reject(new Error("timeout")); });
+	});
+}
+
+async function ensurePlantUML() {
+	if (existsSync(PLANTUML_JAR)) return;
+	try { execSync("plantuml -version", { stdio: "pipe" }); return; } catch {}
+	const version = process.env.PLANTUML_VERSION ?? "1.2024.2";
+	const jarName = `plantuml-${version}.jar`;
+	const url = `https://github.com/plantuml/plantuml/releases/download/v${version}/${jarName}`;
+	console.log(`Downloading PlantUML ${version}...`);
+	await downloadFile(url, PLANTUML_JAR);
+	console.log(`PlantUML JAR saved to ${PLANTUML_JAR}`);
+}
+
+function runPlantUML(pumlFile: string, outputDir: string) {
+	try {
+		execFileSync("java", ["-jar", PLANTUML_JAR, "-tsvg", "-o", outputDir, pumlFile], { stdio: "pipe" });
+	} catch {
+		try {
+			execSync(`plantuml -tsvg -o "${outputDir}" "${pumlFile}"`, { stdio: "pipe" });
+		} catch (e) { throw e; }
+	}
+}
 
 const filePath = path.join(process.cwd(), "public/Trabalho-MSES.md");
 const content = fs.readFileSync(filePath, "utf-8");
@@ -19,14 +63,13 @@ while ((match = regex.exec(content)) !== null) {
 	plantumlBlocks.push(match[1].trim());
 }
 
+await ensurePlantUML();
+
 for (let i = 0; i < plantumlBlocks.length; i++) {
 	const pumlFile = `/tmp/diagram_${i}.puml`;
-	const svgFile = path.join(diagramsDir, `diagram_${i}.svg`);
 	fs.writeFileSync(pumlFile, plantumlBlocks[i]);
 	try {
-		execSync(`plantuml -tsvg -o "${diagramsDir}" "${pumlFile}" 2>/dev/null`, {
-			stdio: "pipe",
-		});
+		runPlantUML(pumlFile, diagramsDir);
 		const generated = path.join(diagramsDir, `diagram_${i}.svg`);
 		if (existsSync(generated) && fs.statSync(generated).size > 100) {
 			plantumlSvgPaths.push(`/diagrams/diagram_${i}.svg`);
