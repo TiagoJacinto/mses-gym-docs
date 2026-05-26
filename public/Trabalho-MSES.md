@@ -1,38 +1,29 @@
-# Sistema de Gestão para Ginásio
-
-## Modelação de Sistemas e Engenharia de Software
-
-**Derlan Nascimento** | nº mec. 129942
-**Micael Oliveira** | nº mec. 131700
-**Rodrigo Fonseca** | nº mec. 131619
-**Tiago Jacinto** | nº mec. 131339
-
-_Programação de Sistema de Informação — Universidade de Aveiro_
-
-Orientador: Professor José Martins
-
-Águeda, 25 de março de 2026
-
----
+<nav id="table-of-contents">
 
 ## Índice
 
-1. Introdução
-2. Etapa 1 — Análise de Requisitos
-   2.1. Descrição do Problema
-   2.1.1. Descrição do Sistema
-   2.1.2. Objetivo do Software
-   2.1.3. Contexto de Utilização
-   2.1.4. Principais Funcionalidades Esperadas
-3. Stakeholders e Utilizadores
-4. Identificação e Descrição dos Requisitos
-   4.1. Requisitos Funcionais (RF)
-   4.2. Requisitos Não Funcionais (RNF)
-   4.3. Casos de Uso (UC-01a a UC-09, UC-01b a UC-07b)
-5. Etapa 2 — Modelação Estrutural
-   5.1. Diagrama de Classes
-   5.2. Diagramas de Sequência
-   5.3. Diagrama de Atividades
+1. [Introdução](#1-introdução)
+2. [Etapa 1 — Análise de Requisitos](#2-etapa-1--análise-de-requisitos)
+   - [Descrição do Problema](#21-descrição-do-problema)
+     - [Descrição do Sistema](#211-descrição-do-sistema)
+     - [Objetivo do Software](#212-objetivo-do-software)
+     - [Contexto de Utilização](#213-contexto-de-utilização)
+     - [Principais Funcionalidades Esperadas](#214-principais-funcionalidades-esperadas)
+3. [Stakeholders e Utilizadores](#3-stakeholders-e-utilizadores)
+   - [Atores Principais](#atores-principais)
+   - [Atores Secundários](#atores-secund%C3%A1rios)
+   - [Administradores](#administradores)
+   - [Sistemas Externos](#sistemas-externos)
+4. [Identificação e Descrição dos Requisitos](#4-identifica%C3%A7%C3%A3o-e-descri%C3%A7%C3%A3o-dos-requisitos)
+   - [Requisitos Funcionais (RF)](#41-requisitos-funcionais-rf)
+   - [Requisitos Não Funcionais (RNF)](#42-requisitos-n%C3%A3o-funcionais-rnf)
+5. [Casos de Uso](#43-casos-de-uso)
+6. [Etapa 2 — Modelação Estrutural](#5-etapa-2--modela%C3%A7%C3%A3o-estrutural)
+   - [Diagrama de Classes](#51-diagrama-de-classes)
+   - [Diagramas de Sequência](#52-diagramas-de-sequência)
+   - [Diagrama de Atividades](#53-diagrama-de-atividades)
+
+</nav>
 
 ---
 
