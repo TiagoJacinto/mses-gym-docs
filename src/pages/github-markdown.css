@@ -355,6 +355,7 @@
 	max-width: 100%;
 	overflow: auto;
 	font-variant: tabular-nums;
+	margin: 1.5em 0;
 }
 
 .markdown-body td,
@@ -430,7 +431,7 @@
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-	margin-top: var(--base-size-24);
+	margin-top: 2rem;
 	margin-bottom: var(--base-size-16);
 	font-weight: var(--base-text-weight-semibold, 600);
 	line-height: 1.25;
@@ -441,21 +442,25 @@
 	padding-bottom: 0.3em;
 	font-size: 1.5em;
 	border-bottom: 1px solid var(--borderColor-muted);
+	margin-bottom: 1.5rem;
 }
 
 .markdown-body h3 {
 	font-weight: var(--base-text-weight-semibold, 600);
 	font-size: 1.25em;
+	margin-bottom: 1.5rem;
 }
 
 .markdown-body h4 {
 	font-weight: var(--base-text-weight-semibold, 600);
-	font-size: 1em;
+	font-size: 1.1em;
+	margin-bottom: 1.5rem;
 }
 
 .markdown-body h5 {
 	font-weight: var(--base-text-weight-semibold, 600);
-	font-size: 0.875em;
+	font-size: 1em;
+	line-height: 1.5;
 }
 
 .markdown-body h6 {
@@ -466,11 +471,11 @@
 
 .markdown-body p {
 	margin-top: 0;
-	margin-bottom: 10px;
+	margin-bottom: 1rem;
 }
 
 .markdown-body blockquote {
-	margin: 0;
+	margin: 1rem 0;
 	padding: 0 1em;
 	color: var(--fgColor-muted);
 	border-left: 0.25em solid var(--borderColor-default);
@@ -479,7 +484,7 @@
 .markdown-body ul,
 .markdown-body ol {
 	margin-top: 0;
-	margin-bottom: 0;
+	margin-bottom: 1.5rem;
 	padding-left: 2em;
 }
 
@@ -530,6 +535,7 @@
 	);
 	font-size: 12px;
 	word-wrap: normal;
+	padding: 1.25rem;
 }
 
 .markdown-body .octicon {
@@ -590,8 +596,6 @@
 
 .markdown-body p,
 .markdown-body blockquote,
-.markdown-body ul,
-.markdown-body ol,
 .markdown-body dl,
 .markdown-body table,
 .markdown-body pre,
@@ -720,7 +724,7 @@
 }
 
 .markdown-body li + li {
-	margin-top: 0.25em;
+	margin-top: 0.5em;
 }
 
 .markdown-body dl {
@@ -729,7 +733,7 @@
 
 .markdown-body dl dt {
 	padding: 0;
-	margin-top: var(--base-size-16);
+	margin-top: 1.5rem;
 	font-size: 1em;
 	font-style: italic;
 	font-weight: var(--base-text-weight-semibold, 600);
@@ -737,7 +741,7 @@
 
 .markdown-body dl dd {
 	padding: 0 var(--base-size-16);
-	margin-bottom: var(--base-size-16);
+	margin-bottom: 1.5rem;
 }
 
 .markdown-body table th {
@@ -746,7 +750,7 @@
 
 .markdown-body table th,
 .markdown-body table td {
-	padding: 6px 13px;
+	padding: 0.625em 1em;
 	border: 1px solid var(--borderColor-default);
 }
 
@@ -916,7 +920,7 @@
 
 .markdown-body .highlight pre,
 .markdown-body pre {
-	padding: var(--base-size-16);
+	padding: 1.25rem;
 	overflow: auto;
 	font-size: 85%;
 	line-height: 1.45;
