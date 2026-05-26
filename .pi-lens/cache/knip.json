@@ -1,0 +1,143 @@
+{
+	"success": true,
+	"issues": [
+		{
+			"type": "file",
+			"name": "src/test/setup.ts",
+			"file": "src/test/setup.ts"
+		},
+		{
+			"type": "dependency",
+			"name": "react-markdown",
+			"file": "package.json",
+			"line": 25
+		},
+		{
+			"type": "dependency",
+			"name": "remark-gfm",
+			"file": "package.json",
+			"line": 27
+		},
+		{
+			"type": "devDependency",
+			"name": "bun-types",
+			"file": "package.json",
+			"line": 37
+		},
+		{
+			"type": "export",
+			"name": "parseDocument",
+			"file": "src/components/__prototype__/parseDocument.ts",
+			"line": 54
+		},
+		{
+			"type": "export",
+			"name": "TextNode",
+			"file": "src/components/__prototype__/parseDocument.ts",
+			"line": 20
+		},
+		{
+			"type": "export",
+			"name": "ListNode",
+			"file": "src/components/__prototype__/parseDocument.ts",
+			"line": 38
+		},
+		{
+			"type": "export",
+			"name": "BlockquoteNode",
+			"file": "src/components/__prototype__/parseDocument.ts",
+			"line": 44
+		},
+		{
+			"type": "export",
+			"name": "HrNode",
+			"file": "src/components/__prototype__/parseDocument.ts",
+			"line": 49
+		},
+		{
+			"type": "export",
+			"name": "getChildrenOf",
+			"file": "src/components/__prototype__/matchers.ts",
+			"line": 135
+		},
+		{
+			"type": "export",
+			"name": "SelectorKey",
+			"file": "src/test/selectors.ts",
+			"line": 65
+		}
+	],
+	"unusedExports": [
+		{
+			"type": "export",
+			"name": "parseDocument",
+			"file": "src/components/__prototype__/parseDocument.ts",
+			"line": 54
+		},
+		{
+			"type": "export",
+			"name": "TextNode",
+			"file": "src/components/__prototype__/parseDocument.ts",
+			"line": 20
+		},
+		{
+			"type": "export",
+			"name": "ListNode",
+			"file": "src/components/__prototype__/parseDocument.ts",
+			"line": 38
+		},
+		{
+			"type": "export",
+			"name": "BlockquoteNode",
+			"file": "src/components/__prototype__/parseDocument.ts",
+			"line": 44
+		},
+		{
+			"type": "export",
+			"name": "HrNode",
+			"file": "src/components/__prototype__/parseDocument.ts",
+			"line": 49
+		},
+		{
+			"type": "export",
+			"name": "getChildrenOf",
+			"file": "src/components/__prototype__/matchers.ts",
+			"line": 135
+		},
+		{
+			"type": "export",
+			"name": "SelectorKey",
+			"file": "src/test/selectors.ts",
+			"line": 65
+		}
+	],
+	"unusedFiles": [
+		{
+			"type": "file",
+			"name": "src/test/setup.ts",
+			"file": "src/test/setup.ts"
+		}
+	],
+	"unusedDeps": [
+		{
+			"type": "dependency",
+			"name": "react-markdown",
+			"file": "package.json",
+			"line": 25
+		},
+		{
+			"type": "dependency",
+			"name": "remark-gfm",
+			"file": "package.json",
+			"line": 27
+		},
+		{
+			"type": "devDependency",
+			"name": "bun-types",
+			"file": "package.json",
+			"line": 37
+		}
+	],
+	"unlistedDeps": [],
+	"summary": "Found 11 issues"
+}

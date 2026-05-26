@@ -122,13 +122,13 @@ test.describe("Document Structure", () => {
 	test("requirements section should have heading and table", async ({
 		page,
 	}) => {
-		const rfSection = page.locator(Selectors.section).filter({
-			has: page
-				.locator(Selectors.h3)
-				.filter({ hasText: /Requisitos Funcionais/ }),
+		// No <section> wrappers in markdown — h3 with "Requisitos Funcionais" exists directly
+		const rfHeading = page.locator(Selectors.h3).filter({
+			hasText: /Requisitos Funcionais/,
 		});
-		await expect(rfSection).toBeVisible();
-		await expect(rfSection.locator(Selectors.table)).toBeVisible();
+		await expect(rfHeading).toBeVisible({ timeout: 5000 });
+		// Table should follow the heading
+		await expect(rfHeading.locator("~ table").first()).toBeVisible();
 	});
 
 	test("mermaid diagrams should render as SVG", async ({ page }) => {

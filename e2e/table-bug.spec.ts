@@ -40,8 +40,8 @@ test.describe("Table Bug", () => {
 
 	test("UC-01 section should be visible", async ({ page }) => {
 		await page.goto("/");
-		// UC tables are preceded by headings like "UC-01 — Gerir Registo de Membros"
-		const uc01 = page.getByText(/UC-01.*Gerir Registo/);
+		// UC-01a — Criar Registo de Membro exists in markdown
+		const uc01 = page.getByText(/UC-01a.*Criar Registo/);
 		await expect(uc01).toBeVisible({ timeout: 10000 });
 	});
 
