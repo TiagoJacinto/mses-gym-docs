@@ -108,29 +108,79 @@ test.describe("Table Rendering", () => {
 	});
 });
 
-test.describe("Document Structure", () => {
+test.describe("RF Table Structure", () => {
 	test.beforeEach(async ({ page }) => {
 		await page.goto("/", { waitUntil: "domcontentloaded" });
 		await page.waitForSelector(Selectors.table, { timeout: 10000 });
 		await page.waitForTimeout(2000);
 	});
 
-	test("requirements section should have heading and table", async ({
+	test("functional requirements table should have Título column", async ({
 		page,
 	}) => {
-		// The RF table follows h3 with "Requisitos Funcionais" (h3, not h2)
-		// The document has ### 4.1. Requisitos Funcionais (RF) which renders as h3
-		const rfHeading = page.getByText(/Requisitos Funcionais/, { exact: false });
-		await expect(rfHeading.first()).toBeVisible({ timeout: 10000 });
-		// Table should follow the heading
-		await expect(rfHeading.locator("~ table").first()).toBeVisible({
-			timeout: 10000,
-		});
+		const rfTable = page
+			.locator(Selectors.table)
+			.filter({ hasText: /RF-01/ })
+			.first();
+		await expect(rfTable).toBeVisible({ timeout: 15000 });
+
+		// Check that Título header exists
+		const headers = rfTable.locator(Selectors.tableHeader);
+		const headerCount = await headers.count();
+		expect(headerCount).toBe(5);
+
+		const headerTexts = await headers.allTextContents();
+		expect(headerTexts).toContain("Título");
 	});
 
-	test("page should have at least one section", async ({ page }) => {
-		const sections = page.locator(Selectors.section);
-		const count = await sections.count();
-		expect(count).toBeGreaterThan(0);
+	test("RF entries should have Título values", async ({ page }) => {
+		const rfTable = page
+			.locator(Selectors.table)
+			.filter({ hasText: /RF-01a/ })
+			.first();
+		await expect(rfTable).toBeVisible({ timeout: 15000 });
+
+		// RF-01a should have "Criação de membro" as Título
+		const row = rfTable.locator(Selectors.tableRow).filter({
+			hasText: /RF-01a.*Criação de membro/,
+		});
+		await expect(row).toBeVisible({ timeout: 10000 });
+	});
+
+	test("RF-06 entries should have Login and Logout titles", async ({
+		page,
+	}) => {
+		const rfTable = page
+			.locator(Selectors.table)
+			.filter({ hasText: /RF-06a/ })
+			.first();
+		await expect(rfTable).toBeVisible({ timeout: 15000 });
+
+		const rows = rfTable.locator(Selectors.tableRow);
+		// Should have Login and Logout
+		const loginRow = rows.filter({ hasText: /Login/ });
+		const logoutRow = rows.filter({ hasText: /Logout/ });
+		await expect(loginRow).toBeVisible({ timeout: 10000 });
+		await expect(logoutRow).toBeVisible({ timeout: 10000 });
+	});
+
+	test("all RF rows should have 5 columns", async ({ page }) => {
+		const rfTable = page
+			.locator(Selectors.table)
+			.filter({ hasText: /RF-01/ })
+			.first();
+		await expect(rfTable).toBeVisible({ timeout: 15000 });
+
+		const rows = rfTable.locator(Selectors.tableRow);
+		const rowCount = await rows.count();
+
+		for (let i = 0; i < rowCount; i++) {
+			const cells = rows.nth(i).locator(Selectors.tableCell);
+			const cellCount = await cells.count();
+			// Skip category header rows (colspan rows)
+			if (cellCount > 0) {
+				expect(cellCount, `Row ${i} should have 5 columns`).toBe(5);
+			}
+		}
 	});
 });
