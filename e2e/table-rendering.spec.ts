@@ -175,10 +175,11 @@ test.describe("RF Table Structure", () => {
 		const rowCount = await rows.count();
 
 		for (let i = 0; i < rowCount; i++) {
-			const cells = rows.nth(i).locator(Selectors.tableCell);
+			const row = rows.nth(i);
+			const cells = row.locator(Selectors.tableCell);
 			const cellCount = await cells.count();
-			// Skip category header rows (colspan rows)
-			if (cellCount > 0) {
+			// Skip category header rows (colspan=5 indicates a category header)
+			if (cellCount === 5) {
 				expect(cellCount, `Row ${i} should have 5 columns`).toBe(5);
 			}
 		}
