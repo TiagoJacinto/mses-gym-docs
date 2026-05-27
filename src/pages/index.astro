@@ -1,6 +1,5 @@
 ---
 import "./github-markdown.css";
-import "./print.css";
 import DiagramaClasses from "../../public/diagrama-classes.md";
 import DiagramaSequenciaCheckin from "../../public/diagrama-sequencia-checkin.md";
 import DiagramaSequenciaPagamento from "../../public/diagrama-sequencia-pagamento.md";
@@ -13,23 +12,189 @@ import DiagramaAtividadesCheckin from "../../public/diagrama-atividades-checkin.
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MSES - Sistema de Gestão de Ginásio</title>
   <style>
+    :root {
+      --bg: #fafafa;
+      --bg-code: #1e1e1e;
+      --text: #222;
+      --text-muted: #666;
+      --accent: #3b82f6;
+      --border: #e5e5e5;
+      --radius: 8px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111;
+        --bg-code: #0d0d0d;
+        --text: #e5e5e5;
+        --text-muted: #888;
+        --border: #2a2a2a;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+    }
+
+    .cover {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 0;
+      margin: 0;
+    }
+
+    .cover-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .cover h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .cover-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 50ch;
+      line-height: 1.6;
+    }
+
+    .cover-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 2rem;
+    }
+
+    .cover-authors {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.75rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .cover-authors li { margin-bottom: 0.25rem; }
+    .cover-authors strong { color: var(--text); font-weight: 600; }
+
+    .cover-course {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+
+    .cover-advisor {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .cover-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    #table-of-contents {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+    }
+
+    #table-of-contents h2 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.1rem;
+    }
+
+    #table-of-contents ol, #table-of-contents ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    #table-of-contents li {
+      margin-bottom: 0.35rem;
+    }
+
+    #table-of-contents li li {
+      margin-bottom: 0.25rem;
+      margin-left: 1.25rem;
+    }
+
+    #table-of-contents li li li {
+      margin-left: 2.5rem;
+      font-size: 0.85rem;
+    }
+
+    #table-of-contents a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    #table-of-contents a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
     body { background-color: var(--bgColor-default); }
   </style>
 </head>
 <body>
-  <div class="markdown-body">
-    <h1> Sistema de Gestão para Ginásio</h1>
-    <p><em>Modelação de Sistemas e Engenharia de Software</em></p>
-    <hr>
-    <ul>
-      <li>Derlan Nascimento · nº mec. 129942</li>
-      <li>Micael Oliveira · nº mec. 131700</li>
-      <li>Rodrigo Fonseca · nº mec. 131619</li>
-      <li>Tiago Jacinto · nº mec. 131339</li>
-    </ul>
-    <p><em>Programação de Sistema de Informação — Universidade de Aveiro</em></p>
-    <p>Orientador: Professor José Martins</p>
-    <p>Águeda, 25 de março de 2026</p>
+    <div class="cover">
+      <div class="cover-eyebrow">Universidade de Aveiro</div>
+
+      <h1>Sistema de Gestão para Ginásio</h1>
+
+      <p class="cover-subtitle">Modelação de Sistemas e Engenharia de Software</p>
+
+      <div class="cover-divider"></div>
+
+      <ul class="cover-authors">
+        <li><strong>Derlan Nascimento</strong> · nº mec. 129942</li>
+        <li><strong>Micael Oliveira</strong> · nº mec. 131700</li>
+        <li><strong>Rodrigo Fonseca</strong> · nº mec. 131619</li>
+        <li><strong>Tiago Jacinto</strong> · nº mec. 131339</li>
+      </ul>
+
+      <p class="cover-course">Programação de Sistema de Informação — Universidade de Aveiro</p>
+
+      <p class="cover-advisor">Orientador: Professor José Martins</p>
+
+      <p class="cover-date">Águeda, 25 de março de 2026</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="markdown-body">
 
     <nav id="table-of-contents">
       <h2>Índice</h2>
@@ -516,6 +681,6 @@ import DiagramaAtividadesCheckin from "../../public/diagrama-atividades-checkin.
     <h2 id="53-diagrama-de-atividades">5.3. Diagrama de Atividades (UC-04)</h2>
 
     <DiagramaAtividadesCheckin />
-  </div>
-</body>
+    </div>
+  </body>
 </html>
