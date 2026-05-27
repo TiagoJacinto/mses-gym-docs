@@ -123,243 +123,55 @@
 
 ### 4.1. Requisitos Funcionais (RF)
 
-#### RF-01 — Membro
-
-**RF-01a — Criar Registo de Membro**  
-O Admin cria um membro com nome, contactos e foto. O sistema atribui um número único.  
-UC: UC-01a  
-RNF: RNF-03a, RNF-05a, RNF-05b  
-Prioridade: Alta
-
-**RF-01b — Pesquisar Membro**  
-O Admin pesquisa um membro por nome, número único ou outro critério. O sistema apresenta os dados guardados.  
-UC: UC-01b  
-RNF: RNF-03a, RNF-05a, RNF-05b  
-Prioridade: Alta
-
-**RF-01c — Atualizar Registo de Membro**  
-O Admin atualiza dados de um membro. O sistema regista a data da alteração.  
-RNF: RNF-03a, RNF-05a, RNF-05b  
-Prioridade: Alta
-
-**RF-01d — Inativar Registo de Membro**  
-O Admin inativa um membro. O membro não pode fazer login nem novas inscrições, mas os dados ficam disponíveis para consulta histórica.  
-RNF: RNF-04a  
-Prioridade: Média
-
----
-
-#### RF-02 — Inscrição
-
-**RF-02a — Criar Inscrição**  
-O Admin cria uma inscrição para um membro e define o período de validade.  
-UC: UC-02  
-RNF: RNF-03a, RNF-05a, RNF-05b  
-Prioridade: Alta
-
-**RF-02b — Renovar Inscrição**  
-O Admin renova uma inscrição ativa antes da data de fim.  
-UC: UC-02  
-RNF: RNF-03a, RNF-04a, RNF-05a  
-Prioridade: Alta
-
-**RF-02c — Cancelar Inscrição (Admin)**  
-O Admin cancela uma inscrição ativa. O sistema regista a data e o motivo do cancelamento.  
-RNF: RNF-04a, RNF-05a  
-Prioridade: Média
-
-**RF-02d — Requerer Cancelamento (Membro)**  
-O Membro requer o cancelamento da sua inscrição. O sistema regista o pedido.  
-RNF: RNF-04a, RNF-05a  
-Prioridade: Média
-
-**RF-02e — Atualizar Inscrição**  
-O Admin atualiza dados de uma inscrição ativa — período de validade ou plano associado. O sistema regista a data da alteração.  
-RNF: RNF-03a, RNF-05a  
-Prioridade: Média
-
----
-
-#### RF-03 — Plano de Treino
-
-**RF-03a — Criar Plano de Treino**  
-O Treinador cria um plano de treino para um membro, com um objetivo e uma duração.  
-UC: UC-05  
-RNF: RNF-03a, RNF-05a  
-Prioridade: Alta
-
-**RF-03b — Atualizar Plano de Treino**  
-O Treinador atualiza um plano existente de um membro, incluindo exercícios, séries, repetições, carga, descanso ou duração. O sistema regista a data de atualização.  
-RNF: RNF-03a, RNF-05a  
-Prioridade: Alta
-
-**RF-03c — Inativar Plano de Treino**  
-O Admin inativa um plano de treino. O plano deixa de estar ativo mas mantém-se disponível para consulta histórica.  
-RNF: RNF-05a  
-Prioridade: Média
-
----
-
-#### RF-04 — Exercício
-
-**RF-04a — Criar Exercício**  
-O Treinador cria um exercício com nome, séries, repetições, carga e descanso dentro de um plano de treino.  
-UC: UC-05  
-RNF: RNF-03a, RNF-05a  
-Prioridade: Alta
-
-**RF-04b — Atualizar Exercício**  
-O Treinador atualiza os detalhes de um exercício — séries, repetições, carga ou descanso. O sistema regista a data de atualização.  
-RNF: RNF-03a, RNF-05a  
-Prioridade: Alta
-
-**RF-04c — Inativar Exercício**  
-O Admin inativa um exercício. O exercício deixa de estar disponível para novos planos mas mantém-se nos planos históricos onde foi utilizado.  
-RNF: RNF-05a  
-Prioridade: Média
-
----
-
-#### RF-05 — Assiduidade
-
-**RF-05a — Check-in (Membro)**  
-O Membro regista a entrada. O sistema valida a inscrição ativa e guarda a hora de entrada.  
-UC: UC-04  
-RNF: RNF-01a, RNF-03a, RNF-04a, RNF-05a  
-Prioridade: Alta
-
-**RF-05b — Check-in (Rececionista)**  
-A Rececionista regista a entrada de um membro. O sistema valida a inscrição ativa e guarda a hora de entrada.  
-UC: UC-04  
-RNF: RNF-01a, RNF-03a, RNF-04a, RNF-05a  
-Prioridade: Alta
-
-**RF-05c — Check-out (Membro)**  
-O Membro regista a saída. O sistema guarda a hora de saída, calculando o tempo de permanência.  
-UC: UC-04  
-RNF: RNF-01a, RNF-03a, RNF-04a  
-Prioridade: Alta
-
-**RF-05d — Check-out (Rececionista)**  
-A Rececionista regista a saída de um membro. O sistema guarda a hora de saída, calculando o tempo de permanência.  
-UC: UC-04  
-RNF: RNF-01a, RNF-03a, RNF-04a  
-Prioridade: Alta
-
----
-
-#### RF-06 — Autenticação
-
-**RF-06a — Login**  
-O Utilizador introduz credenciais; o sistema valida e cria uma sessão com as permissões adequadas ao seu tipo de utilizador.  
-UC: UC-07  
-RNF: RNF-02a, RNF-02b, RNF-02e  
-Prioridade: Alta
-
-**RF-06b — Logout**  
-O Utilizador termina a sessão ativa. O sistema invalida o token e fecha a sessão.  
-UC: UC-07  
-RNF: RNF-02b  
-Prioridade: Alta
-
----
-
-#### RF-07 — Mensalidade
-
-**RF-07a — Gerar Mensalidades**  
-O sistema gera automaticamente as mensalidades para todos os membros com inscrição ativa no dia 1 de cada mês.  
-RNF: RNF-04a, RNF-07a  
-Prioridade: Alta
-
-**RF-07b — Registar Pagamento**  
-A Rececionista ou o sistema regista o pagamento de uma mensalidade.  
-UC: UC-03  
-RNF: RNF-01a, RNF-03a, RNF-05a, RNF-07a  
-Prioridade: Alta
-
----
-
-#### RF-08 — Fatura
-
-**RF-08a — Emitir Fatura**  
-O sistema gera automaticamente uma fatura com número, valor e data após o registo de um pagamento.  
-RNF: RNF-05a, RNF-07a, RNF-07b  
-Prioridade: Alta
-
----
-
-#### RF-09 — Aula de Grupo
-
-**RF-09a — Criar Aula de Grupo**  
-O Treinador cria uma aula com horário, duração, sala e Treinador. Depois, a aula fica disponível para reserva.  
-UC: UC-08  
-RNF: RNF-03a, RNF-05a  
-Prioridade: Alta
-
-**RF-09b — Reservar Vaga em Aula**  
-O Membro ou a Rececionista reserva um lugar numa aula. O sistema verifica a lotação e, se cheia, avisa que não há vagas.  
-UC: UC-08  
-RNF: RNF-01a, RNF-03a, RNF-04a, RNF-05a  
-Prioridade: Alta
-
-**RF-09c — Cancelar Reserva de Aula**  
-O Membro ou a Rececionista cancela a reserva antes do início da aula, libertando a vaga. Se o Membro não cancelar nem aparecer, o sistema regista automaticamente o no-show quando a aula termina.  
-UC: UC-08  
-RNF: RNF-03a, RNF-04a, RNF-05a  
-Prioridade: Média
-
-**RF-09d — Inativar Aula de Grupo**  
-O Admin inativa uma aula de grupo. A aula deixa de estar disponível para reservas mas mantém-se no histórico.  
-RNF: RNF-04a, RNF-05a  
-Prioridade: Média
-
----
-
-#### RF-10 — Relatório
-
-**RF-10a — Gerar Relatório de Faturação**  
-O Gestor solicita um relatório de faturação para um período. O sistema compila as receitas e valores em dívida e gera um relatório consolidado.  
-UC: UC-09  
-RNF: RNF-01c, RNF-04a, RNF-07a  
-Prioridade: Alta
-
----
-
-#### RF-11 — Sala
-
-**RF-11a — Criar Sala**  
-O Admin cria uma sala com nome. O sistema atribui um identificador único.  
-RNF: RNF-03a, RNF-05a  
-Prioridade: Alta
-
-**RF-11b — Atualizar Sala**  
-O Admin atualiza os dados de uma sala — nome ou lotação máxima.  
-RNF: RNF-03a, RNF-05a  
-Prioridade: Alta
-
-**RF-11c — Inativar Sala**  
-O Admin inativa uma sala. A sala não pode ser associada a novas aulas mas mantém-se disponível para consultas históricas.  
-RNF: RNF-05a  
-Prioridade: Média
-
----
-
-#### RF-12 — Método de Pagamento
-
-**RF-12a — Adicionar Método de Pagamento**  
-O Membro adiciona um método de pagamento com tipo, últimos 4 dígitos e data de expiração.  
-RNF: RNF-02e, RNF-05a, RNF-05b, RNF-05c  
-Prioridade: Alta
-
-**RF-12b — Atualizar Método de Pagamento**  
-O Membro atualiza os dados de um método de pagamento — tipo ou data de expiração.  
-RNF: RNF-02e, RNF-05a, RNF-05c  
-Prioridade: Alta
-
-**RF-12c — Inativar Método de Pagamento**  
-O Membro inativa um método de pagamento. O método não pode ser utilizado em novos pagamentos mas mantém-se disponível para consulta do histórico.  
-RNF: RNF-05a, RNF-05c  
-Prioridade: Média
+| ID | Descrição | UC | Prioridade |
+| -- | --------- | ----------- | ---------- |
+| **Membro** | | | |
+| RF-01a | O Admin cria um membro com nome, contactos e foto. O sistema atribui um número único. | UC-01a | Alta |
+| RF-01b | O Admin pesquisa um membro por nome, número único ou outro critério. O sistema apresenta os dados guardados. | UC-01b | Alta |
+| RF-01c | O Admin atualiza dados de um membro. O sistema regista a data da alteração. | | Alta |
+| RF-01d | O Admin inativa um membro. O membro não pode fazer login nem novas inscrições, mas os dados ficam disponíveis para consulta histórica. | | Média |
+| **Inscrição** | | | |
+| RF-02a | O Admin cria uma inscrição para um membro e define o período de validade. | UC-02 | Alta |
+| RF-02b | O Admin renova uma inscrição ativa antes da data de fim. | UC-02 | Alta |
+| RF-02c | O Admin cancela uma inscrição ativa. O sistema regista a data e o motivo do cancelamento. | | Média |
+| RF-02d | O Membro requer o cancelamento da sua inscrição. O sistema regista o pedido. | | Média |
+| RF-02e | O Admin atualiza dados de uma inscrição ativa — período de validade ou plano associado. O sistema regista a data da alteração. | | Média |
+| **Plano de Treino** | | | |
+| RF-03a | O Treinador cria um plano de treino para um membro, com um objetivo e uma duração. | UC-05 | Alta |
+| RF-03b | O Treinador atualiza um plano existente de um membro, incluindo exercícios, séries, repetições, carga, descanso ou duração. O sistema regista a data de atualização. | | Alta |
+| RF-03c | O Admin inativa um plano de treino. O plano deixa de estar ativo mas mantém-se disponível para consulta histórica. | | Média |
+| **Exercício** | | | |
+| RF-04a | O Treinador cria um exercício com nome, séries, repetições, carga e descanso dentro de um plano de treino. | UC-05 | Alta |
+| RF-04b | O Treinador atualiza os detalhes de um exercício — séries, repetições, carga ou descanso. O sistema regista a data de atualização. | | Alta |
+| RF-04c | O Admin inativa um exercício. O exercício deixa de estar disponível para novos planos mas mantém-se nos planos históricos onde foi utilizado. | | Média |
+| **Assiduidade** | | | |
+| RF-05a | O Membro regista a entrada. O sistema valida a inscrição ativa e guarda a hora de entrada. | UC-04 | Alta |
+| RF-05b | A Rececionista regista a entrada de um membro. O sistema valida a inscrição ativa e guarda a hora de entrada. | UC-04 | Alta |
+| RF-05c | O Membro regista a saída. O sistema guarda a hora de saída, calculando o tempo de permanência. | UC-04 | Alta |
+| RF-05d | A Rececionista regista a saída de um membro. O sistema guarda a hora de saída, calculando o tempo de permanência. | UC-04 | Alta |
+| **Autenticação** | | | |
+| RF-06a | O Utilizador introduz credenciais; o sistema valida e cria uma sessão com as permissões adequadas ao seu tipo de utilizador. | UC-07 | Alta |
+| RF-06b | O Utilizador termina a sessão ativa. O sistema invalida o token e fecha a sessão. | UC-07 | Alta |
+| **Mensalidade** | | | |
+| RF-07a | O sistema gera automaticamente as mensalidades para todos os membros com inscrição ativa no dia 1 de cada mês. | | Alta |
+| RF-07b | A Rececionista ou o sistema regista o pagamento de uma mensalidade. | UC-03 | Alta |
+| **Fatura** | | | |
+| RF-08a | O sistema gera automaticamente uma fatura com número, valor e data após o registo de um pagamento. | | Alta |
+| **Aula de Grupo** | | | |
+| RF-09a | O Treinador cria uma aula com horário, duração, sala e Treinador. Depois, a aula fica disponível para reserva. | UC-08 | Alta |
+| RF-09b | O Membro ou a Rececionista reserva um lugar numa aula. O sistema verifica a lotação e, se cheia, avisa que não há vagas. | UC-08 | Alta |
+| RF-09c | O Membro ou a Rececionista cancela a reserva antes do início da aula, libertando a vaga. Se o Membro não cancelar nem aparecer, o sistema regista automaticamente o no-show quando a aula termina. | | Média |
+| RF-09d | O Admin inativa uma aula de grupo. A aula deixa de estar disponível para reservas mas mantém-se no histórico. | | Média |
+| **Relatório** | | | |
+| RF-10a | O Gestor solicita um relatório de faturação para um período. O sistema compila as receitas e valores em dívida e gera um relatório consolidado. | UC-09 | Alta |
+| **Sala** | | | |
+| RF-11a | O Admin cria uma sala com nome. O sistema atribui um identificador único. | | Alta |
+| RF-11b | O Admin atualiza os dados de uma sala — nome ou lotação máxima. | | Alta |
+| RF-11c | O Admin inativa uma sala. A sala não pode ser associada a novas aulas mas mantém-se disponível para consultas históricas. | | Média |
+| **Método de Pagamento** | | | |
+| RF-12a | O Membro adiciona um método de pagamento com tipo, últimos 4 dígitos e data de expiração. | | Alta |
+| RF-12b | O Membro atualiza os dados de um método de pagamento — tipo ou data de expiração. | | Alta |
+| RF-12c | O Membro inativa um método de pagamento. O método não pode ser utilizado em novos pagamentos mas mantém-se disponível para consulta do histórico. | | Média |
 
 <div class="page-break"></div>
 

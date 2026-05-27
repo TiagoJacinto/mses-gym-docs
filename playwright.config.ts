@@ -12,9 +12,14 @@ export default defineConfig({
 		trace: "on-first-retry",
 		screenshot: "only-on-failure",
 	},
-	projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
+	projects: [
+		{
+			name: "chromium",
+			use: { ...devices["Desktop Chrome"] },
+		},
+	],
 	webServer: {
-		command: "npm run dev",
+		command: "bun run dev",
 		url: "http://localhost:4321",
 		reuseExistingServer: !process.env.CI,
 		timeout: 120000,

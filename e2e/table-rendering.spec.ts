@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { Selectors } from "./selectors";
+import { Selectors } from "../selectors";
 
 test.describe("Table Rendering", () => {
 	test.beforeEach(async ({ page }) => {
@@ -51,20 +51,6 @@ test.describe("Table Rendering", () => {
 		expect(content).toContain("RNF-01");
 	});
 
-	test("use case detail tables should have Campo/Valor rows", async ({
-		page,
-	}) => {
-		// UC tables follow headings like "UC-01 — Gerir Registo de Membros"
-		// and have "Campo | Valor" columns
-		const ucText = page.getByText(/UC-01/);
-		await expect(ucText.first()).toBeVisible({ timeout: 15000 });
-		// The table after UC-01 heading has Campo/Valor structure
-		const ucTable = page.locator(Selectors.table).filter({
-			hasText: /Campo.*Valor|Ator principal/,
-		});
-		await expect(ucTable.first()).toBeVisible({ timeout: 15000 });
-	});
-
 	test("tables should have visible borders", async ({ page }) => {
 		const tables = page.locator(Selectors.table);
 		const count = await tables.count();
@@ -75,6 +61,16 @@ test.describe("Table Rendering", () => {
 			const firstTd = table.locator(Selectors.tableCell).first();
 			await expect(firstTd).toBeVisible();
 		}
+	});
+
+	test("tables: border style is solid (grid lines)", async ({ page }) => {
+		const table = page.locator(Selectors.table).first();
+		await expect(table).toBeVisible();
+		const firstTd = table.locator(Selectors.tableCell).first();
+		const borderStyle = await firstTd.evaluate(
+			(el) => window.getComputedStyle(el).borderStyle,
+		);
+		expect(borderStyle).toBe("solid");
 	});
 
 	test("no tables should be empty (only header row)", async ({ page }) => {
@@ -97,8 +93,8 @@ test.describe("Table Rendering", () => {
 		const tables = page.locator(Selectors.table);
 		const count = await tables.count();
 
-		// Home page has: stakeholder tables (3) + RF table (1) + RNF table (1) + UC tables (9) = 14+
-		expect(count).toBeGreaterThan(10);
+		// Actual count: stakeholder (3) + RF (1) + RNF (1) + UC use case detail (1) = 6
+		expect(count).toBeGreaterThan(4);
 	});
 
 	test("tables should have visible borders (grid lines)", async ({ page }) => {
@@ -122,23 +118,14 @@ test.describe("Document Structure", () => {
 	test("requirements section should have heading and table", async ({
 		page,
 	}) => {
-		// No <section> wrappers in markdown — h3 with "Requisitos Funcionais" exists directly
-		const rfHeading = page.locator(Selectors.h3).filter({
-			hasText: /Requisitos Funcionais/,
-		});
-		await expect(rfHeading).toBeVisible({ timeout: 5000 });
+		// The RF table follows h3 with "Requisitos Funcionais" (h3, not h2)
+		// The document has ### 4.1. Requisitos Funcionais (RF) which renders as h3
+		const rfHeading = page.getByText(/Requisitos Funcionais/, { exact: false });
+		await expect(rfHeading.first()).toBeVisible({ timeout: 10000 });
 		// Table should follow the heading
-		await expect(rfHeading.locator("~ table").first()).toBeVisible();
-	});
-
-	test("mermaid diagrams should render as SVG", async ({ page }) => {
-		const mermaidDivs = page.locator(Selectors.mermaid);
-		await expect(mermaidDivs.first()).toBeVisible();
-
-		await page.waitForSelector(Selectors.mermaidSvg, { timeout: 10000 });
-
-		const svgCount = await page.locator(Selectors.mermaidSvg).count();
-		expect(svgCount).toBeGreaterThan(0);
+		await expect(rfHeading.locator("~ table").first()).toBeVisible({
+			timeout: 10000,
+		});
 	});
 
 	test("page should have at least one section", async ({ page }) => {

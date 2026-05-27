@@ -1157,3 +1157,240 @@
 [58937516ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-1nbht88di @ http://localhost:4321/@id/astro:scripts/page.js:2
 [58937517ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-rb9e06553 @ http://localhost:4321/@id/astro:scripts/page.js:2
 [58937681ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-rb9e06553 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59072004ms] [LOG] [astro-mermaid] Mermaid diagrams detected on initial load @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59072004ms] [LOG] [astro-mermaid] Initializing mermaid diagrams... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59072005ms] [LOG] [astro-mermaid] Found 3 mermaid diagrams @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59072006ms] [LOG] [astro-mermaid] Loading mermaid.js... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59072095ms] [LOG] [astro-mermaid] Using theme: base from body @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59072099ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-7lr6rmw2r @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59073634ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-7lr6rmw2r @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59073634ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-jco929etr @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59073765ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-jco929etr @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59073766ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-k3j1wyerx @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59073884ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-k3j1wyerx @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59224549ms] [LOG] [astro-mermaid] Mermaid diagrams detected on initial load @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59224549ms] [LOG] [astro-mermaid] Initializing mermaid diagrams... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59224549ms] [LOG] [astro-mermaid] Found 3 mermaid diagrams @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59224549ms] [LOG] [astro-mermaid] Loading mermaid.js... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59224675ms] [LOG] [astro-mermaid] Using theme: base from body @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59224684ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-qlowdl54l @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59226950ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-qlowdl54l @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59226950ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-iuzbcoay7 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59227086ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-iuzbcoay7 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59227087ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-vgc3uh1z9 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59227232ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-vgc3uh1z9 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59419856ms] [LOG] [astro-mermaid] Mermaid diagrams detected on initial load @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59419856ms] [LOG] [astro-mermaid] Initializing mermaid diagrams... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59419857ms] [LOG] [astro-mermaid] Found 3 mermaid diagrams @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59419857ms] [LOG] [astro-mermaid] Loading mermaid.js... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59419923ms] [LOG] [astro-mermaid] Using theme: base from body @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59419927ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-15xn2iobr @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59421414ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-15xn2iobr @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59421415ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-bzjrz10yv @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59421566ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-bzjrz10yv @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59421566ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-7m22jg50f @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59421681ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-7m22jg50f @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59424277ms] [LOG] [astro-mermaid] Mermaid diagrams detected on initial load @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59424277ms] [LOG] [astro-mermaid] Initializing mermaid diagrams... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59424277ms] [LOG] [astro-mermaid] Found 3 mermaid diagrams @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59424277ms] [LOG] [astro-mermaid] Loading mermaid.js... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59424336ms] [LOG] [astro-mermaid] Using theme: base from body @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59424341ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-0ihv78df3 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59425588ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-0ihv78df3 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59425589ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-d6jpm6yc3 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59425770ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-d6jpm6yc3 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59425770ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-nz57zsm5s @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59425908ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-nz57zsm5s @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59429325ms] [LOG] [astro-mermaid] Mermaid diagrams detected on initial load @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59429325ms] [LOG] [astro-mermaid] Initializing mermaid diagrams... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59429325ms] [LOG] [astro-mermaid] Found 3 mermaid diagrams @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59429325ms] [LOG] [astro-mermaid] Loading mermaid.js... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59429395ms] [LOG] [astro-mermaid] Using theme: base from body @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59429399ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-4p1xld5o9 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59430538ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-4p1xld5o9 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59430538ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-ymuc854uv @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59430675ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-ymuc854uv @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59430675ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-lacf3qipm @ http://localhost:4321/@id/astro:scripts/page.js:2
+[59430805ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-lacf3qipm @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60227625ms] [LOG] [astro-mermaid] Mermaid diagrams detected on initial load @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60227625ms] [LOG] [astro-mermaid] Initializing mermaid diagrams... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60227625ms] [LOG] [astro-mermaid] Found 3 mermaid diagrams @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60227625ms] [LOG] [astro-mermaid] Loading mermaid.js... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60228248ms] [LOG] [astro-mermaid] Using theme: base from body @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60228254ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-drxu4bnml @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60230730ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-drxu4bnml @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60230731ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-tmfc4hn7r @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60230888ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-tmfc4hn7r @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60230888ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-943gfogoi @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60231017ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-943gfogoi @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60241828ms] [LOG] [astro-mermaid] Mermaid diagrams detected on initial load @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60241828ms] [LOG] [astro-mermaid] Initializing mermaid diagrams... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60241828ms] [LOG] [astro-mermaid] Found 3 mermaid diagrams @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60241828ms] [LOG] [astro-mermaid] Loading mermaid.js... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60241890ms] [LOG] [astro-mermaid] Using theme: base from body @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60241900ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-wapvym3yd @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60244214ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-wapvym3yd @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60244215ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-zu53nmcju @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60244402ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-zu53nmcju @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60244402ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-we7as01xs @ http://localhost:4321/@id/astro:scripts/page.js:2
+[60244657ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-we7as01xs @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61400385ms] [LOG] [astro-mermaid] Mermaid diagrams detected on initial load @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61400385ms] [LOG] [astro-mermaid] Initializing mermaid diagrams... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61400385ms] [LOG] [astro-mermaid] Found 3 mermaid diagrams @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61400385ms] [LOG] [astro-mermaid] Loading mermaid.js... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61400559ms] [LOG] [astro-mermaid] Using theme: base from body @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61400562ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-1mlia0j4n @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61401857ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-1mlia0j4n @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61401857ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-eymo4pb6u @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61402003ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-eymo4pb6u @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61402003ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-dj7wfw581 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61402105ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-dj7wfw581 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61537023ms] [LOG] [astro-mermaid] Mermaid diagrams detected on initial load @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61537025ms] [LOG] [astro-mermaid] Initializing mermaid diagrams... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61537025ms] [LOG] [astro-mermaid] Found 3 mermaid diagrams @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61537025ms] [LOG] [astro-mermaid] Loading mermaid.js... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61537332ms] [LOG] [astro-mermaid] Using theme: base from body @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61537340ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-64k2om9y2 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61540472ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-64k2om9y2 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61540473ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-dr1xiw1vf @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61540817ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-dr1xiw1vf @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61540817ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-hpywcqbpt @ http://localhost:4321/@id/astro:scripts/page.js:2
+[61540985ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-hpywcqbpt @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62308873ms] [LOG] [astro-mermaid] Mermaid diagrams detected on initial load @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62308873ms] [LOG] [astro-mermaid] Initializing mermaid diagrams... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62308873ms] [LOG] [astro-mermaid] Found 3 mermaid diagrams @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62308873ms] [LOG] [astro-mermaid] Loading mermaid.js... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62309085ms] [LOG] [astro-mermaid] Using theme: base from body @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62309126ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-bxrw02981 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62311256ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-bxrw02981 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62311257ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-tzkec15uf @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62311431ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-tzkec15uf @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62311432ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-yaln1bd3g @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62311588ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-yaln1bd3g @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62531748ms] [LOG] [astro-mermaid] Mermaid diagrams detected on initial load @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62531748ms] [LOG] [astro-mermaid] Initializing mermaid diagrams... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62531749ms] [LOG] [astro-mermaid] Found 3 mermaid diagrams @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62531749ms] [LOG] [astro-mermaid] Loading mermaid.js... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62531831ms] [LOG] [astro-mermaid] Using theme: base from body @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62531836ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-31p8124ez @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62534070ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-31p8124ez @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62534070ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-x9u1wkr3e @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62534298ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-x9u1wkr3e @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62534299ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-f5jq63gns @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62534614ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-f5jq63gns @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62627682ms] [LOG] [astro-mermaid] Mermaid diagrams detected on initial load @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62627684ms] [LOG] [astro-mermaid] Initializing mermaid diagrams... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62627684ms] [LOG] [astro-mermaid] Found 3 mermaid diagrams @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62627684ms] [LOG] [astro-mermaid] Loading mermaid.js... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62627882ms] [LOG] [astro-mermaid] Using theme: base from body @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62627888ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-1sn2q37bt @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62629702ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-1sn2q37bt @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62629702ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-ky279tvoi @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62629803ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-ky279tvoi @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62629803ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-pgrbw4hp9 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[62629898ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-pgrbw4hp9 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63105828ms] [LOG] [astro-mermaid] Mermaid diagrams detected on initial load @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63105828ms] [LOG] [astro-mermaid] Initializing mermaid diagrams... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63105829ms] [LOG] [astro-mermaid] Found 3 mermaid diagrams @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63105830ms] [LOG] [astro-mermaid] Loading mermaid.js... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63105995ms] [LOG] [astro-mermaid] Using theme: base from body @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63106153ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-otuhhqc0z @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63108453ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-otuhhqc0z @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63108453ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-97qhkxxvq @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63108564ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-97qhkxxvq @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63108564ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-sx4puofvz @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63108666ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-sx4puofvz @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63267194ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:4321/@vite/client:1598
+[63837232ms] [LOG] [astro-mermaid] Mermaid diagrams detected on initial load @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63837232ms] [LOG] [astro-mermaid] Initializing mermaid diagrams... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63837232ms] [LOG] [astro-mermaid] Found 3 mermaid diagrams @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63837232ms] [LOG] [astro-mermaid] Loading mermaid.js... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63837435ms] [LOG] [astro-mermaid] Using theme: base from body @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63837442ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-w3bpn97dh @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63839278ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-w3bpn97dh @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63839278ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-11l8wv0ti @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63839513ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-11l8wv0ti @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63839513ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-eq5hvyppt @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63839691ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-eq5hvyppt @ http://localhost:4321/@id/astro:scripts/page.js:2
+[63960427ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:4321/@vite/client:1598
+[64072576ms] [LOG] [astro-mermaid] Mermaid diagrams detected on initial load @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64072577ms] [LOG] [astro-mermaid] Initializing mermaid diagrams... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64072577ms] [LOG] [astro-mermaid] Found 3 mermaid diagrams @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64072577ms] [LOG] [astro-mermaid] Loading mermaid.js... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64072694ms] [LOG] [astro-mermaid] Using theme: base from body @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64072698ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-h3ea88q0p @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64074849ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-h3ea88q0p @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64074849ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-xaalh5ccw @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64074996ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-xaalh5ccw @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64074996ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-exie4qj8s @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64075136ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-exie4qj8s @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64162161ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:4321/@vite/client:1598
+[64219215ms] [LOG] [astro-mermaid] Mermaid diagrams detected on initial load @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64219215ms] [LOG] [astro-mermaid] Initializing mermaid diagrams... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64219215ms] [LOG] [astro-mermaid] Found 3 mermaid diagrams @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64219215ms] [LOG] [astro-mermaid] Loading mermaid.js... @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64219470ms] [LOG] [astro-mermaid] Using theme: base from body @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64219474ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-6hj1kw6y4 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64220843ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-6hj1kw6y4 @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64220843ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-sflmibqud @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64221060ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-sflmibqud @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64221061ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-3gjyvl22o @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64221204ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-3gjyvl22o @ http://localhost:4321/@id/astro:scripts/page.js:2
+[64221296ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/favicon.ico:0
+[64221296ms] [ERROR] WebSocket connection to 'ws://localhost:4321/?token=HUeOwIBOAoyA' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/@vite/client:1478
+[64221324ms] [ERROR] WebSocket connection to 'ws://localhost:4321/?token=HUeOwIBOAoyA' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/@vite/client:1488
+[64221324ms] [ERROR] [vite] failed to connect to websocket.
+your current setup:
+  (browser) localhost:4321/ <--[HTTP]--> localhost:4321/ (server)
+  (browser) localhost:4321/ <--[WebSocket (failing)]--> localhost:4321/ (server)
+Check out your Vite / network configuration and https://vite.dev/config/server-options.html#server-hmr . @ http://localhost:4321/@vite/client:1498
+[64221347ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'send')
+    at Object.send (http://localhost:4321/@vite/client:449:7)
+    at Object.send (http://localhost:4321/@vite/client:1514:16)
+    at Object.send (http://localhost:4321/@vite/client:318:23)
+    at Object.send (http://localhost:4321/@vite/client:396:30) @ http://localhost:4321/@vite/client:1542
+[64221556ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'send')
+    at Object.send (http://localhost:4321/@vite/client:449:7)
+    at Object.send (http://localhost:4321/@vite/client:1514:16)
+    at Object.send (http://localhost:4321/@vite/client:318:23)
+    at Object.send (http://localhost:4321/@vite/client:396:30) @ http://localhost:4321/@vite/client:1542
+[64221556ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'send')
+    at Object.send (http://localhost:4321/@vite/client:449:7)
+    at Object.send (http://localhost:4321/@vite/client:1514:16)
+    at Object.send (http://localhost:4321/@vite/client:318:23)
+    at Object.send (http://localhost:4321/@vite/client:396:30) @ http://localhost:4321/@vite/client:1542
+[64221556ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'send')
+    at Object.send (http://localhost:4321/@vite/client:449:7)
+    at Object.send (http://localhost:4321/@vite/client:1514:16)
+    at Object.send (http://localhost:4321/@vite/client:318:23)
+    at Object.send (http://localhost:4321/@vite/client:396:30) @ http://localhost:4321/@vite/client:1542
+[64221556ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'send')
+    at Object.send (http://localhost:4321/@vite/client:449:7)
+    at Object.send (http://localhost:4321/@vite/client:1514:16)
+    at Object.send (http://localhost:4321/@vite/client:318:23)
+    at Object.send (http://localhost:4321/@vite/client:396:30) @ http://localhost:4321/@vite/client:1542
+[64221556ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'send')
+    at Object.send (http://localhost:4321/@vite/client:449:7)
+    at Object.send (http://localhost:4321/@vite/client:1514:16)
+    at Object.send (http://localhost:4321/@vite/client:318:23)
+    at Object.send (http://localhost:4321/@vite/client:396:30) @ http://localhost:4321/@vite/client:1542
+[64221557ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'send')
+    at Object.send (http://localhost:4321/@vite/client:449:7)
+    at Object.send (http://localhost:4321/@vite/client:1514:16)
+    at Object.send (http://localhost:4321/@vite/client:318:23)
+    at Object.send (http://localhost:4321/@vite/client:396:30) @ http://localhost:4321/@vite/client:1542
+[64221557ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'send')
+    at Object.send (http://localhost:4321/@vite/client:449:7)
+    at Object.send (http://localhost:4321/@vite/client:1514:16)
+    at Object.send (http://localhost:4321/@vite/client:318:23)
+    at Object.send (http://localhost:4321/@vite/client:396:30) @ http://localhost:4321/@vite/client:1542
+[64221557ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'send')
+    at Object.send (http://localhost:4321/@vite/client:449:7)
+    at Object.send (http://localhost:4321/@vite/client:1514:16)
+    at Object.send (http://localhost:4321/@vite/client:318:23)
+    at Object.send (http://localhost:4321/@vite/client:396:30) @ http://localhost:4321/@vite/client:1542
+[64221557ms] [ERROR] [vite] TypeError: Cannot read properties of undefined (reading 'send')
+    at Object.send (http://localhost:4321/@vite/client:449:7)
+    at Object.send (http://localhost:4321/@vite/client:1514:16)
+    at Object.send (http://localhost:4321/@vite/client:318:23)
+    at Object.send (http://localhost:4321/@vite/client:396:30) @ http://localhost:4321/@vite/client:1542

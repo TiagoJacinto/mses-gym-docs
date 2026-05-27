@@ -1,0 +1,11 @@
+[     240ms] [LOG] [astro-mermaid] Mermaid diagrams detected on initial load @ http://localhost:4341/@id/astro:scripts/page.js:2
+[     240ms] [LOG] [astro-mermaid] Initializing mermaid diagrams... @ http://localhost:4341/@id/astro:scripts/page.js:2
+[     240ms] [LOG] [astro-mermaid] Found 3 mermaid diagrams @ http://localhost:4341/@id/astro:scripts/page.js:2
+[     240ms] [LOG] [astro-mermaid] Loading mermaid.js... @ http://localhost:4341/@id/astro:scripts/page.js:2
+[     462ms] [LOG] [astro-mermaid] Using theme: base from body @ http://localhost:4341/@id/astro:scripts/page.js:2
+[     468ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-7wt5dqc61 @ http://localhost:4341/@id/astro:scripts/page.js:2
+[    1939ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-7wt5dqc61 @ http://localhost:4341/@id/astro:scripts/page.js:2
+[    1939ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-l1w8z3io3 @ http://localhost:4341/@id/astro:scripts/page.js:2
+[    2046ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-l1w8z3io3 @ http://localhost:4341/@id/astro:scripts/page.js:2
+[    2046ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-5vtwykrd0 @ http://localhost:4341/@id/astro:scripts/page.js:2
+[    2156ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-5vtwykrd0 @ http://localhost:4341/@id/astro:scripts/page.js:2

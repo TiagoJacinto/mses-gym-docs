@@ -1,0 +1,794 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - paragraph [ref=e4]: Modelação de Sistemas e Engenharia de Software
+      - heading "Sistema de Gestão para Ginásio" [level=1] [ref=e5]:
+        - text: Sistema de Gestão
+        - text: para Ginásio
+      - list [ref=e7]:
+        - listitem [ref=e8]: Derlan Nascimento · nº mec. 129942
+        - listitem [ref=e9]: Micael Oliveira · nº mec. 131700
+        - listitem [ref=e10]: Rodrigo Fonseca · nº mec. 131619
+        - listitem [ref=e11]: Tiago Jacinto · nº mec. 131339
+      - paragraph [ref=e12]: Programação de Sistema de Informação — Universidade de Aveiro
+      - paragraph [ref=e13]: "Orientador: Professor José Martins"
+      - paragraph [ref=e14]: Águeda, 25 de março de 2026
+    - navigation [ref=e15]:
+      - heading "Índice" [level=2] [ref=e16]
+      - list [ref=e17]:
+        - listitem [ref=e18]:
+          - link "1. Introdução" [ref=e19] [cursor=pointer]:
+            - /url: "#1-introdução"
+        - listitem [ref=e20]:
+          - link "2. Etapa 1 — Análise de Requisitos" [ref=e21] [cursor=pointer]:
+            - /url: "#2-etapa-1--análise-de-requisitos"
+          - list [ref=e22]:
+            - listitem [ref=e23]:
+              - link "2.1. Descrição do Problema" [ref=e24] [cursor=pointer]:
+                - /url: "#21-descrição-do-problema"
+              - list [ref=e25]:
+                - listitem [ref=e26]:
+                  - link "2.1.1. Descrição do Sistema" [ref=e27] [cursor=pointer]:
+                    - /url: "#211-descrição-do-sistema"
+                - listitem [ref=e28]:
+                  - link "2.1.2. Objetivo do Software" [ref=e29] [cursor=pointer]:
+                    - /url: "#212-objetivo-do-software"
+                - listitem [ref=e30]:
+                  - link "2.1.3. Contexto de Utilização" [ref=e31] [cursor=pointer]:
+                    - /url: "#213-contexto-de-utilização"
+                - listitem [ref=e32]:
+                  - link "2.1.4. Principais Funcionalidades Esperadas" [ref=e33] [cursor=pointer]:
+                    - /url: "#214-principais-funcionalidades-esperadas"
+        - listitem [ref=e34]:
+          - link "3. Stakeholders e Utilizadores" [ref=e35] [cursor=pointer]:
+            - /url: "#3-stakeholders-e-utilizadores"
+          - list [ref=e36]:
+            - listitem [ref=e37]:
+              - link "3.1. Atores Principais" [ref=e38] [cursor=pointer]:
+                - /url: "#31-atores-principais"
+            - listitem [ref=e39]:
+              - link "3.2. Atores Secundários" [ref=e40] [cursor=pointer]:
+                - /url: "#32-atores-secundários"
+            - listitem [ref=e41]:
+              - link "3.3. Administradores" [ref=e42] [cursor=pointer]:
+                - /url: "#33-administradores"
+            - listitem [ref=e43]:
+              - link "3.4. Sistemas Externos" [ref=e44] [cursor=pointer]:
+                - /url: "#34-sistemas-externos"
+        - listitem [ref=e45]:
+          - link "4. Identificação e Descrição dos Requisitos" [ref=e46] [cursor=pointer]:
+            - /url: "#4-identificação-e-descrição-dos-requisitos"
+          - list [ref=e47]:
+            - listitem [ref=e48]:
+              - link "4.1. Requisitos Funcionais (RF)" [ref=e49] [cursor=pointer]:
+                - /url: "#41-requisitos-funcionais-rf"
+            - listitem [ref=e50]:
+              - link "4.2. Requisitos Não Funcionais (RNF)" [ref=e51] [cursor=pointer]:
+                - /url: "#42-requisitos-não-funcionais-rnf"
+            - listitem [ref=e52]:
+              - link "4.3. Casos de Uso" [ref=e53] [cursor=pointer]:
+                - /url: "#43-casos-de-uso"
+        - listitem [ref=e54]:
+          - link "5. Etapa 2 — Modelação Estrutural" [ref=e55] [cursor=pointer]:
+            - /url: "#5-etapa-2--modelação-estrutural"
+          - list [ref=e56]:
+            - listitem [ref=e57]:
+              - link "5.1. Diagrama de Classes" [ref=e58] [cursor=pointer]:
+                - /url: "#51-diagrama-de-classes"
+            - listitem [ref=e59]:
+              - link "5.2. Diagramas de Sequência" [ref=e60] [cursor=pointer]:
+                - /url: "#52-diagramas-de-sequência"
+            - listitem [ref=e61]:
+              - link "5.3. Diagrama de Atividades" [ref=e62] [cursor=pointer]:
+                - /url: "#53-diagrama-de-atividades"
+    - heading "1. Introdução" [level=1] [ref=e63]
+    - paragraph [ref=e64]: "Muitos ginásios pequenos ainda funcionam com papel: folhas de presença em caderno, envelopes com dinheiro de pagamentos, notas manuscritas sobre o estado de cada membro. Isto complica o acompanhamento de cada pessoa e torna a gestão do dia-a-dia mais difícil do que precisa de ser."
+    - paragraph [ref=e65]: Este trabalho descreve um sistema digital para ginásios de pequena e média dimensão. A ideia é ter num só sítio a gestão de membros, inscrições, horários de aulas, presenças e pagamentos — em vez de depender de papel.
+    - separator [ref=e66]
+    - heading "2. Etapa 1 — Análise de Requisitos" [level=1] [ref=e67]
+    - heading "2.1. Descrição do Problema" [level=2] [ref=e68]
+    - paragraph [ref=e69]: "Ginásios de pequena e média dimensão ainda usam processos manuais em papel: folhas de inscrição, envelopes com pagamentos, registos de presença em caderno. O resultado é um acompanhamento irregular dos membros, horários imprevisíveis e faturas que só aparecem quando alguém se lembra de as emitir."
+    - heading "2.1.1. Descrição do Sistema" [level=3] [ref=e70]
+    - paragraph [ref=e71]: "Plataforma digital que cobre todas as operações de um ginásio: registo de membros, planos de treino, gestão de horários, inscrições e faturação."
+    - heading "2.1.2. Objetivo do Software" [level=3] [ref=e72]
+    - paragraph [ref=e73]: "Tornar a gestão do ginásio mais eficiente e centralizada. Na prática: processos mais rápidos para a equipa, documentação de membros em conformidade, e uma experiência melhor para quem treina."
+    - heading "2.1.3. Contexto de Utilização" [level=3] [ref=e74]
+    - paragraph [ref=e75]: O sistema é usado no dia-a-dia do ginásio por diferentes perfis em paralelo. A receção trata de acessos, atendimento e pagamentos presenciais. Treinadores preenchem planos de treino. Administradores tratam de inscrições e gestão de membros. Pagamentos são feitos pelo membro via app ou presencialmente no balcão com ajuda do(a) rececionista. O trabalho decorre sobretudo em tablets e computadores de balcão.
+    - heading "2.1.4. Principais Funcionalidades Esperadas" [level=3] [ref=e76]
+    - list [ref=e77]:
+      - listitem [ref=e78]:
+        - strong [ref=e79]: "Membros:"
+        - text: criar, procurar por nome ou número, atualizar e desativar registos.
+      - listitem [ref=e80]:
+        - strong [ref=e81]: "Planos de treino:"
+        - text: exercícios personalizados com séries, repetições, carga e descanso.
+      - listitem [ref=e82]:
+        - strong [ref=e83]: "Inscrições:"
+        - text: criar, renovar e cancelar inscrições.
+      - listitem [ref=e84]:
+        - strong [ref=e85]: "Assiduidade:"
+        - text: check-in e check-out por cartão ou código.
+      - listitem [ref=e86]:
+        - strong [ref=e87]: "Financeiro:"
+        - text: mensalidades geradas automaticamente, pagamentos totais ou parciais, faturas.
+      - listitem [ref=e88]:
+        - strong [ref=e89]: "Aulas de grupo:"
+        - text: horários, reservas, cancelamentos e controlo de lotação.
+      - listitem [ref=e90]:
+        - strong [ref=e91]: "Validação automática:"
+        - text: a inscrição é verificada no check-in.
+      - listitem [ref=e92]:
+        - strong [ref=e93]: "App para membros:"
+        - text: consulta de planos, reserva de aulas e check-in pelo telemóvel.
+      - listitem [ref=e94]:
+        - strong [ref=e95]: "Relatórios de faturação:"
+        - text: receitas e valores em dívida por período.
+      - listitem [ref=e96]:
+        - strong [ref=e97]: "Segurança:"
+        - text: login com aula que expira após 30 min sem atividade, passwords com hash bcrypt, e acesso por tipo de utilizador (Membro, Treinador, Rececionista, Gestor, Admin).
+    - heading "3. Stakeholders e Utilizadores" [level=1] [ref=e98]
+    - heading "3.1. Atores Principais" [level=2] [ref=e99]
+    - table [ref=e100]:
+      - rowgroup [ref=e101]:
+        - row "Ator O que fazem" [ref=e102]:
+          - columnheader "Ator" [ref=e103]
+          - columnheader "O que fazem" [ref=e104]
+      - rowgroup [ref=e105]:
+        - row "Membro Paga mensalidade, marca aulas, regista presenças, vê planos de treino e histórico" [ref=e106]:
+          - cell "Membro" [ref=e107]:
+            - strong [ref=e108]: Membro
+          - cell "Paga mensalidade, marca aulas, regista presenças, vê planos de treino e histórico" [ref=e109]
+        - row "Treinador Cria planos de treino, acompanha progresso dos membros, dá aulas coletivas e sessões PT" [ref=e110]:
+          - cell "Treinador" [ref=e111]:
+            - strong [ref=e112]: Treinador
+          - cell "Cria planos de treino, acompanha progresso dos membros, dá aulas coletivas e sessões PT" [ref=e113]
+    - heading "3.2. Atores Secundários" [level=2] [ref=e114]
+    - table [ref=e115]:
+      - rowgroup [ref=e116]:
+        - row "Ator O que fazem" [ref=e117]:
+          - columnheader "Ator" [ref=e118]
+          - columnheader "O que fazem" [ref=e119]
+      - rowgroup [ref=e120]:
+        - row "Rececionista Faz check-in, atende pessoas ao balcão, processa pagamentos avulsos no terminal POS" [ref=e121]:
+          - cell "Rececionista" [ref=e122]:
+            - strong [ref=e123]: Rececionista
+          - cell "Faz check-in, atende pessoas ao balcão, processa pagamentos avulsos no terminal POS" [ref=e124]
+    - heading "3.3. Administradores" [level=2] [ref=e125]
+    - table [ref=e126]:
+      - rowgroup [ref=e127]:
+        - row "Ator O que fazem" [ref=e128]:
+          - columnheader "Ator" [ref=e129]
+          - columnheader "O que fazem" [ref=e130]
+      - rowgroup [ref=e131]:
+        - 'row "Gestor Gere o dia-a-dia: membros, staff, horários e relatórios. Acesso total exceto configurações de negócio." [ref=e132]':
+          - cell "Gestor" [ref=e133]:
+            - strong [ref=e134]: Gestor
+          - 'cell "Gere o dia-a-dia: membros, staff, horários e relatórios. Acesso total exceto configurações de negócio." [ref=e135]'
+        - row "Admin Faz Receção e atendimento correntes. Sem acesso a configurações de negócio." [ref=e136]:
+          - cell "Admin" [ref=e137]:
+            - strong [ref=e138]: Admin
+          - cell "Faz Receção e atendimento correntes. Sem acesso a configurações de negócio." [ref=e139]
+    - heading "3.4. Sistemas Externos" [level=2] [ref=e140]
+    - table [ref=e141]:
+      - rowgroup [ref=e142]:
+        - row "Sistema O que fazem" [ref=e143]:
+          - columnheader "Sistema" [ref=e144]
+          - columnheader "O que fazem" [ref=e145]
+      - rowgroup [ref=e146]:
+        - row "Gateway de Pagamento Integra Stripe, Razorpay, Square, GoCardless, Authorize.net para processar mensalidades, pagamentos avulsos e faturas" [ref=e147]:
+          - cell "Gateway de Pagamento" [ref=e148]:
+            - strong [ref=e149]: Gateway de Pagamento
+          - cell "Integra Stripe, Razorpay, Square, GoCardless, Authorize.net para processar mensalidades, pagamentos avulsos e faturas" [ref=e150]
+        - row "Serviços de Notificação SMS, email, WhatsApp para lembrar renovações, confirmar pagamentos e enviar alertas" [ref=e151]:
+          - cell "Serviços de Notificação" [ref=e152]:
+            - strong [ref=e153]: Serviços de Notificação
+          - cell "SMS, email, WhatsApp para lembrar renovações, confirmar pagamentos e enviar alertas" [ref=e154]
+    - heading "4. Identificação e Descrição dos Requisitos" [level=1] [ref=e155]
+    - heading "4.1. Requisitos Funcionais (RF)" [level=2] [ref=e156]
+    - table [ref=e157]:
+      - rowgroup [ref=e158]:
+        - row "ID Descrição UC Prioridade" [ref=e159]:
+          - columnheader "ID" [ref=e160]
+          - columnheader "Descrição" [ref=e161]
+          - columnheader "UC" [ref=e162]
+          - columnheader "Prioridade" [ref=e163]
+      - rowgroup [ref=e164]:
+        - row "Membro" [ref=e165]:
+          - cell "Membro" [ref=e166]:
+            - strong [ref=e167]: Membro
+        - row "RF-01a O Admin cria um membro com nome, contactos e foto. O sistema atribui um número único. UC-01a Alta" [ref=e168]:
+          - cell "RF-01a" [ref=e169]
+          - cell "O Admin cria um membro com nome, contactos e foto. O sistema atribui um número único." [ref=e170]
+          - cell "UC-01a" [ref=e171]
+          - cell "Alta" [ref=e172]
+        - row "RF-01b O Admin pesquisa um membro por nome, número único ou outro critério. O sistema apresenta os dados guardados. UC-01b Alta" [ref=e173]:
+          - cell "RF-01b" [ref=e174]
+          - cell "O Admin pesquisa um membro por nome, número único ou outro critério. O sistema apresenta os dados guardados." [ref=e175]
+          - cell "UC-01b" [ref=e176]
+          - cell "Alta" [ref=e177]
+        - row "RF-01c O Admin atualiza dados de um membro. O sistema regista a data da alteração. Alta" [ref=e178]:
+          - cell "RF-01c" [ref=e179]
+          - cell "O Admin atualiza dados de um membro. O sistema regista a data da alteração." [ref=e180]
+          - cell [ref=e181]
+          - cell "Alta" [ref=e182]
+        - row "RF-01d O Admin inativa um membro. O membro não pode fazer login nem novas inscrições, mas os dados ficam disponíveis para consulta histórica. Média" [ref=e183]:
+          - cell "RF-01d" [ref=e184]
+          - cell "O Admin inativa um membro. O membro não pode fazer login nem novas inscrições, mas os dados ficam disponíveis para consulta histórica." [ref=e185]
+          - cell [ref=e186]
+          - cell "Média" [ref=e187]
+        - row "Inscrição" [ref=e188]:
+          - cell "Inscrição" [ref=e189]:
+            - strong [ref=e190]: Inscrição
+        - row "RF-02a O Admin cria uma inscrição para um membro e define o período de validade. UC-02 Alta" [ref=e191]:
+          - cell "RF-02a" [ref=e192]
+          - cell "O Admin cria uma inscrição para um membro e define o período de validade." [ref=e193]
+          - cell "UC-02" [ref=e194]
+          - cell "Alta" [ref=e195]
+        - row "RF-02b O Admin renova uma inscrição ativa antes da data de fim. UC-02 Alta" [ref=e196]:
+          - cell "RF-02b" [ref=e197]
+          - cell "O Admin renova uma inscrição ativa antes da data de fim." [ref=e198]
+          - cell "UC-02" [ref=e199]
+          - cell "Alta" [ref=e200]
+        - row "RF-02c O Admin cancela uma inscrição ativa. O sistema regista a data e o motivo do cancelamentoo. Média" [ref=e201]:
+          - cell "RF-02c" [ref=e202]
+          - cell "O Admin cancela uma inscrição ativa. O sistema regista a data e o motivo do cancelamentoo." [ref=e203]
+          - cell [ref=e204]
+          - cell "Média" [ref=e205]
+        - row "RF-02d O Membro requer o cancelamento da sua inscrição. O sistema regista o pedido. Média" [ref=e206]:
+          - cell "RF-02d" [ref=e207]
+          - cell "O Membro requer o cancelamento da sua inscrição. O sistema regista o pedido." [ref=e208]
+          - cell [ref=e209]
+          - cell "Média" [ref=e210]
+        - row "RF-02e O Admin atualiza dados de uma inscrição ativa — período de validade ou plano associado. O sistema regista a data da alteração. Média" [ref=e211]:
+          - cell "RF-02e" [ref=e212]
+          - cell "O Admin atualiza dados de uma inscrição ativa — período de validade ou plano associado. O sistema regista a data da alteração." [ref=e213]
+          - cell [ref=e214]
+          - cell "Média" [ref=e215]
+        - row "Plano de Treino" [ref=e216]:
+          - cell "Plano de Treino" [ref=e217]:
+            - strong [ref=e218]: Plano de Treino
+        - row "RF-03a O Treinador cria um plano de treino para um membro, com um objetivo e uma duração. UC-05 Alta" [ref=e219]:
+          - cell "RF-03a" [ref=e220]
+          - cell "O Treinador cria um plano de treino para um membro, com um objetivo e uma duração." [ref=e221]
+          - cell "UC-05" [ref=e222]
+          - cell "Alta" [ref=e223]
+        - row "RF-03b O Treinador atualiza um plano existente de um membro, incluindo exercícios, séries, repetições, carga, descanso ou duração. O sistema regista a data de atualização. Alta" [ref=e224]:
+          - cell "RF-03b" [ref=e225]
+          - cell "O Treinador atualiza um plano existente de um membro, incluindo exercícios, séries, repetições, carga, descanso ou duração. O sistema regista a data de atualização." [ref=e226]
+          - cell [ref=e227]
+          - cell "Alta" [ref=e228]
+        - row "RF-03c O Admin inativa um plano de treino. O plano deixa de estar ativo mas mantém-se disponível para consulta histórica. Média" [ref=e229]:
+          - cell "RF-03c" [ref=e230]
+          - cell "O Admin inativa um plano de treino. O plano deixa de estar ativo mas mantém-se disponível para consulta histórica." [ref=e231]
+          - cell [ref=e232]
+          - cell "Média" [ref=e233]
+        - row "Exercício" [ref=e234]:
+          - cell "Exercício" [ref=e235]:
+            - strong [ref=e236]: Exercício
+        - row "RF-04a O Treinador cria um exercício com nome, séries, repetições, carga e descanso dentro de um plano de treino. UC-05 Alta" [ref=e237]:
+          - cell "RF-04a" [ref=e238]
+          - cell "O Treinador cria um exercício com nome, séries, repetições, carga e descanso dentro de um plano de treino." [ref=e239]
+          - cell "UC-05" [ref=e240]
+          - cell "Alta" [ref=e241]
+        - row "RF-04b O Treinador atualiza os detalhes de um exercício — séries, repetições, carga ou descanso. O sistema regista a data de atualização. Alta" [ref=e242]:
+          - cell "RF-04b" [ref=e243]
+          - cell "O Treinador atualiza os detalhes de um exercício — séries, repetições, carga ou descanso. O sistema regista a data de atualização." [ref=e244]
+          - cell [ref=e245]
+          - cell "Alta" [ref=e246]
+        - row "RF-04c O Admin inativa um exercício. O exercício deixa de estar disponível para novos planos mas mantém-se nos planos históricos onde foi utilizado. Média" [ref=e247]:
+          - cell "RF-04c" [ref=e248]
+          - cell "O Admin inativa um exercício. O exercício deixa de estar disponível para novos planos mas mantém-se nos planos históricos onde foi utilizado." [ref=e249]
+          - cell [ref=e250]
+          - cell "Média" [ref=e251]
+        - row "Assiduidade" [ref=e252]:
+          - cell "Assiduidade" [ref=e253]:
+            - strong [ref=e254]: Assiduidade
+        - row "RF-05a O Membro regista a entrada. O sistema valida a inscrição ativa e guarda a hora de entrada. UC-04 Alta" [ref=e255]:
+          - cell "RF-05a" [ref=e256]
+          - cell "O Membro regista a entrada. O sistema valida a inscrição ativa e guarda a hora de entrada." [ref=e257]
+          - cell "UC-04" [ref=e258]
+          - cell "Alta" [ref=e259]
+        - row "RF-05b A Rececionista regista a entrada de um membro. O sistema valida a inscrição ativa e guarda a hora de entrada. UC-04 Alta" [ref=e260]:
+          - cell "RF-05b" [ref=e261]
+          - cell "A Rececionista regista a entrada de um membro. O sistema valida a inscrição ativa e guarda a hora de entrada." [ref=e262]
+          - cell "UC-04" [ref=e263]
+          - cell "Alta" [ref=e264]
+        - row "RF-05c O Membro regista a saída. O sistema guarda a hora de saída, calculando o tempo de permanência. UC-04 Alta" [ref=e265]:
+          - cell "RF-05c" [ref=e266]
+          - cell "O Membro regista a saída. O sistema guarda a hora de saída, calculando o tempo de permanência." [ref=e267]
+          - cell "UC-04" [ref=e268]
+          - cell "Alta" [ref=e269]
+        - row "RF-05d A Rececionista regista a saída de um membro. O sistema guarda a hora de saída, calculando o tempo de permanência. UC-04 Alta" [ref=e270]:
+          - cell "RF-05d" [ref=e271]
+          - cell "A Rececionista regista a saída de um membro. O sistema guarda a hora de saída, calculando o tempo de permanência." [ref=e272]
+          - cell "UC-04" [ref=e273]
+          - cell "Alta" [ref=e274]
+        - row "Autenticação" [ref=e275]:
+          - cell "Autenticação" [ref=e276]:
+            - strong [ref=e277]: Autenticação
+        - row "RF-06a O Utilizador introduz credenciais; o sistema valida e cria uma sessão com as permissões adequadas ao seu tipo de utilizador. UC-07 Alta" [ref=e278]:
+          - cell "RF-06a" [ref=e279]
+          - cell "O Utilizador introduz credenciais; o sistema valida e cria uma sessão com as permissões adequadas ao seu tipo de utilizador." [ref=e280]
+          - cell "UC-07" [ref=e281]
+          - cell "Alta" [ref=e282]
+        - row "RF-06b O Utilizador termina a sessão ativa. O sistema invalida o token e fecha a sessão. UC-07 Alta" [ref=e283]:
+          - cell "RF-06b" [ref=e284]
+          - cell "O Utilizador termina a sessão ativa. O sistema invalida o token e fecha a sessão." [ref=e285]
+          - cell "UC-07" [ref=e286]
+          - cell "Alta" [ref=e287]
+        - row "Mensalidade" [ref=e288]:
+          - cell "Mensalidade" [ref=e289]:
+            - strong [ref=e290]: Mensalidade
+        - row "RF-07a O sistema gera automaticamente as mensalidades para todos os membros com inscrição ativa no dia 1 de cada mês. Alta" [ref=e291]:
+          - cell "RF-07a" [ref=e292]
+          - cell "O sistema gera automaticamente as mensalidades para todos os membros com inscrição ativa no dia 1 de cada mês." [ref=e293]
+          - cell [ref=e294]
+          - cell "Alta" [ref=e295]
+        - row "RF-07b A Rececionista ou o sistema regista o pagamento de uma mensalidade. UC-03 Alta" [ref=e296]:
+          - cell "RF-07b" [ref=e297]
+          - cell "A Rececionista ou o sistema regista o pagamento de uma mensalidade." [ref=e298]
+          - cell "UC-03" [ref=e299]
+          - cell "Alta" [ref=e300]
+        - row "Fatura" [ref=e301]:
+          - cell "Fatura" [ref=e302]:
+            - strong [ref=e303]: Fatura
+        - row "RF-08a O sistema gera automaticamente uma fatura com número, valor e data após o registo de um pagamento. Alta" [ref=e304]:
+          - cell "RF-08a" [ref=e305]
+          - cell "O sistema gera automaticamente uma fatura com número, valor e data após o registo de um pagamento." [ref=e306]
+          - cell [ref=e307]
+          - cell "Alta" [ref=e308]
+        - row "Aula de Grupo" [ref=e309]:
+          - cell "Aula de Grupo" [ref=e310]:
+            - strong [ref=e311]: Aula de Grupo
+        - row "RF-09a O Treinador cria uma aula com horário, duração, sala e Treinador. Depois, a aula fica disponível para reserva. UC-08 Alta" [ref=e312]:
+          - cell "RF-09a" [ref=e313]
+          - cell "O Treinador cria uma aula com horário, duração, sala e Treinador. Depois, a aula fica disponível para reserva." [ref=e314]
+          - cell "UC-08" [ref=e315]
+          - cell "Alta" [ref=e316]
+        - row "RF-09b O Membro ou a Rececionista reserva um lugar numa aula. O sistema verifica a lotação e, se cheia, avisa que não há vagas. UC-08 Alta" [ref=e317]:
+          - cell "RF-09b" [ref=e318]
+          - cell "O Membro ou a Rececionista reserva um lugar numa aula. O sistema verifica a lotação e, se cheia, avisa que não há vagas." [ref=e319]
+          - cell "UC-08" [ref=e320]
+          - cell "Alta" [ref=e321]
+        - row "RF-09c O Membro ou a Rececionista cancela a reserva antes do início da aula, libertando a vaga. Se o Membro não cancelar nem aparecer, o sistema regista automaticamente o no-show quando a aula termina. Média" [ref=e322]:
+          - cell "RF-09c" [ref=e323]
+          - cell "O Membro ou a Rececionista cancela a reserva antes do início da aula, libertando a vaga. Se o Membro não cancelar nem aparecer, o sistema regista automaticamente o no-show quando a aula termina." [ref=e324]
+          - cell [ref=e325]
+          - cell "Média" [ref=e326]
+        - row "RF-09d O Admin inativa uma aula de grupo. A aula deixa de estar disponível para reservas mas mantém-se no histórico. Média" [ref=e327]:
+          - cell "RF-09d" [ref=e328]
+          - cell "O Admin inativa uma aula de grupo. A aula deixa de estar disponível para reservas mas mantém-se no histórico." [ref=e329]
+          - cell [ref=e330]
+          - cell "Média" [ref=e331]
+        - row "Relatório" [ref=e332]:
+          - cell "Relatório" [ref=e333]:
+            - strong [ref=e334]: Relatório
+        - row "RF-10a O Gestor solicita um relatório de faturação para um período. O sistema compila as receitas e valores em dívida e gera um relatório consolidado. UC-09 Alta" [ref=e335]:
+          - cell "RF-10a" [ref=e336]
+          - cell "O Gestor solicita um relatório de faturação para um período. O sistema compila as receitas e valores em dívida e gera um relatório consolidado." [ref=e337]
+          - cell "UC-09" [ref=e338]
+          - cell "Alta" [ref=e339]
+        - row "Sala" [ref=e340]:
+          - cell "Sala" [ref=e341]:
+            - strong [ref=e342]: Sala
+        - row "RF-11a O Admin cria uma sala com nome. O sistema atribui um identificador único. Alta" [ref=e343]:
+          - cell "RF-11a" [ref=e344]
+          - cell "O Admin cria uma sala com nome. O sistema atribui um identificador único." [ref=e345]
+          - cell [ref=e346]
+          - cell "Alta" [ref=e347]
+        - row "RF-11b O Admin atualiza os dados de uma sala — nome ou lotação máxima. Alta" [ref=e348]:
+          - cell "RF-11b" [ref=e349]
+          - cell "O Admin atualiza os dados de uma sala — nome ou lotação máxima." [ref=e350]
+          - cell [ref=e351]
+          - cell "Alta" [ref=e352]
+        - row "RF-11c O Admin inativa uma sala. A sala não pode ser associada a novas aulas mas mantém-se disponível para consultas históricas. Média" [ref=e353]:
+          - cell "RF-11c" [ref=e354]
+          - cell "O Admin inativa uma sala. A sala não pode ser associada a novas aulas mas mantém-se disponível para consultas históricas." [ref=e355]
+          - cell [ref=e356]
+          - cell "Média" [ref=e357]
+        - row "Método de Pagamento" [ref=e358]:
+          - cell "Método de Pagamento" [ref=e359]:
+            - strong [ref=e360]: Método de Pagamento
+        - row "RF-12a O Membro adiciona um método de pagamento com tipo, últimos 4 dígitos e data de expiração. Alta" [ref=e361]:
+          - cell "RF-12a" [ref=e362]
+          - cell "O Membro adiciona um método de pagamento com tipo, últimos 4 dígitos e data de expiração." [ref=e363]
+          - cell [ref=e364]
+          - cell "Alta" [ref=e365]
+        - row "RF-12b O Membro atualiza os dados de um método de pagamento — tipo ou data de expiração. Alta" [ref=e366]:
+          - cell "RF-12b" [ref=e367]
+          - cell "O Membro atualiza os dados de um método de pagamento — tipo ou data de expiração." [ref=e368]
+          - cell [ref=e369]
+          - cell "Alta" [ref=e370]
+        - row "RF-12c O Membro inativa um método de pagamento. O método não pode ser utilizado em novos pagamentos mas mantém-se disponível para consulta do histórico. Média" [ref=e371]:
+          - cell "RF-12c" [ref=e372]
+          - cell "O Membro inativa um método de pagamento. O método não pode ser utilizado em novos pagamentos mas mantém-se disponível para consulta do histórico." [ref=e373]
+          - cell [ref=e374]
+          - cell "Média" [ref=e375]
+    - heading "4.2. Requisitos Não Funcionais (RNF)" [level=2] [ref=e376]
+    - table [ref=e377]:
+      - rowgroup [ref=e378]:
+        - row "ID Domínio Título Descrição Prioridade" [ref=e379]:
+          - columnheader "ID" [ref=e380]
+          - columnheader "Domínio" [ref=e381]
+          - columnheader "Título" [ref=e382]
+          - columnheader "Descrição" [ref=e383]
+          - columnheader "Prioridade" [ref=e384]
+      - rowgroup [ref=e385]:
+        - row "RNF-01a Desempenho Tempo de check-in Check-in processado em menos de 1 segundo. Alta" [ref=e386]:
+          - cell "RNF-01a" [ref=e387]
+          - cell "Desempenho" [ref=e388]
+          - cell "Tempo de check-in" [ref=e389]
+          - cell "Check-in processado em menos de 1 segundo." [ref=e390]
+          - cell "Alta" [ref=e391]
+        - row "RNF-01b Desempenho Consulta de dados de membro Consultas a dados de membro respondem em menos de 2 segundos. Alta" [ref=e392]:
+          - cell "RNF-01b" [ref=e393]
+          - cell "Desempenho" [ref=e394]
+          - cell "Consulta de dados de membro" [ref=e395]
+          - cell "Consultas a dados de membro respondem em menos de 2 segundos." [ref=e396]
+          - cell "Alta" [ref=e397]
+        - row "RNF-01c Desempenho Geração de relatórios Relatórios de faturação ficam prontos em até 120 segundos. Média" [ref=e398]:
+          - cell "RNF-01c" [ref=e399]
+          - cell "Desempenho" [ref=e400]
+          - cell "Geração de relatórios" [ref=e401]
+          - cell "Relatórios de faturação ficam prontos em até 120 segundos." [ref=e402]
+          - cell "Média" [ref=e403]
+        - row "RNF-02a Segurança Autenticação por password Passwords guardadas com hash bcrypt. Alta" [ref=e404]:
+          - cell "RNF-02a" [ref=e405]
+          - cell "Segurança" [ref=e406]
+          - cell "Autenticação por password" [ref=e407]
+          - cell "Passwords guardadas com hash bcrypt." [ref=e408]
+          - cell "Alta" [ref=e409]
+        - row "RNF-02b Segurança Tempo de expiração de sessão Sessões expiram após 30 minutos sem atividade. Alta" [ref=e410]:
+          - cell "RNF-02b" [ref=e411]
+          - cell "Segurança" [ref=e412]
+          - cell "Tempo de expiração de sessão" [ref=e413]
+          - cell "Sessões expiram após 30 minutos sem atividade." [ref=e414]
+          - cell "Alta" [ref=e415]
+        - row "RNF-02e Segurança Proteção contra vulnerabilidades Todos os inputs são validados e sanitizados. Alta" [ref=e416]:
+          - cell "RNF-02e" [ref=e417]
+          - cell "Segurança" [ref=e418]
+          - cell "Proteção contra vulnerabilidades" [ref=e419]
+          - cell "Todos os inputs são validados e sanitizados." [ref=e420]
+          - cell "Alta" [ref=e421]
+        - row "RNF-02f Segurança Backup encriptado Backups regulares com encriptação. A integridade é verificada. Alta" [ref=e422]:
+          - cell "RNF-02f" [ref=e423]
+          - cell "Segurança" [ref=e424]
+          - cell "Backup encriptado" [ref=e425]
+          - cell "Backups regulares com encriptação. A integridade é verificada." [ref=e426]
+          - cell "Alta" [ref=e427]
+        - row "RNF-03a Usabilidade Eficiência de interação Operações frequentes (criar inscrição, check-in, registar pagamento) precisam de no máximo 3 cliques. Alta" [ref=e428]:
+          - cell "RNF-03a" [ref=e429]
+          - cell "Usabilidade" [ref=e430]
+          - cell "Eficiência de interação" [ref=e431]
+          - cell "Operações frequentes (criar inscrição, check-in, registar pagamento) precisam de no máximo 3 cliques." [ref=e432]
+          - cell "Alta" [ref=e433]
+        - 'row "RNF-04a Disponibilidade Disponibilidade operativa Sistema disponível 95% do tempo em horário de funcionamento (08:00–22:00), 90% fora. Tempo máximo de paragem contínua: 2 horas. Alta" [ref=e434]':
+          - cell "RNF-04a" [ref=e435]
+          - cell "Disponibilidade" [ref=e436]
+          - cell "Disponibilidade operativa" [ref=e437]
+          - 'cell "Sistema disponível 95% do tempo em horário de funcionamento (08:00–22:00), 90% fora. Tempo máximo de paragem contínua: 2 horas." [ref=e438]'
+          - cell "Alta" [ref=e439]
+        - row "RNF-04b Disponibilidade Recuperação após incidente Recuperação em até 2 horas durante horário de funcionamento, com alerta automático ao administrador. Alta" [ref=e440]:
+          - cell "RNF-04b" [ref=e441]
+          - cell "Disponibilidade" [ref=e442]
+          - cell "Recuperação após incidente" [ref=e443]
+          - cell "Recuperação em até 2 horas durante horário de funcionamento, com alerta automático ao administrador." [ref=e444]
+          - cell "Alta" [ref=e445]
+        - row "RNF-05a Privacidade de dados Minimização de dados O sistema recolhe apenas os dados necessários para a operação do ginásio. Alta" [ref=e446]:
+          - cell "RNF-05a" [ref=e447]
+          - cell "Privacidade de dados" [ref=e448]
+          - cell "Minimização de dados" [ref=e449]
+          - cell "O sistema recolhe apenas os dados necessários para a operação do ginásio." [ref=e450]
+          - cell "Alta" [ref=e451]
+        - row "RNF-05b Privacidade de dados Finalidade dos dados Dados dos membros são usados exclusivamente para a gestão da inscrição e faturação. Alta" [ref=e452]:
+          - cell "RNF-05b" [ref=e453]
+          - cell "Privacidade de dados" [ref=e454]
+          - cell "Finalidade dos dados" [ref=e455]
+          - cell "Dados dos membros são usados exclusivamente para a gestão da inscrição e faturação." [ref=e456]
+          - cell "Alta" [ref=e457]
+        - row "RNF-05c Privacidade de dados Direitos dos titulares Os titulares podem aceder, corrigir ou eliminar os seus dados. Tempo médio de resolução ≤ 30 dias úteis. Alta" [ref=e458]:
+          - cell "RNF-05c" [ref=e459]
+          - cell "Privacidade de dados" [ref=e460]
+          - cell "Direitos dos titulares" [ref=e461]
+          - cell "Os titulares podem aceder, corrigir ou eliminar os seus dados. Tempo médio de resolução ≤ 30 dias úteis." [ref=e462]
+          - cell "Alta" [ref=e463]
+        - row "RNF-06a Compatibilidade Compatibilidade de browsers Interface web funciona nas versões mais recentes de Chrome, Firefox, Safari e Edge, incluindo Safari (iOS) e Chrome (Android). Média" [ref=e464]:
+          - cell "RNF-06a" [ref=e465]
+          - cell "Compatibilidade" [ref=e466]
+          - cell "Compatibilidade de browsers" [ref=e467]
+          - cell "Interface web funciona nas versões mais recentes de Chrome, Firefox, Safari e Edge, incluindo Safari (iOS) e Chrome (Android)." [ref=e468]
+          - cell "Média" [ref=e469]
+        - row "RNF-06b Compatibilidade Suporte multi-dispositivo Interface responsiva para desktops, tablets e smartphones (320px a 2560px). Média" [ref=e470]:
+          - cell "RNF-06b" [ref=e471]
+          - cell "Compatibilidade" [ref=e472]
+          - cell "Suporte multi-dispositivo" [ref=e473]
+          - cell "Interface responsiva para desktops, tablets e smartphones (320px a 2560px)." [ref=e474]
+          - cell "Média" [ref=e475]
+        - row "RNF-06c Compatibilidade Escalabilidade O sistema suporta pelo menos 50% de crescimento em membros e transações sem degradação. Média" [ref=e476]:
+          - cell "RNF-06c" [ref=e477]
+          - cell "Compatibilidade" [ref=e478]
+          - cell "Escalabilidade" [ref=e479]
+          - cell "O sistema suporta pelo menos 50% de crescimento em membros e transações sem degradação." [ref=e480]
+          - cell "Média" [ref=e481]
+        - row "RNF-07a Fiabilidade Proteção de dados Dados protegidos contra perdas acidentais. Backups automáticos diários com verificação de integridade. Alta" [ref=e482]:
+          - cell "RNF-07a" [ref=e483]
+          - cell "Fiabilidade" [ref=e484]
+          - cell "Proteção de dados" [ref=e485]
+          - cell "Dados protegidos contra perdas acidentais. Backups automáticos diários com verificação de integridade." [ref=e486]
+          - cell "Alta" [ref=e487]
+        - row "RNF-07b Fiabilidade Restaurabilidade Restaurabilidade total em até 8 horas a partir dos backups. Plano documentado e testado anualmente. Alta" [ref=e488]:
+          - cell "RNF-07b" [ref=e489]
+          - cell "Fiabilidade" [ref=e490]
+          - cell "Restaurabilidade" [ref=e491]
+          - cell "Restaurabilidade total em até 8 horas a partir dos backups. Plano documentado e testado anualmente." [ref=e492]
+          - cell "Alta" [ref=e493]
+    - separator [ref=e494]
+    - heading "4.3. Casos de Uso" [level=2] [ref=e495]
+    - heading "UC-01a — Criar Registo de Membro" [level=3] [ref=e496]
+    - paragraph [ref=e497]:
+      - strong [ref=e498]: Ator principal
+      - text: — Admin
+    - paragraph [ref=e499]:
+      - strong [ref=e500]: Pré-condições
+      - text: — Utilizador autenticado com conta Admin.
+    - paragraph [ref=e501]:
+      - strong [ref=e502]: Descrição
+      - text: — Cria um novo registo de membro no sistema.
+    - paragraph [ref=e503]:
+      - strong [ref=e504]: Classes
+      - text: — Membro, Admin, Utilizador
+    - heading "Fluxo Principal" [level=4] [ref=e505]
+    - list [ref=e506]:
+      - listitem [ref=e507]: Admin abre o módulo de gestão de membros.
+      - listitem [ref=e508]: Admin inicia a criação de um novo registo.
+      - listitem [ref=e509]: Admin preenche os dados biográficos do novo Membro.
+      - listitem [ref=e510]: Sistema valida os dados e guarda o registo.
+    - heading "Fluxo Alternativo" [level=4] [ref=e511]
+    - paragraph [ref=e512]: "Membro já existente: sistema bloqueia a gravação e propõe abrir o registo existente."
+    - paragraph [ref=e513]:
+      - strong [ref=e514]: Pós-condições
+      - text: — Registo criado e pronto para inscrições.
+    - separator [ref=e515]
+    - heading "UC-01b — Consultar Registo de Membro" [level=3] [ref=e516]
+    - paragraph [ref=e517]:
+      - strong [ref=e518]: Ator principal
+      - text: — Admin
+    - paragraph [ref=e519]:
+      - strong [ref=e520]: Pré-condições
+      - text: — Utilizador autenticado com conta Admin.
+    - paragraph [ref=e521]:
+      - strong [ref=e522]: Descrição
+      - text: — Consulta os dados de um membro registado.
+    - paragraph [ref=e523]:
+      - strong [ref=e524]: Classes
+      - text: — Membro, Admin
+    - heading "Fluxo Principal" [level=4] [ref=e525]
+    - list [ref=e526]:
+      - listitem [ref=e527]: Admin abre o módulo de gestão de membros.
+      - listitem [ref=e528]: Admin pesquisa o membro por nome, número ou outro critério.
+      - listitem [ref=e529]: Sistema apresenta os dados do membro.
+    - paragraph [ref=e530]:
+      - strong [ref=e531]: Pós-condições
+      - text: — Dados do membro apresentados para consulta.
+    - separator [ref=e532]
+    - heading "UC-01d — Inativar Registo de Membro" [level=3] [ref=e533]
+    - paragraph [ref=e534]:
+      - strong [ref=e535]: Ator principal
+      - text: — Admin handler
+    - paragraph [ref=e536]:
+      - strong [ref=e537]: Pré-condições
+      - text: — Membro registado no sistema.
+    - paragraph [ref=e538]:
+      - strong [ref=e539]: Descrição
+      - text: — Inativa um membro, impedindo novas inscrições.
+    - paragraph [ref=e540]:
+      - strong [ref=e541]: Classes
+      - text: — Membro, Admin
+    - heading "Fluxo Principal" [level=4] [ref=e542]
+    - list [ref=e543]:
+      - listitem [ref=e544]: Admin abre o módulo de gestão de membros.
+      - listitem [ref=e545]: Admin pesquisa e seleciona o membro a inativar.
+      - listitem [ref=e546]: Admin confirma a inativação.
+      - listitem [ref=e547]: Sistema marca o membro como inativo.
+    - paragraph [ref=e548]:
+      - strong [ref=e549]: Pós-condições
+      - text: — Membro inativado; os dados mantêm-se acessíveis para consulta histórica mas impedem novas inscrições.
+    - heading "UC-02 — Efetuar Inscrição" [level=3] [ref=e550]
+    - paragraph [ref=e551]:
+      - strong [ref=e552]: Ator principal
+      - text: — Admin
+    - paragraph [ref=e553]:
+      - strong [ref=e554]: Pré-condições
+      - text: — Membro registado no sistema.
+    - paragraph [ref=e555]:
+      - strong [ref=e556]: Descrição
+      - text: — Regista o Membro para utilização do ginásio.
+    - paragraph [ref=e557]:
+      - strong [ref=e558]: Classes
+      - text: — Inscricao, Membro, Admin
+    - heading "Fluxo Principal" [level=4] [ref=e559]
+    - list [ref=e560]:
+      - listitem [ref=e561]: Selecionar o Membro.
+      - listitem [ref=e562]: Definir a data de início e período de validade.
+      - listitem [ref=e563]: Sistema regista e cobra a taxa de inscrição.
+    - paragraph [ref=e564]:
+      - strong [ref=e565]: Pós-condições
+      - text: — O Membro fica com a inscrição ativa, com um débito pendente.
+    - heading "UC-03 — Processar Pagamento de Mensalidade" [level=3] [ref=e566]
+    - paragraph [ref=e567]:
+      - strong [ref=e568]: Ator principal
+      - text: — Membro
+    - paragraph [ref=e569]:
+      - strong [ref=e570]: Atores secundários
+      - text: — Rececionista (apenas para assistência presencial opcional, não é obrigatória)
+    - paragraph [ref=e571]:
+      - strong [ref=e572]: Pré-condições
+      - text: — Membro com mensalidades pendentes.
+    - paragraph [ref=e573]:
+      - strong [ref=e574]: Descrição
+      - text: — O Membro paga uma mensalidade pendente, via app (self-service) ou presencialmente no balcão.
+    - paragraph [ref=e575]:
+      - strong [ref=e576]: Classes
+      - text: — Mensalidade, Pagamento, Fatura, Membro, Rececionista
+    - heading "Fluxo Principal (Self-Service via App)" [level=4] [ref=e577]
+    - list [ref=e578]:
+      - listitem [ref=e579]: Membro abre a aplicação e consulta as mensalidades pendentes.
+      - listitem [ref=e580]: Membro escolhe o método de pagamento (cartão registado, transferência, etc.).
+      - listitem [ref=e581]: Membro confirma o pagamento.
+      - listitem [ref=e582]: Sistema regista a transação via gateway e a mensalidade passa para "Liquidado".
+    - heading "Fluxo Alternativo (Presencial com Rececionista)" [level=4] [ref=e583]
+    - list [ref=e584]:
+      - listitem [ref=e585]: Membro dirige-se ao balcão.
+      - listitem [ref=e586]: Rececionista identifica as mensalidades pendentes no sistema (opcional, o Membro também pode indicar).
+      - listitem [ref=e587]: Membro efetua o pagamento (numerário ou cartão no terminal POS).
+      - listitem [ref=e588]: Rececionista confirma o pagamento no sistema.
+      - listitem [ref=e589]: Mensalidade passa para "Liquidado".
+    - heading "Fluxo de Exceção" [level=4] [ref=e590]
+    - paragraph [ref=e591]: Se o pagamento falhar, sistema avisa o Membro (via app ou Rececionista) e a mensalidade mantém-se "Pendente". Não há criação de fatura.
+    - paragraph [ref=e592]:
+      - strong [ref=e593]: Pós-condições
+      - text: — Mensalidade liquidada e fatura gerada automaticamente.
+    - heading "UC-04 — Controlar Assiduidade (Check-in)" [level=3] [ref=e594]
+    - paragraph [ref=e595]:
+      - strong [ref=e596]: Ator principal
+      - text: — Membro ou Rececionista
+    - paragraph [ref=e597]:
+      - strong [ref=e598]: Pré-condições
+      - text: — Membro com inscrição ativa e código ou cartão de acesso.
+    - paragraph [ref=e599]:
+      - strong [ref=e600]: Descrição
+      - text: — Regista a presença do Membro via quiosque, web ou receção.
+    - paragraph [ref=e601]:
+      - strong [ref=e602]: Classes
+      - text: — Membro, Inscricao, Mensalidade, CheckIn, SistemaControloAcesso, Rececionista
+    - heading "Fluxo Principal (Self-Service)" [level=4] [ref=e603]
+    - list [ref=e604]:
+      - listitem [ref=e605]: Membro passa o código ou cartão no terminal.
+      - listitem [ref=e606]: Sistema confirma a inscrição ativa e regista a hora de entrada.
+    - heading "Fluxo Alternativo (Assistido)" [level=4] [ref=e607]
+    - paragraph [ref=e608]: "Quando alguém se dirige à receção:"
+    - list [ref=e609]:
+      - listitem [ref=e610]: Rececionista valida a inscrição no sistema.
+      - listitem [ref=e611]: Sistema regista a hora de entrada.
+    - heading "Fluxo de Exceção" [level=4] [ref=e612]
+    - paragraph [ref=e613]: "Inscrição inativa ou mensalidade em atraso: sistema bloqueia o acesso e encaminha para regularizar."
+    - paragraph [ref=e614]:
+      - strong [ref=e615]: Pós-condições
+      - text: — Presença registada no sistema.
+    - heading "UC-05 — Criar Plano de Treino" [level=3] [ref=e616]
+    - paragraph [ref=e617]:
+      - strong [ref=e618]: Ator principal
+      - text: — Treinador
+    - paragraph [ref=e619]:
+      - strong [ref=e620]: Pré-condições
+      - text: — Membro registado no sistema. Treinador autenticado.
+    - paragraph [ref=e621]:
+      - strong [ref=e622]: Descrição
+      - text: — Cria um Plano de Treino e atribui-o a um Membro.
+    - paragraph [ref=e623]:
+      - strong [ref=e624]: Classes
+      - text: — PlanoTreino, Exercicio, Membro, Treinador
+    - heading "Fluxo Principal" [level=4] [ref=e625]
+    - list [ref=e626]:
+      - listitem [ref=e627]: Treinador seleciona exercícios e define parâmetros de treino.
+      - listitem [ref=e628]: Treinador associa o Plano de Treino ao Membro com data de validade.
+      - listitem [ref=e629]: Sistema regista o Plano de Treino.
+    - paragraph [ref=e630]:
+      - strong [ref=e631]: Pós-condições
+      - text: — Plano disponível na conta do Membro.
+    - separator [ref=e632]
+    - heading "UC-07 — Autenticar no Sistema" [level=3] [ref=e633]
+    - paragraph [ref=e634]:
+      - strong [ref=e635]: Ator principal
+      - text: — Qualquer utilizador com conta ativa.
+    - paragraph [ref=e636]:
+      - strong [ref=e637]: Pré-condições
+      - text: — Conta criada pelo administrador.
+    - paragraph [ref=e638]:
+      - strong [ref=e639]: Descrição
+      - text: — O utilizador introduz credenciais; o sistema valida e cria uma sessão com as permissões adequadas ao seu tipo de Utilizador.
+    - paragraph [ref=e640]:
+      - strong [ref=e641]: Classes
+      - text: — Utilizador
+    - heading "Fluxo Principal" [level=4] [ref=e642]
+    - list [ref=e643]:
+      - listitem [ref=e644]: Utilizador escreve identificador e password.
+      - listitem [ref=e645]: Se as credenciais forem válidas e a conta ativa, sistema cria a sessão.
+      - listitem [ref=e646]: Utilizador vê as funcionalidades disponíveis para o seu tipo de conta.
+    - heading "Fluxo Alternativo" [level=4] [ref=e647]
+    - paragraph [ref=e648]: "Credenciais inválidas: sistema recusa o acesso e mostra mensagem de erro."
+    - paragraph [ref=e649]: "Conta desativada: sistema bloqueia o acesso e informa para contactar o administrador."
+    - paragraph [ref=e650]:
+      - strong [ref=e651]: Pós-condições
+      - text: — Sessão ativa no painel do Utilizador.
+    - heading "UC-08 — Reservar Aula de Grupo" [level=3] [ref=e652]
+    - paragraph [ref=e653]:
+      - strong [ref=e654]: Ator principal
+      - text: — Membro
+    - paragraph [ref=e655]:
+      - strong [ref=e656]: Descrição
+      - text: — O Membro marca presença numa aula com lugares limitados.
+    - paragraph [ref=e657]:
+      - strong [ref=e658]: Classes
+      - text: — Reserva, AulaSessao, Membro
+    - heading "Fluxo Principal" [level=4] [ref=e659]
+    - list [ref=e660]:
+      - listitem [ref=e661]: Membro escolhe a sessão no calendário.
+      - listitem [ref=e662]: Sistema verifica se há vagas.
+      - listitem [ref=e663]: Reserva confirmada e lotação atualizada.
+      - listitem [ref=e664]: "Cancelamento sem penalização: até 24 horas antes. Após, a vaga é perdida."
+    - heading "Fluxo Alternativo" [level=4] [ref=e665]
+    - paragraph [ref=e666]: "Aula cheia: sistema avisa que não há vagas disponíveis."
+    - paragraph [ref=e667]:
+      - strong [ref=e668]: Pós-condições
+      - text: — Reserva confirmada, vaga subtraída à lotação.
+    - separator [ref=e669]
+    - heading "UC-09 — Gerar Relatórios de Faturação" [level=3] [ref=e670]
+    - paragraph [ref=e671]:
+      - strong [ref=e672]: Ator principal
+      - text: — Gestor
+    - paragraph [ref=e673]:
+      - strong [ref=e674]: Pré-condições
+      - text: — Existem transações financeiras no período escolhido.
+    - paragraph [ref=e675]:
+      - strong [ref=e676]: Descrição
+      - text: — O Gestor extrai e consolida dados financeiros.
+    - paragraph [ref=e677]:
+      - strong [ref=e678]: Classes
+      - text: — Relatorio, Mensalidade, Pagamento, Fatura, Gestor
+    - heading "Fluxo Principal" [level=4] [ref=e679]
+    - list [ref=e680]:
+      - listitem [ref=e681]: Gestor escolhe o período temporal.
+      - listitem [ref=e682]: Sistema calcula receitas e valores em dívida.
+      - listitem [ref=e683]: Sistema gera o relatório consolidado.
+    - heading "Fluxo Alternativo" [level=4] [ref=e684]
+    - paragraph [ref=e685]: "Sem transações no período: sistema informa e não gera relatório."
+    - paragraph [ref=e686]:
+      - strong [ref=e687]: Pós-condições
+      - text: — Relatório disponível para exportar.
+    - heading "5. Etapa 2 — Modelação Estrutural" [level=1] [ref=e688]
+    - heading "5.1. Diagrama de Classes" [level=2] [ref=e689]
+    - generic [ref=e690]: "classDiagram direction BT class Entidade { +inativar() void } class Utilizador { -String id -String nome -String email +getId() String +getNome() String +getEmail() String +verificarPermissao(acao String) Boolean* } class Membro { -String telefone -DateTime dataInscricao +criar(nome, email, telefone, estado) Membro +getTelefone() String +getDataInscricao() DateTime or Date +setTelefone(telefone) void } class Treinador { -String telefone -String especialidade +criar(nome, email, especialidade, estado) Treinador +getTelefone() String +getEspecialidade() String +setTelefone(telefone) void +setEspecialidade(especialidade) void } class Rececionista { +criar(nome, email, estado) Rececionista } class Gestor { +criar(nome, email, estado) Gestor } class Admin { +criar(nome, email, estado) Admin } Utilizador --|> Entidade Membro --|> Utilizador Treinador --|> Utilizador Rececionista --|> Utilizador Gestor --|> Utilizador Admin --|> Utilizador class Inscricao { -DateTime dataInicio -DateTime dataFim -String estado -- ativa, suspensa, cancelada +criar(dataInicio, dataFim, estado) Inscricao +getDataInicio() DateTime +getDataFim() DateTime or Date +getEstado() String } class PlanoTreino { -String objetivo -DateTime dataValidade +criar(objetivo, dataValidade) PlanoTreino +getObjetivo() String +getDataValidade() DateTime or Date } class Sala { -String nome +criar(nome) Sala +getNome() String } class AulaGrupo { -String nome -String nivel +criar(nome, nivel) AulaGrupo +getNome() String +getNivel() String } class AulaSessao { -DateTime data -String estado -- valores: agendada, em_curso, realizada, cancelada -String diaSemana -String horaInicio -Int duracao +criar(data, estado, diaSemana, horaInicio, duracao) AulaSessao +getData() DateTime or Date +getEstado() String +getDiaSemana() String +getHoraInicio() String +getDuracao() Int } class MetodoPagamento { -String tipo -String ultimo4Digitos -DateTime dataExpiracao +criar(tipo, ultimo4Digitos, dataExpiracao) MetodoPagamento +getTipo() String +getUltimo4Digitos() String +getDataExpiracao() DateTime or Date } class Reserva { -DateTime dataReserva -String estadoReserva -- valores: confirmada, cancelada, no_show +criar(dataReserva) Reserva +getDataReserva() DateTime or Date +getEstadoReserva() String } class CheckIn { -DateTime dataHoraEntrada -DateTime dataHoraSaida +criar(dataHoraEntrada) CheckIn +registarSaida(dataHoraSaida) void +getDataHoraEntrada() DateTime +getDataHoraSaida() DateTime or Date } class SistemaControloAcesso { -String id +validarAcesso(membroId String) Boolean +abrirPorta() void +getMembroById(membroId String) Membro } class Exercicio { -String nome -Int series -Int repeticoes -Float carga -Int descansoSegundos +criar(nome, series, repeticoes, carga, descansoSegundos) Exercicio +getNome() String +getSeries() Int +getRepeticoes() Int +getCarga() Float +getDescansoSegundos() Int } class Mensalidade { -Float valor -DateTime dataVencimento -String estado -- valores: pendente, liquidado +criar(valor, dataVencimento) Mensalidade +getValor() Float +getDataVencimento() DateTime or Date +getEstado() String } class Fatura { -String numero -Float valorTotal -DateTime dataEmissao +criar(numero, valorTotal) Fatura +getNumero() String +getValorTotal() Float +getDataEmissao() DateTime or Date } class Pagamento { -Float valor -DateTime dataPagamento -String metodo +criar(valor, metodo) Pagamento +getValor() Float +getDataPagamento() DateTime or Date +getMetodo() String } class Relatorio { -String tipo -String periodo -DateTime dataGeracao +criar(tipo, periodo) Relatorio +getTipo() String +getPeriodo() String +getDataGeracao() DateTime or Date +gerar() String } Inscricao --|> Entidade PlanoTreino --|> Entidade Sala --|> Entidade AulaGrupo --|> Entidade AulaSessao --|> Entidade MetodoPagamento --|> Entidade Reserva --|> Entidade CheckIn --|> Entidade SistemaControloAcesso --|> Entidade Exercicio --|> Entidade Mensalidade --|> Entidade Fatura --|> Entidade Pagamento --|> Entidade Relatorio --|> Entidade Membro \"1\" --> \"*\" Inscricao : tem Membro \"1\" --> \"*\" PlanoTreino : tem Membro \"1\" --> \"*\" Reserva : faz Membro \"1\" --> \"*\" CheckIn : regista SistemaControloAcesso \"1\" --> \"*\" CheckIn : valida Membro \"1\" --> \"*\" SistemaControloAcesso : autentica Treinador \"1\" --> \"*\" PlanoTreino : cria PlanoTreino \"1\" --> \"*\" Exercicio : contem Exercicio \"1\" --> \"*\" PlanoTreino : pertence Rececionista \"1\" --> \"*\" CheckIn : assiste Gestor \"1\" --> \"*\" Mensalidade : revê Gestor \"1\" --> \"*\" Pagamento : reconcilia Gestor \"1\" --> \"*\" Relatorio : gera Gestor \"1\" --> \"*\" Membro : gere Admin \"1\" --> \"*\" Membro : regista AulaGrupo \"1\" --> \"*\" AulaSessao : gera AulaSessao \"1\" --> \"1\" Sala : ocorreEm AulaSessao \"1\" --> \"1\" Treinador : ministradaPor AulaSessao \"1\" --> \"*\" Reserva : contem Membro \"1\" --> \"*\" MetodoPagamento : tem Pagamento \"1\" --> \"0..1\" MetodoPagamento : utiliza Mensalidade \"1\" --> \"*\" Pagamento : liquidadaPor Pagamento \"1\" --> \"0..1\" Fatura : gera"
+    - heading "5.2. Diagramas de Sequência" [level=2] [ref=e691]
+    - heading "5.2.1. Sequência de UC-04 — Controlar Assiduidade (Check-in)" [level=3] [ref=e692]
+    - generic [ref=e693]: "sequenceDiagram autonumber actor Membro participant SistemaControloAcesso@{ \"type\" : \"control\" } participant CheckIn@{ \"type\" : \"entity\" } participant Inscricao@{ \"type\" : \"entity\" } participant Mensalidade@{ \"type\" : \"entity\" } Membro->>+SistemaControloAcesso: Passa cartão/código no terminal SistemaControloAcesso->>+Membro: getMembroById() Membro-->>-SistemaControloAcesso: Dados do Membro SistemaControloAcesso->>+Inscricao: verificarInscricaoAtiva() SistemaControloAcesso->>+Mensalidade: verificarMensalidades() alt Inscrição ativa E Mensalidades regularizadas SistemaControloAcesso->>+CheckIn: <<create>> CheckIn-->>-SistemaControloAcesso: CheckIn criado SistemaControloAcesso->>+SistemaControloAcesso: abrirPorta() SistemaControloAcesso-->>Membro: Acesso permitido else Inscrição inativa SistemaControloAcesso--xMembro: Acesso negado — inscrição inativa else Mensalidades em atraso SistemaControloAcesso--xMembro: Acesso negado — mensalidade em atraso end"
+    - heading "5.2.2. Sequência de UC-03 — Processar Pagamento de Mensalidade" [level=3] [ref=e694]
+    - generic [ref=e695]: "sequenceDiagram autonumber actor Membro participant App@{ \"type\" : \"boundary\" } participant SisFinanceiro@{ \"type\" : \"control\" } as Sistema Financeiro participant Mensalidade@{ \"type\" : \"entity\" } participant Pagamento@{ \"type\" : \"entity\" } participant Gateway@{ \"type\" : \"boundary\" } participant Fatura@{ \"type\" : \"entity\" } Membro->>+App: Abre aplicação e consulta mensalidades App->>+SisFinanceiro: Buscar mensalidades pendentes SisFinanceiro->>+Mensalidade: Obter mensalidades pendentes Mensalidade-->>-SisFinanceiro: Lista mensalidades pendentes SisFinanceiro-->>-App: Mostra mensalidades em aberto App-->>Membro: Lista de mensalidades pendentes Membro->>App: Seleciona mensalidade a pagar Membro->>App: Escolhe método pagamento App->>+SisFinanceiro: Processar pagamento loop Para cada mensalidade SisFinanceiro->>+Pagamento: <<create>> SisFinanceiro->>+Gateway: Enviar pedido pagamento Gateway-->>-SisFinanceiro: OK/Rejeitado alt Pagamento confirmado SisFinanceiro->>+Fatura: <<create>> SisFinanceiro->>Mensalidade: Atualizar estado Mensalidade->>Mensalidade: Definir estado Liquidado SisFinanceiro-->>-Membro: Pagamento processado com sucesso else Pagamento rejeitado SisFinanceiro--xPagamento: <<destroy>> SisFinanceiro--xMembro: Erro — mensalidade mantém-se pendente end end"
+    - heading "5.3. Diagrama de Atividades (UC-04)" [level=2] [ref=e696]
+    - figure [ref=e697]:
+      - img "PlantUML Diagram" [ref=e698]
+    - paragraph [ref=e699]: "0"
+  - img [ref=e701]
+  - generic [ref=e704]:
+    - button "Menu" [ref=e705]:
+      - img [ref=e707]
+      - generic: Menu
+    - button "Inspect" [ref=e711]:
+      - img [ref=e713]
+      - generic: Inspect
+    - button "Audit" [ref=e715]:
+      - img [ref=e717]
+      - generic: Audit
+    - button "Settings" [ref=e720]:
+      - img [ref=e722]
+      - generic: Settings

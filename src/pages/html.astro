@@ -1,0 +1,506 @@
+---
+import "./github-markdown.css";
+import "./print.css";
+import DiagramaClasses from "../../public/diagrama-classes.md";
+import DiagramaSequenciaCheckin from "../../public/diagrama-sequencia-checkin.md";
+import DiagramaSequenciaPagamento from "../../public/diagrama-sequencia-pagamento.md";
+import DiagramaAtividadesCheckin from "../../public/diagrama-atividades-checkin.md";
+---
+
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MSES - Sistema de Gestão de Ginásio</title>
+</head>
+<body>
+  <nav id="table-of-contents">
+    <h2>Índice</h2>
+    <ul>
+      <li><a href="#1-introdução">1. Introdução</a></li>
+      <li><a href="#2-etapa-1--análise-de-requisitos">2. Etapa 1 — Análise de Requisitos</a>
+        <ul>
+          <li><a href="#21-descrição-do-problema">2.1. Descrição do Problema</a>
+            <ul>
+              <li><a href="#211-descrição-do-sistema">2.1.1. Descrição do Sistema</a></li>
+              <li><a href="#212-objetivo-do-software">2.1.2. Objetivo do Software</a></li>
+              <li><a href="#213-contexto-de-utilização">2.1.3. Contexto de Utilização</a></li>
+              <li><a href="#214-principais-funcionalidades-esperadas">2.1.4. Principais Funcionalidades Esperadas</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#3-stakeholders-e-utilizadores">3. Stakeholders e Utilizadores</a>
+        <ul>
+          <li><a href="#31-atores-principais">3.1. Atores Principais</a></li>
+          <li><a href="#32-atores-secundários">3.2. Atores Secundários</a></li>
+          <li><a href="#33-administradores">3.3. Administradores</a></li>
+          <li><a href="#34-sistemas-externos">3.4. Sistemas Externos</a></li>
+        </ul>
+      </li>
+      <li><a href="#4-identificação-e-descrição-dos-requisitos">4. Identificação e Descrição dos Requisitos</a>
+        <ul>
+          <li><a href="#41-requisitos-funcionais-rf">4.1. Requisitos Funcionais (RF)</a></li>
+          <li><a href="#42-requisitos-não-funcionais-rnf">4.2. Requisitos Não Funcionais (RNF)</a></li>
+          <li><a href="#43-casos-de-uso">4.3. Casos de Uso</a></li>
+        </ul>
+      </li>
+      <li><a href="#5-etapa-2--modelação-estrutural">5. Etapa 2 — Modelação Estrutural</a>
+        <ul>
+          <li><a href="#51-diagrama-de-classes">5.1. Diagrama de Classes</a></li>
+          <li><a href="#52-diagramas-de-sequência">5.2. Diagramas de Sequência</a></li>
+          <li><a href="#53-diagrama-de-atividades">5.3. Diagrama de Atividades</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="page-break"></div>
+
+  <h1 id="1-introdução">1. Introdução</h1>
+
+  <p>Muitos ginásios pequenos ainda funcionam com papel: folhas de presença em caderno, envelopes com dinheiro de pagamentos, notas manuscritas sobre o estado de cada membro. Isto complica o acompanhamento de cada pessoa e torna a gestão do dia-a-dia mais difícil do que precisa de ser.</p>
+
+  <p>Este trabalho descreve um sistema digital para ginásios de pequena e média dimensão. A ideia é ter num só sítio a gestão de membros, inscrições, horários de aulas, presenças e pagamentos — em vez de depender de papel.</p>
+
+  <hr>
+
+  <h1 id="2-etapa-1--análise-de-requisitos">2. Etapa 1 — Análise de Requisitos</h1>
+
+  <h2 id="21-descrição-do-problema">2.1. Descrição do Problema</h2>
+
+  <p>Ginásios de pequena e média dimensão ainda usam processos manuais em papel: folhas de inscrição, envelopes com pagamentos, registos de presença em caderno. O resultado é um acompanhamento irregular dos membros, horários imprevisíveis e faturas que só aparecem quando alguém se lembra de as emitir.</p>
+
+  <h3 id="211-descrição-do-sistema">2.1.1. Descrição do Sistema</h3>
+
+  <p>Plataforma digital que cobre todas as operações de um ginásio: registo de membros, planos de treino, gestão de horários, inscrições e faturação.</p>
+
+  <h3 id="212-objetivo-do-software">2.1.2. Objetivo do Software</h3>
+
+  <p>Tornar a gestão do ginásio mais eficiente e centralizada. Na prática: processos mais rápidos para a equipa, documentação de membros em conformidade, e uma experiência melhor para quem treina.</p>
+
+  <h3 id="213-contexto-de-utilização">2.1.3. Contexto de Utilização</h3>
+
+  <p>O sistema é usado no dia-a-dia do ginásio por diferentes perfis em paralelo. A receção trata de acessos, atendimento e pagamentos presenciais. Treinadores preenchem planos de treino. Administradores tratam de inscrições e gestão de membros. Pagamentos são feitos pelo membro via app ou presencialmente no balcão com ajuda do(a) rececionista. O trabalho decorre sobretudo em tablets e computadores de balcão.</p>
+
+  <h3 id="214-principais-funcionalidades-esperadas">2.1.4. Principais Funcionalidades Esperadas</h3>
+
+  <ul>
+    <li><strong>Membros:</strong> criar, procurar por nome ou número, atualizar e desativar registos.</li>
+    <li><strong>Planos de treino:</strong> exercícios personalizados com séries, repetições, carga e descanso.</li>
+    <li><strong>Inscrições:</strong> criar, renovar e cancelar inscrições.</li>
+    <li><strong>Assiduidade:</strong> check-in e check-out por cartão ou código.</li>
+    <li><strong>Financeiro:</strong> mensalidades geradas automaticamente, pagamentos totais ou parciais, faturas.</li>
+    <li><strong>Aulas de grupo:</strong> horários, reservas, cancelamentos e controlo de lotação.</li>
+    <li><strong>Validação automática:</strong> a inscrição é verificada no check-in.</li>
+    <li><strong>App para membros:</strong> consulta de planos, reserva de aulas e check-in pelo telemóvel.</li>
+    <li><strong>Relatórios de faturação:</strong> receitas e valores em dívida por período.</li>
+    <li><strong>Segurança:</strong> login com sessão que expira após 30 min sem atividade, passwords com hash bcrypt, e acesso por tipo de utilizador (Membro, Treinador, Rececionista, Gestor, Admin).</li>
+  </ul>
+
+  <div class="page-break"></div>
+
+  <h1 id="3-stakeholders-e-utilizadores">3. Stakeholders e Utilizadores</h1>
+
+  <h2 id="31-atores-principais">3.1. Atores Principais</h2>
+
+  <table>
+    <thead>
+      <tr><th>Ator</th><th>O que fazem</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Membro</strong></td><td>Paga mensalidade, marca aulas, regista presenças, vê planos de treino e histórico</td></tr>
+      <tr><td><strong>Treinador</strong></td><td>Cria planos de treino, acompanha progresso dos membros, dá aulas coletivas e sessões PT</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="32-atores-secundários">3.2. Atores Secundários</h2>
+
+  <table>
+    <thead>
+      <tr><th>Ator</th><th>O que fazem</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Rececionista</strong></td><td>Faz check-in, atende pessoas ao balcão, processa pagamentos avulsos no terminal POS</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="33-administradores">3.3. Administradores</h2>
+
+  <table>
+    <thead>
+      <tr><th>Ator</th><th>O que fazem</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Gestor</strong></td><td>Gere o dia-a-dia: membros, staff, horários e relatórios. Acesso total exceto configurações de negócio.</td></tr>
+      <tr><td><strong>Admin</strong></td><td>Faz Receção e atendimento correntes. Sem acesso a configurações de negócio.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="34-sistemas-externos">3.4. Sistemas Externos</h2>
+
+  <table>
+    <thead>
+      <tr><th>Sistema</th><th>O que fazem</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Gateway de Pagamento</strong></td><td>Integra Stripe, Razorpay, Square, GoCardless, Authorize.net para processar mensalidades, pagamentos avulsos e faturas</td></tr>
+      <tr><td><strong>Serviços de Notificação</strong></td><td>SMS, email, WhatsApp para lembrar renovações, confirmar pagamentos e enviar alertas</td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-break"></div>
+
+  <h1 id="4-identificação-e-descrição-dos-requisitos">4. Identificação e Descrição dos Requisitos</h1>
+
+  <h2 id="41-requisitos-funcionais-rf">4.1. Requisitos Funcionais (RF)</h2>
+
+  <table>
+    <thead>
+      <tr><th>ID</th><th>Descrição</th><th>UC</th><th>Prioridade</th></tr>
+    </thead>
+    <tbody>
+      <tr><td colspan="4"><strong>Membro</strong></td></tr>
+      <tr><td>RF-01a</td><td>O Admin cria um membro com nome, contactos e foto. O sistema atribui um número único.</td><td>UC-01a</td><td>Alta</td></tr>
+      <tr><td>RF-01b</td><td>O Admin pesquisa um membro por nome, número único ou outro critério. O sistema apresenta os dados guardados.</td><td>UC-01b</td><td>Alta</td></tr>
+      <tr><td>RF-01c</td><td>O Admin atualiza dados de um membro. O sistema regista a data da alteração.</td><td></td><td>Alta</td></tr>
+      <tr><td>RF-01d</td><td>O Admin inativa um membro. O membro não pode fazer login nem novas inscrições, mas os dados ficam disponíveis para consulta histórica.</td><td></td><td>Média</td></tr>
+
+      <tr><td colspan="4"><strong>Inscrição</strong></td></tr>
+      <tr><td>RF-02a</td><td>O Admin cria uma inscrição para um membro e define o período de validade.</td><td>UC-02</td><td>Alta</td></tr>
+      <tr><td>RF-02b</td><td>O Admin renova uma inscrição ativa antes da data de fim.</td><td>UC-02</td><td>Alta</td></tr>
+      <tr><td>RF-02c</td><td>O Admin cancela uma inscrição ativa. O sistema regista a data e o motivo do cancelamento.</td><td></td><td>Média</td></tr>
+      <tr><td>RF-02d</td><td>O Membro requer o cancelamento da sua inscrição. O sistema regista o pedido.</td><td></td><td>Média</td></tr>
+      <tr><td>RF-02e</td><td>O Admin atualiza dados de uma inscrição ativa — período de validade ou plano associado. O sistema regista a data da alteração.</td><td></td><td>Média</td></tr>
+
+      <tr><td colspan="4"><strong>Plano de Treino</strong></td></tr>
+      <tr><td>RF-03a</td><td>O Treinador cria um plano de treino para um membro, com um objetivo e uma duração.</td><td>UC-05</td><td>Alta</td></tr>
+      <tr><td>RF-03b</td><td>O Treinador atualiza um plano existente de um membro, incluindo exercícios, séries, repetições, carga, descanso ou duração. O sistema regista a data de atualização.</td><td></td><td>Alta</td></tr>
+      <tr><td>RF-03c</td><td>O Admin inativa um plano de treino. O plano deixa de estar ativo mas mantém-se disponível para consulta histórica.</td><td></td><td>Média</td></tr>
+
+      <tr><td colspan="4"><strong>Exercício</strong></td></tr>
+      <tr><td>RF-04a</td><td>O Treinador cria um exercício com nome, séries, repetições, carga e descanso dentro de um plano de treino.</td><td>UC-05</td><td>Alta</td></tr>
+      <tr><td>RF-04b</td><td>O Treinador atualiza os detalhes de um exercício — séries, repetições, carga ou descanso. O sistema regista a data de atualização.</td><td></td><td>Alta</td></tr>
+      <tr><td>RF-04c</td><td>O Admin inativa um exercício. O exercício deixa de estar disponível para novos planos mas mantém-se nos planos históricos onde foi utilizado.</td><td></td><td>Média</td></tr>
+
+      <tr><td colspan="4"><strong>Assiduidade</strong></td></tr>
+      <tr><td>RF-05a</td><td>O Membro regista a entrada. O sistema valida a inscrição ativa e guarda a hora de entrada.</td><td>UC-04</td><td>Alta</td></tr>
+      <tr><td>RF-05b</td><td>A Rececionista regista a entrada de um membro. O sistema valida a inscrição ativa e guarda a hora de entrada.</td><td>UC-04</td><td>Alta</td></tr>
+      <tr><td>RF-05c</td><td>O Membro regista a saída. O sistema guarda a hora de saída, calculando o tempo de permanência.</td><td>UC-04</td><td>Alta</td></tr>
+      <tr><td>RF-05d</td><td>A Rececionista regista a saída de um membro. O sistema guarda a hora de saída, calculando o tempo de permanência.</td><td>UC-04</td><td>Alta</td></tr>
+
+      <tr><td colspan="4"><strong>Autenticação</strong></td></tr>
+      <tr><td>RF-06a</td><td>O Utilizador introduz credenciais; o sistema valida e cria uma sessão com as permissões adequadas ao seu tipo de utilizador.</td><td>UC-07</td><td>Alta</td></tr>
+      <tr><td>RF-06b</td><td>O Utilizador termina a sessão ativa. O sistema invalida o token e fecha a sessão.</td><td>UC-07</td><td>Alta</td></tr>
+
+      <tr><td colspan="4"><strong>Mensalidade</strong></td></tr>
+      <tr><td>RF-07a</td><td>O sistema gera automaticamente as mensalidades para todos os membros com inscrição ativa no dia 1 de cada mês.</td><td></td><td>Alta</td></tr>
+      <tr><td>RF-07b</td><td>A Rececionista ou o sistema regista o pagamento de uma mensalidade.</td><td>UC-03</td><td>Alta</td></tr>
+
+      <tr><td colspan="4"><strong>Fatura</strong></td></tr>
+      <tr><td>RF-08a</td><td>O sistema gera automaticamente uma fatura com número, valor e data após o registo de um pagamento.</td><td></td><td>Alta</td></tr>
+
+      <tr><td colspan="4"><strong>Aula de Grupo</strong></td></tr>
+      <tr><td>RF-09a</td><td>O Treinador cria uma aula com horário, duração, sala e Treinador. Depois, a aula fica disponível para reserva.</td><td>UC-08</td><td>Alta</td></tr>
+      <tr><td>RF-09b</td><td>O Membro ou a Rececionista reserva um lugar numa aula. O sistema verifica a lotação e, se cheia, avisa que não há vagas.</td><td>UC-08</td><td>Alta</td></tr>
+      <tr><td>RF-09c</td><td>O Membro ou a Rececionista cancela a reserva antes do início da aula, libertando a vaga. Se o Membro não cancelar nem aparecer, o sistema regista automaticamente o no-show quando a aula termina.</td><td></td><td>Média</td></tr>
+      <tr><td>RF-09d</td><td>O Admin inativa uma aula de grupo. A aula deixa de estar disponível para reservas mas mantém-se no histórico.</td><td></td><td>Média</td></tr>
+
+      <tr><td colspan="4"><strong>Relatório</strong></td></tr>
+      <tr><td>RF-10a</td><td>O Gestor solicita um relatório de faturação para um período. O sistema compila as receitas e valores em dívida e gera um relatório consolidado.</td><td>UC-09</td><td>Alta</td></tr>
+
+      <tr><td colspan="4"><strong>Sala</strong></td></tr>
+      <tr><td>RF-11a</td><td>O Admin cria uma sala com nome. O sistema atribui um identificador único.</td><td></td><td>Alta</td></tr>
+      <tr><td>RF-11b</td><td>O Admin atualiza os dados de uma sala — nome ou lotação máxima.</td><td></td><td>Alta</td></tr>
+      <tr><td>RF-11c</td><td>O Admin inativa uma sala. A sala não pode ser associada a novas aulas mas mantém-se disponível para consultas históricas.</td><td></td><td>Média</td></tr>
+
+      <tr><td colspan="4"><strong>Método de Pagamento</strong></td></tr>
+      <tr><td>RF-12a</td><td>O Membro adiciona um método de pagamento com tipo, últimos 4 dígitos e data de expiração.</td><td></td><td>Alta</td></tr>
+      <tr><td>RF-12b</td><td>O Membro atualiza os dados de um método de pagamento — tipo ou data de expiração.</td><td></td><td>Alta</td></tr>
+      <tr><td>RF-12c</td><td>O Membro inativa um método de pagamento. O método não pode ser utilizado em novos pagamentos mas mantém-se disponível para consulta do histórico.</td><td></td><td>Média</td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-break"></div>
+
+  <h2 id="42-requisitos-não-funcionais-rnf">4.2. Requisitos Não Funcionais (RNF)</h2>
+
+  <table>
+    <thead>
+      <tr><th>ID</th><th>Domínio</th><th>Título</th><th>Descrição</th><th>Prioridade</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>RNF-01a</td><td>Desempenho</td><td>Tempo de check-in</td><td>Check-in processado em menos de 1 segundo.</td><td>Alta</td></tr>
+      <tr><td>RNF-01b</td><td>Desempenho</td><td>Consulta de dados de membro</td><td>Consultas a dados de membro respondem em menos de 2 segundos.</td><td>Alta</td></tr>
+      <tr><td>RNF-01c</td><td>Desempenho</td><td>Geração de relatórios</td><td>Relatórios de faturação ficam prontos em até 120 segundos.</td><td>Média</td></tr>
+      <tr><td>RNF-02a</td><td>Segurança</td><td>Autenticação por password</td><td>Passwords guardadas com hash bcrypt.</td><td>Alta</td></tr>
+      <tr><td>RNF-02b</td><td>Segurança</td><td>Tempo de expiração de sessão</td><td>Sessões expiram após 30 minutos sem atividade.</td><td>Alta</td></tr>
+      <tr><td>RNF-02e</td><td>Segurança</td><td>Proteção contra vulnerabilidades</td><td>Todos os inputs são validados e sanitizados.</td><td>Alta</td></tr>
+      <tr><td>RNF-02f</td><td>Segurança</td><td>Backup encriptado</td><td>Backups regulares com encriptação. A integridade é verificada.</td><td>Alta</td></tr>
+      <tr><td>RNF-03a</td><td>Usabilidade</td><td>Eficiência de interação</td><td>Operações frequentes (criar inscrição, check-in, registar pagamento) precisam de no máximo 3 cliques.</td><td>Alta</td></tr>
+      <tr><td>RNF-04a</td><td>Disponibilidade</td><td>Disponibilidade operativa</td><td>Sistema disponível 95% do tempo em horário de funcionamento (08:00–22:00), 90% fora. Tempo máximo de paragem contínua: 2 horas.</td><td>Alta</td></tr>
+      <tr><td>RNF-04b</td><td>Disponibilidade</td><td>Recuperação após incidente</td><td>Recuperação em até 2 horas durante horário de funcionamento, com alerta automático ao administrador.</td><td>Alta</td></tr>
+      <tr><td>RNF-05a</td><td>Privacidade de dados</td><td>Minimização de dados</td><td>O sistema recolhe apenas os dados necessários para a operação do ginásio.</td><td>Alta</td></tr>
+      <tr><td>RNF-05b</td><td>Privacidade de dados</td><td>Finalidade dos dados</td><td>Dados dos membros são usados exclusivamente para a gestão da inscrição e faturação.</td><td>Alta</td></tr>
+      <tr><td>RNF-05c</td><td>Privacidade de dados</td><td>Direitos dos titulares</td><td>Os titulares podem aceder, corrigir ou eliminar os seus dados. Tempo médio de resolução ≤ 30 dias úteis.</td><td>Alta</td></tr>
+      <tr><td>RNF-06a</td><td>Compatibilidade</td><td>Compatibilidade de browsers</td><td>Interface web funciona nas versões mais recentes de Chrome, Firefox, Safari e Edge, incluindo Safari (iOS) e Chrome (Android).</td><td>Média</td></tr>
+      <tr><td>RNF-06b</td><td>Compatibilidade</td><td>Suporte multi-dispositivo</td><td>Interface responsiva para desktops, tablets e smartphones (320px a 2560px).</td><td>Média</td></tr>
+      <tr><td>RNF-06c</td><td>Compatibilidade</td><td>Escalabilidade</td><td>O sistema suporta pelo menos 50% de crescimento em membros e transações sem degradação.</td><td>Média</td></tr>
+      <tr><td>RNF-07a</td><td>Fiabilidade</td><td>Proteção de dados</td><td>Dados protegidos contra perdas acidentais. Backups automáticos diários com verificação de integridade.</td><td>Alta</td></tr>
+      <tr><td>RNF-07b</td><td>Fiabilidade</td><td>Restaurabilidade</td><td>Restaurabilidade total em até 8 horas a partir dos backups. Plano documentado e testado anualmente.</td><td>Alta</td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+  <div class="page-break"></div>
+
+  <h2 id="43-casos-de-uso">4.3. Casos de Uso</h2>
+
+  <h3>UC-01a — Criar Registo de Membro</h3>
+
+  <p><strong>Ator principal</strong> — Admin</p>
+  <p><strong>Pré-condições</strong> — Utilizador autenticado com conta Admin.</p>
+  <p><strong>Descrição</strong> — Cria um novo registo de membro no sistema.</p>
+  <p><strong>Classes</strong> — Membro, Admin, Utilizador</p>
+
+  <h4>Fluxo Principal</h4>
+  <ol>
+    <li>Admin abre o módulo de gestão de membros.</li>
+    <li>Admin inicia a criação de um novo registo.</li>
+    <li>Admin preenche os dados biográficos do novo Membro.</li>
+    <li>Sistema valida os dados e guarda o registo.</li>
+  </ol>
+
+  <h4>Fluxo Alternativo</h4>
+  <p>Membro já existente: sistema bloqueia a gravação e propõe abrir o registo existente.</p>
+
+  <p><strong>Pós-condições</strong> — Registo criado e pronto para inscrições.</p>
+
+  <hr>
+
+  <h3>UC-01b — Consultar Registo de Membro</h3>
+
+  <p><strong>Ator principal</strong> — Admin</p>
+  <p><strong>Pré-condições</strong> — Utilizador autenticado com conta Admin.</p>
+  <p><strong>Descrição</strong> — Consulta os dados de um membro registado.</p>
+  <p><strong>Classes</strong> — Membro, Admin</p>
+
+  <h4>Fluxo Principal</h4>
+  <ol>
+    <li>Admin abre o módulo de gestão de membros.</li>
+    <li>Admin pesquisa o membro por nome, número ou outro critério.</li>
+    <li>Sistema apresenta os dados do membro.</li>
+  </ol>
+
+  <p><strong>Pós-condições</strong> — Dados do membro apresentados para consulta.</p>
+
+  <hr>
+
+  <h3>UC-01d — Inativar Registo de Membro</h3>
+
+  <p><strong>Ator principal</strong> — Admin</p>
+  <p><strong>Pré-condições</strong> — Membro registado no sistema.</p>
+  <p><strong>Descrição</strong> — Inativa um membro, impedindo novas inscrições.</p>
+  <p><strong>Classes</strong> — Membro, Admin</p>
+
+  <h4>Fluxo Principal</h4>
+  <ol>
+    <li>Admin abre o módulo de gestão de membros.</li>
+    <li>Admin pesquisa e seleciona o membro a inativar.</li>
+    <li>Admin confirma a inativação.</li>
+    <li>Sistema marca o membro como inativo.</li>
+  </ol>
+
+  <p><strong>Pós-condições</strong> — Membro inativado; os dados mantêm-se acessíveis para consulta histórica mas impedem novas inscrições.</p>
+
+  <div class="page-break"></div>
+
+  <h3>UC-02 — Efetuar Inscrição</h3>
+
+  <p><strong>Ator principal</strong> — Admin</p>
+  <p><strong>Pré-condições</strong> — Membro registado no sistema.</p>
+  <p><strong>Descrição</strong> — Regista o Membro para utilização do ginásio.</p>
+  <p><strong>Classes</strong> — Inscricao, Membro, Admin</p>
+
+  <h4>Fluxo Principal</h4>
+  <ol>
+    <li>Selecionar o Membro.</li>
+    <li>Definir a data de início e período de validade.</li>
+    <li>Sistema regista e cobra a taxa de inscrição.</li>
+  </ol>
+
+  <p><strong>Pós-condições</strong> — O Membro fica com a inscrição ativa, com um débito pendente.</p>
+
+  <div class="page-break"></div>
+
+  <h3>UC-03 — Processar Pagamento de Mensalidade</h3>
+
+  <p><strong>Ator principal</strong> — Membro</p>
+  <p><strong>Atores secundários</strong> — Rececionista (apenas para assistência presencial opcional, não é obrigatória)</p>
+  <p><strong>Pré-condições</strong> — Membro com mensalidades pendentes.</p>
+  <p><strong>Descrição</strong> — O Membro paga uma mensalidade pendente, via app (self-service) ou presencialmente no balcão.</p>
+  <p><strong>Classes</strong> — Mensalidade, Pagamento, Fatura, Membro, Rececionista</p>
+
+  <h4>Fluxo Principal (Self-Service via App)</h4>
+  <ol>
+    <li>Membro abre a aplicação e consulta as mensalidades pendentes.</li>
+    <li>Membro escolhe o método de pagamento (cartão registado, transferência, etc.).</li>
+    <li>Membro confirma o pagamento.</li>
+    <li>Sistema regista a transação via gateway e a mensalidade passa para "Liquidado".</li>
+  </ol>
+
+  <h4>Fluxo Alternativo (Presencial com Rececionista)</h4>
+  <ol>
+    <li>Membro dirige-se ao balcão.</li>
+    <li>Rececionista identifica as mensalidades pendentes no sistema (opcional, o Membro também pode indicar).</li>
+    <li>Membro efetua o pagamento (numerário ou cartão no terminal POS).</li>
+    <li>Rececionista confirma o pagamento no sistema.</li>
+    <li>Mensalidade passa para "Liquidado".</li>
+  </ol>
+
+  <h4>Fluxo de Exceção</h4>
+  <p>Se o pagamento falhar, sistema avisa o Membro (via app ou Rececionista) e a mensalidade mantém-se "Pendente". Não há criação de fatura.</p>
+
+  <p><strong>Pós-condições</strong> — Mensalidade liquidada e fatura gerada automaticamente.</p>
+
+  <div class="page-break"></div>
+
+  <h3>UC-04 — Controlar Assiduidade (Check-in)</h3>
+
+  <p><strong>Ator principal</strong> — Membro ou Rececionista</p>
+  <p><strong>Pré-condições</strong> — Membro com inscrição ativa e código ou cartão de acesso.</p>
+  <p><strong>Descrição</strong> — Regista a presença do Membro via quiosque, web ou receção.</p>
+  <p><strong>Classes</strong> — Membro, Inscricao, Mensalidade, CheckIn, SistemaControloAcesso, Rececionista</p>
+
+  <h4>Fluxo Principal (Self-Service)</h4>
+  <ol>
+    <li>Membro passa o código ou cartão no terminal.</li>
+    <li>Sistema confirma a inscrição ativa e regista a hora de entrada.</li>
+  </ol>
+
+  <h4>Fluxo Alternativo (Assistido)</h4>
+  <p>Quando alguém se dirige à receção:</p>
+  <ol>
+    <li>Rececionista valida a inscrição no sistema.</li>
+    <li>Sistema regista a hora de entrada.</li>
+  </ol>
+
+  <h4>Fluxo de Exceção</h4>
+  <p>Inscrição inativa ou mensalidade em atraso: sistema bloqueia o acesso e encaminha para regularizar.</p>
+
+  <p><strong>Pós-condições</strong> — Presença registada no sistema.</p>
+
+  <div class="page-break"></div>
+
+  <h3>UC-05 — Criar Plano de Treino</h3>
+
+  <p><strong>Ator principal</strong> — Treinador</p>
+  <p><strong>Pré-condições</strong> — Membro registado no sistema. Treinador autenticado.</p>
+  <p><strong>Descrição</strong> — Cria um Plano de Treino e atribui-o a um Membro.</p>
+  <p><strong>Classes</strong> — PlanoTreino, Exercicio, Membro, Treinador</p>
+
+  <h4>Fluxo Principal</h4>
+  <ol>
+    <li>Treinador seleciona exercícios e define parâmetros de treino.</li>
+    <li>Treinador associa o Plano de Treino ao Membro com data de validade.</li>
+    <li>Sistema regista o Plano de Treino.</li>
+  </ol>
+
+  <p><strong>Pós-condições</strong> — Plano disponível na conta do Membro.</p>
+
+  <hr>
+
+  <h3>UC-07 — Autenticar no Sistema</h3>
+
+  <p><strong>Ator principal</strong> — Qualquer utilizador com conta ativa.</p>
+  <p><strong>Pré-condições</strong> — Conta criada pelo administrador.</p>
+  <p><strong>Descrição</strong> — O utilizador introduz credenciais; o sistema valida e cria uma sessão com as permissões adequadas ao seu tipo de Utilizador.</p>
+  <p><strong>Classes</strong> — Utilizador</p>
+
+  <h4>Fluxo Principal</h4>
+  <ol>
+    <li>Utilizador escreve identificador e password.</li>
+    <li>Se as credenciais forem válidas e a conta ativa, sistema cria a sessão.</li>
+    <li>Utilizador vê as funcionalidades disponíveis para o seu tipo de conta.</li>
+  </ol>
+
+  <h4>Fluxo Alternativo</h4>
+  <p>Credenciais inválidas: sistema recusa o acesso e mostra mensagem de erro.</p>
+  <p>Conta desativada: sistema bloqueia o acesso e informa para contactar o administrador.</p>
+
+  <p><strong>Pós-condições</strong> — Sessão ativa no painel do Utilizador.</p>
+
+  <div class="page-break"></div>
+
+  <h3>UC-08 — Reservar Aula de Grupo</h3>
+
+  <p><strong>Ator principal</strong> — Membro</p>
+  <p><strong>Descrição</strong> — O Membro marca presença numa aula com lugares limitados.</p>
+  <p><strong>Classes</strong> — Reserva, AulaSessao, Membro</p>
+
+  <h4>Fluxo Principal</h4>
+  <ol>
+    <li>Membro escolhe a sessão no calendário.</li>
+    <li>Sistema verifica se há vagas.</li>
+    <li>Reserva confirmada e lotação atualizada.</li>
+    <li>Cancelamento sem penalização: até 24 horas antes. Após, a vaga é perdida.</li>
+  </ol>
+
+  <h4>Fluxo Alternativo</h4>
+  <p>Aula cheia: sistema avisa que não há vagas disponíveis.</p>
+
+  <p><strong>Pós-condições</strong> — Reserva confirmada, vaga subtraída à lotação.</p>
+
+  <hr>
+
+  <h3>UC-09 — Gerar Relatórios de Faturação</h3>
+
+  <p><strong>Ator principal</strong> — Gestor</p>
+  <p><strong>Pré-condições</strong> — Existem transações financeiras no período escolhido.</p>
+  <p><strong>Descrição</strong> — O Gestor extrai e consolida dados financeiros.</p>
+  <p><strong>Classes</strong> — Relatorio, Mensalidade, Pagamento, Fatura, Gestor</p>
+
+  <h4>Fluxo Principal</h4>
+  <ol>
+    <li>Gestor escolhe o período temporal.</li>
+    <li>Sistema calcula receitas e valores em dívida.</li>
+    <li>Sistema gera o relatório consolidado.</li>
+  </ol>
+
+  <h4>Fluxo Alternativo</h4>
+  <p>Sem transações no período: sistema informa e não gera relatório.</p>
+
+  <p><strong>Pós-condições</strong> — Relatório disponível para exportar.</p>
+
+  <div class="page-break"></div>
+
+  <h1 id="5-etapa-2--modelação-estrutural">5. Etapa 2 — Modelação Estrutural</h1>
+
+  <h2 id="51-diagrama-de-classes">5.1. Diagrama de Classes</h2>
+
+  <DiagramaClasses />
+
+  <div class="page-break"></div>
+
+  <h2 id="52-diagramas-de-sequência">5.2. Diagramas de Sequência</h2>
+
+  <h3>5.2.1. Sequência de UC-04 — Controlar Assiduidade (Check-in)</h3>
+
+  <DiagramaSequenciaCheckin />
+
+  <div class="page-break"></div>
+
+  <h3>5.2.2. Sequência de UC-03 — Processar Pagamento de Mensalidade</h3>
+
+  <DiagramaSequenciaPagamento />
+
+  <div class="page-break"></div>
+
+  <h2 id="53-diagrama-de-atividades">5.3. Diagrama de Atividades (UC-04)</h2>
+
+  <DiagramaAtividadesCheckin />
+</div>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+[      49ms] [LOG] [astro-mermaid] Mermaid diagrams detected on initial load @ http://localhost:4330/_astro/page.Bzehl8Sd.js:0
+[      50ms] [LOG] [astro-mermaid] Initializing mermaid diagrams... @ http://localhost:4330/_astro/page.Bzehl8Sd.js:0
+[      50ms] [LOG] [astro-mermaid] Found 3 mermaid diagrams @ http://localhost:4330/_astro/page.Bzehl8Sd.js:0
+[      50ms] [LOG] [astro-mermaid] Loading mermaid.js... @ http://localhost:4330/_astro/page.Bzehl8Sd.js:0
+[     286ms] [LOG] [astro-mermaid] Using theme: base from body @ http://localhost:4330/_astro/page.Bzehl8Sd.js:0
+[     290ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-hqhf16yp9 @ http://localhost:4330/_astro/page.Bzehl8Sd.js:0
+[    1256ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-hqhf16yp9 @ http://localhost:4330/_astro/page.Bzehl8Sd.js:0
+[    1256ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-9stamw3nc @ http://localhost:4330/_astro/page.Bzehl8Sd.js:0
+[    1409ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-9stamw3nc @ http://localhost:4330/_astro/page.Bzehl8Sd.js:0
+[    1409ms] [LOG] [astro-mermaid] Rendering diagram: mermaid-wdt0c5cj2 @ http://localhost:4330/_astro/page.Bzehl8Sd.js:0
+[    1507ms] [LOG] [astro-mermaid] Successfully rendered diagram: mermaid-wdt0c5cj2 @ http://localhost:4330/_astro/page.Bzehl8Sd.js:0
