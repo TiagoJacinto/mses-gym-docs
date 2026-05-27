@@ -30,5 +30,6 @@ pnpm-debug.log*
 ./playwright-cli
 /blob-report/
 /playwright/.cache/
+/.playwright-cli/
 .claude/
 .agents/
