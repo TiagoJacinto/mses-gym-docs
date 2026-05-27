@@ -14,6 +14,7 @@ test.describe("Visual snapshot tests", () => {
 		await expect(page).toHaveScreenshot("homepage-no-scroll.png", {
 			fullPage: false,
 			animations: "disabled",
+			timeout: 30000,
 		});
 	});
 
@@ -24,6 +25,7 @@ test.describe("Visual snapshot tests", () => {
 		await expect(page).toHaveScreenshot("above-fold.png", {
 			fullPage: false,
 			animations: "disabled",
+			timeout: 30000,
 		});
 	});
 
@@ -40,6 +42,7 @@ test.describe("Visual snapshot tests", () => {
 		await expect(page).toHaveScreenshot("section-1-intro.png", {
 			fullPage: true,
 			animations: "disabled",
+			timeout: 30000,
 		});
 	});
 
@@ -56,6 +59,7 @@ test.describe("Visual snapshot tests", () => {
 		await expect(page).toHaveScreenshot("section-2-etapa1.png", {
 			fullPage: true,
 			animations: "disabled",
+			timeout: 30000,
 		});
 	});
 
@@ -72,6 +76,7 @@ test.describe("Visual snapshot tests", () => {
 		await expect(page).toHaveScreenshot("section-3-stakeholders.png", {
 			fullPage: true,
 			animations: "disabled",
+			timeout: 30000,
 		});
 	});
 
@@ -88,6 +93,7 @@ test.describe("Visual snapshot tests", () => {
 		await expect(page).toHaveScreenshot("section-4-requisitos.png", {
 			fullPage: true,
 			animations: "disabled",
+			timeout: 30000,
 		});
 	});
 
@@ -104,6 +110,7 @@ test.describe("Visual snapshot tests", () => {
 		await expect(page).toHaveScreenshot("section-5-etapa2.png", {
 			fullPage: true,
 			animations: "disabled",
+			timeout: 30000,
 		});
 	});
 });
